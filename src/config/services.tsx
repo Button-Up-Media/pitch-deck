@@ -17,6 +17,9 @@ export type ServiceMeta = {
   accent: string;
   headline: string;
   subhead: string;
+  // Where this channel sits in the marketing ecosystem
+  ecosystemRole: string;
+  // Standalone deep-dive content
   problem: string;
   solution: string;
   pillars: { title: string; body: string }[];
@@ -32,37 +35,39 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/organic-social",
     icon: Megaphone,
     accent: "from-pink-400 to-rose-500",
-    headline: "Show up where guests are scrolling",
+    headline: "The slow burn that builds the brand",
     subhead:
-      "Daily content, community management, and a brand voice that turns followers into regulars.",
+      "Daily content, community, and culture-building that turns followers into a fanbase ready to convert later.",
+    ecosystemRole:
+      "Top of funnel — entertain, inform, and humanize. Builds the audience your ads will eventually retarget and your website will eventually capture.",
     problem:
-      "Sporadic posts, generic captions, and zero engagement. Your feed looks like an afterthought, and competitors with better content are stealing mindshare.",
+      "Sporadic posts, generic captions, and dead engagement. The feed looks like a chore instead of a brand.",
     solution:
-      "A full-service organic social engine: monthly content calendars, on-site shoots, real-time community management, and trend-driven Reels that keep every brand top of mind.",
+      "A real social engine: monthly content calendars, on-site shoots, trend-driven Reels, and human community management that compounds over months — not days.",
     pillars: [
       {
-        title: "Content That Looks Native",
-        body: "Reels, Stories, carousels, and static posts shot on location. Real food, real staff, real atmosphere — never stock.",
+        title: "Native Content That Earns Attention",
+        body: "Reels, carousels, Stories, and TikToks shot on location. Real food, real staff, real atmosphere — never stock.",
       },
       {
         title: "Community Management",
-        body: "Comments, DMs, and tags answered within hours. Every guest interaction becomes a relationship-building moment.",
+        body: "Comments, DMs, and tags answered within hours. Every interaction becomes a relationship-building moment.",
       },
       {
-        title: "Trend & Cultural Calendar",
-        body: "Built around food holidays, local events, seasonal menus, and trending audio so you ride the wave instead of fighting it.",
+        title: "Cultural Calendar",
+        body: "Built around food holidays, local events, seasonal menus, and trending audio so the brand rides the wave instead of fighting it.",
       },
       {
-        title: "Monthly Reporting",
-        body: "Reach, engagement, follower growth, and best-performing content broken down per brand and per channel.",
+        title: "Monthly Read-Outs",
+        body: "Reach, engagement, follower growth, and best-performing content broken down by channel — translated into next month's plan.",
       },
     ],
     deliverables: [
       "20+ posts per brand per month across IG and TikTok",
       "8+ Reels per brand per month",
       "Daily Stories with on-brand templates",
-      "On-location content shoot every 6 weeks",
-      "Community management within 4-hour response window",
+      "On-location content shoot every six weeks",
+      "Community management within a four-hour response window",
       "Monthly performance report with strategic recommendations",
     ],
     imageUrl:
@@ -76,25 +81,27 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/paid-social",
     icon: Target,
     accent: "from-violet-400 to-purple-500",
-    headline: "Put dollars behind the diners most likely to book",
+    headline: "The fast lane to conversions",
     subhead:
-      "Conversion-focused Meta and TikTok campaigns that turn cold scrollers into reservations.",
+      "Conversion-focused Meta and TikTok campaigns that turn cold scrollers into reservations within days.",
+    ecosystemRole:
+      "Direct response — the trackable, fast-moving channel. Catches warm audiences from organic and converts them on the website.",
     problem:
-      "Boosting random posts and hoping. No tracking, no audiences, no idea what's actually driving covers. Ad spend evaporates without proof of ROI.",
+      "Boosting random posts and hoping. No tracking, no audiences, no idea what's actually working. Spend evaporates without proof of return.",
     solution:
-      "Full-funnel paid social on Meta and TikTok: prospecting, retargeting, and conversion campaigns powered by pixel-tracked audiences and creative built for the feed.",
+      "Full-funnel paid social on Meta and TikTok: prospecting, retargeting, and conversion campaigns powered by pixel-tracked audiences and creative built specifically for the feed.",
     pillars: [
       {
-        title: "Conversion-Optimized Creatives",
-        body: "Ad-native videos and images built for stop-scroll. Designed to drive reservations, online orders, and event bookings — not vanity metrics.",
+        title: "Conversion-Native Creative",
+        body: "Ads built for stop-scroll, designed to drive reservations and orders — not vanity metrics.",
       },
       {
         title: "Audience Strategy",
-        body: "Lookalikes from your guest list, geo-targeted prospecting, and warm retargeting funnels that move guests from awareness to booking.",
+        body: "Lookalikes from the guest list, geo-targeted prospecting, and warm retargeting funnels that move people from awareness to booking.",
       },
       {
-        title: "Pixel & Conversion Tracking",
-        body: "Meta Pixel and CAPI implementation with full event tracking so every reservation, order, and form fill is attributed.",
+        title: "Pixel & CAPI Tracking",
+        body: "Meta Pixel + Conversions API setup with full event tracking so every reservation, order, and form fill is attributed.",
       },
       {
         title: "Weekly Optimization",
@@ -105,7 +112,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "Meta and TikTok campaigns built and managed",
       "10+ ad creatives per brand per month, refreshed weekly",
       "Meta Pixel + Conversions API setup",
-      "Custom and lookalike audiences built from guest data",
+      "Custom and lookalike audiences from guest data",
       "Real-time dashboard with cost-per-reservation tracking",
       "Weekly optimization calls with the strategist",
     ],
@@ -120,36 +127,38 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/google-ads",
     icon: Search,
     accent: "from-amber-400 to-orange-500",
-    headline: "Capture guests at the moment they're searching",
+    headline: "Catch guests at the moment of decision",
     subhead:
-      "Search, Performance Max, and YouTube campaigns that catch high-intent diners ready to book tonight.",
+      "Search, Performance Max, and YouTube campaigns that show up the second a guest types in 'best brunch near me.'",
+    ecosystemRole:
+      "Pure intent capture — the high-conversion channel that fields the guests who already know what they want.",
     problem:
-      "Competitors are bidding on your brand name. High-intent searches like 'best brunch near me' send guests to whoever pays for the click — and that's not you.",
+      "Competitors are bidding on the brand name, and high-intent searches are sending guests to whoever pays for the click. That's not the brand.",
     solution:
-      "Branded search defense, high-intent prospecting, and Performance Max campaigns that show up across Search, Maps, YouTube, and Display — wherever the guest is researching.",
+      "Branded defense, high-intent prospecting, and Performance Max campaigns that show up across Search, Maps, YouTube, and Display — wherever the guest is researching.",
     pillars: [
       {
         title: "Branded Search Defense",
-        body: "Bid on your own brand terms so competitors can't intercept guests who already know your name.",
+        body: "Bid on brand terms so competitors can't intercept guests who already know who you are.",
       },
       {
-        title: "High-Intent Keyword Strategy",
+        title: "High-Intent Keywords",
         body: "Date night, occasion dining, cuisine + city, and 'near me' queries — captured at the exact moment of decision.",
       },
       {
         title: "Performance Max & YouTube",
-        body: "Automated Google AI campaigns spanning Search, Maps, Display, and YouTube. One campaign, every surface.",
+        body: "AI-driven campaigns spanning Search, Maps, Display, and YouTube. One campaign, every surface.",
       },
       {
         title: "Call & Reservation Tracking",
-        body: "Every click tied back to a reservation, call, or visit so you see exactly which keywords drove revenue.",
+        body: "Every click tied to a reservation, call, or visit so the spend ties back to revenue.",
       },
     ],
     deliverables: [
       "Branded + non-branded Search campaigns per brand",
       "Performance Max campaign with curated assets",
-      "Google Maps Local Service Ads where applicable",
-      "Conversion tracking for reservations, calls, and form fills",
+      "Local Service Ads where applicable",
+      "Conversion tracking for reservations, calls, and forms",
       "Negative keyword maintenance to eliminate wasted spend",
       "Monthly performance and budget allocation review",
     ],
@@ -164,29 +173,31 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/website",
     icon: Globe,
     accent: "from-cyan-400 to-blue-500",
-    headline: "A website that loads fast and converts faster",
+    headline: "The conversion point everything points to",
     subhead:
-      "Custom-designed, mobile-first sites built to drive reservations, orders, and event inquiries.",
+      "Custom-built, mobile-first sites that turn ad clicks and social followers into reservations and orders.",
+    ecosystemRole:
+      "The destination. Every other channel sends traffic here — so this is where the revenue actually lands or leaks.",
     problem:
-      "A slow, dated site that buries the menu and makes reservations a chore. On mobile, where 80% of traffic lives, it falls apart.",
+      "A slow, dated site that buries the menu and makes booking a chore. On mobile, where most traffic lives, it falls apart.",
     solution:
-      "A custom website per brand — fast, beautiful, mobile-first, with reservations, online ordering, and event inquiry flows built to convert.",
+      "A custom site per brand: fast, beautiful, mobile-first, and built around the conversion actions that matter — reservations, orders, and inquiries.",
     pillars: [
       {
         title: "Mobile-First Design",
-        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, and instant load times even on 4G.",
+        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, and instant load times.",
       },
       {
-        title: "Reservation & Ordering Integrations",
-        body: "OpenTable, Resy, Toast, Square — wired in cleanly so guests book without leaving your site.",
+        title: "SEO & AEO Ready",
+        body: "Schema markup, structured data, and clean URLs so Google and AI search engines (ChatGPT, Perplexity) can recommend the brand by name.",
       },
       {
-        title: "SEO-Ready Architecture",
-        body: "Schema markup, structured data, fast Core Web Vitals, and clean URLs so Google indexes every menu, dish, and location page.",
+        title: "Reservation & Ordering Wired In",
+        body: "OpenTable, Resy, Toast, Square — integrated so guests book without leaving the site.",
       },
       {
-        title: "Easy to Update",
-        body: "A simple CMS so your team can update menus, hours, and events without calling a developer.",
+        title: "Easy to Maintain",
+        body: "A simple CMS so the team can update menus, hours, and events without calling a developer.",
       },
     ],
     deliverables: [
@@ -208,29 +219,31 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/seo",
     icon: TrendingUp,
     accent: "from-emerald-300 to-teal-500",
-    headline: "Be the obvious answer when guests search",
+    headline: "Be the answer when guests search",
     subhead:
-      "On-page, technical, and local SEO that puts your menus at the top of Google for the searches that matter.",
+      "On-page, technical, local, and AI search optimization that puts the brand at the top of every search that matters.",
+    ecosystemRole:
+      "Compounding free traffic. Slow to start, undefeated long-term — the channel that keeps paying after spend stops.",
     problem:
-      "Guests search 'best brunch in [city]' and get a competitor — even though your food is better. Your menus aren't indexed, your local listings are stale, and Google has no idea you exist.",
+      "Guests search 'best brunch in [city]' and get a competitor — even though the food is better here. Menus aren't indexed, local listings are stale, and AI assistants have no idea this brand exists.",
     solution:
-      "A multi-layered SEO program: technical fixes, on-page optimization for every menu and dish, local SEO across Google Business Profile, and content that earns rankings on the searches that drive covers.",
+      "A multi-layered program: technical fixes, on-page optimization for every menu and dish, local SEO across Google Business Profile, and content that earns rankings on the searches that drive covers.",
     pillars: [
       {
         title: "Technical SEO",
-        body: "Site speed, crawlability, schema markup, and Core Web Vitals. The plumbing fixed once and monitored monthly.",
+        body: "Site speed, crawlability, schema markup, and Core Web Vitals fixed once and monitored monthly.",
       },
       {
-        title: "Local SEO & Google Business Profile",
-        body: "GBP optimization, review generation, and local citations so you dominate the map pack in every market you operate in.",
+        title: "Local SEO + GBP",
+        body: "Google Business Profile optimization, review generation, and local citations to dominate the map pack in every market.",
       },
       {
         title: "On-Page & Content",
-        body: "Menu page optimization, location pages, occasion pages (brunch, date night, private dining), and city guides that own the long tail.",
+        body: "Menu pages, location pages, occasion pages (brunch, date night, private dining), and city guides that own the long tail.",
       },
       {
-        title: "Reporting That Reads Plain English",
-        body: "Rank tracking, organic traffic, and revenue attribution — explained in dollars and covers, not just impressions.",
+        title: "AEO — Answer Engine Optimization",
+        body: "Structured content so ChatGPT, Perplexity, and Google AI Overviews can recommend the brand by name when guests ask.",
       },
     ],
     deliverables: [

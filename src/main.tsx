@@ -4,12 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import { Layout } from "./components/Layout";
 import { CoverPage } from "./pages/CoverPage";
-import { BrandsPage } from "./pages/BrandsPage";
-import { ProblemPage } from "./pages/ProblemPage";
+import { OpportunitiesPage } from "./pages/OpportunitiesPage";
+import { EcosystemPage } from "./pages/EcosystemPage";
 import { ServicePage } from "./pages/ServicePage";
-import { BundlePage } from "./pages/BundlePage";
-import { ReportingPage } from "./pages/ReportingPage";
-import { ScopePage } from "./pages/ScopePage";
+import { ValuePage } from "./pages/ValuePage";
+import { LetsGoPage } from "./pages/LetsGoPage";
 import { config } from "./config/client";
 import { SERVICES, SERVICE_ORDER } from "./config/services";
 
@@ -19,8 +18,8 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<CoverPage />} />
-          <Route path="/brands" element={<BrandsPage />} />
-          <Route path="/problem" element={<ProblemPage />} />
+          <Route path="/opportunities" element={<OpportunitiesPage />} />
+          <Route path="/ecosystem" element={<EcosystemPage />} />
           {SERVICE_ORDER.filter((k) => config.services[k].enabled).map((k) => (
             <Route
               key={k}
@@ -28,11 +27,10 @@ createRoot(document.getElementById("root")!).render(
               element={<ServicePage serviceKey={k} />}
             />
           ))}
+          <Route path="/value" element={<ValuePage />} />
           {config.bundle.enabled && (
-            <Route path="/bundle" element={<BundlePage />} />
+            <Route path="/lets-go" element={<LetsGoPage />} />
           )}
-          <Route path="/reporting" element={<ReportingPage />} />
-          <Route path="/scope" element={<ScopePage />} />
           <Route path="*" element={<CoverPage />} />
         </Route>
       </Routes>

@@ -1,17 +1,16 @@
 /**
  * THE ONLY FILE YOU NEED TO EDIT TO CREATE A NEW PITCH DECK.
  *
- * Workflow:
- *   1. Update `client` with the new client's details.
- *   2. Add/remove brands in `brands` (supports 1, 2, 3, or more).
- *   3. Toggle `enabled: true/false` on each service to match the discovery call.
- *   4. Toggle `bundle.enabled` if pitching the all-in-one package.
- *   5. Adjust pricing in `scope` to match the proposal.
+ * Workflow per client:
+ *   1. Update `client` with the new client's details
+ *   2. Add/remove brands in `brands` (supports 1, 2, 3+ brands)
+ *   3. On each service set `enabled: true/false` based on the discovery call
+ *   4. Set per-service prices in `monthlyPrice` (used on the Value slide)
+ *   5. Set bundle pricing fields (or leave at 0 to fill in by hand later)
  */
 
 export type Brand = {
   name: string;
-  tagline: string;
   city: string;
   cuisine: string;
   imageUrl: string;
@@ -35,7 +34,6 @@ export type Config = {
     shortName: string;
     industry: string;
     preparedFor: string;
-    preparedBy: string;
     decisionDate: string;
   };
   agency: {
@@ -48,13 +46,9 @@ export type Config = {
   services: Record<ServiceKey, ServiceConfig>;
   bundle: {
     enabled: boolean;
-    monthlyPrice: number;
-    savings: number;
-  };
-  scope: {
-    setupFee: number;
-    contractMonths: number;
-    startDate: string;
+    monthlyPrice: number | null;
+    setupFee: number | null;
+    contractMonths: number | null;
   };
 };
 
@@ -64,7 +58,6 @@ export const config: Config = {
     shortName: "Client",
     industry: "Hospitality",
     preparedFor: "Client Leadership Team",
-    preparedBy: "Button Up Media",
     decisionDate: "Q3 2026",
   },
 
@@ -75,11 +68,9 @@ export const config: Config = {
     contactPhone: "(555) 123-4567",
   },
 
-  // Add or remove brands freely. Template renders 1, 2, 3+ brands.
   brands: [
     {
       name: "Brand One",
-      tagline: "Signature dining experience",
       city: "Primary Market",
       cuisine: "Modern American",
       imageUrl:
@@ -87,7 +78,6 @@ export const config: Config = {
     },
     {
       name: "Brand Two",
-      tagline: "Casual everyday concept",
       city: "Secondary Market",
       cuisine: "Coastal Kitchen",
       imageUrl:
@@ -96,6 +86,7 @@ export const config: Config = {
   ],
 
   // Toggle services on/off depending on what was discussed in the discovery call.
+  // monthlyPrice is shown on the Value slide. Set to 0 to leave it blank.
   services: {
     organicSocial: { enabled: true, monthlyPrice: 2500 },
     paidSocial: { enabled: true, monthlyPrice: 3500 },
@@ -104,16 +95,12 @@ export const config: Config = {
     seo: { enabled: false, monthlyPrice: 2000 },
   },
 
-  // Bundle = Organic Social + Paid Ads + Website. Three-channel package.
+  // Bundle = "all-in-one" pitch on the final slide.
+  // Leave any field as null to render a blank line for the salesperson to fill in.
   bundle: {
     enabled: true,
-    monthlyPrice: 6500,
-    savings: 1500,
-  },
-
-  scope: {
-    setupFee: 5000,
+    monthlyPrice: null,
+    setupFee: null,
     contractMonths: 6,
-    startDate: "30 days from signature",
   },
 };
