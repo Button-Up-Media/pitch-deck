@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Button Up Media — Pitch Deck Template
 
-## Getting Started
+A reusable, configurable web pitch deck for hospitality clients.
 
-First, run the development server:
+## Quick start (per client)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Edit **one file**:
+
+```
+src/config/client.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+That file controls:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Client name, logo, decision-maker, prep date
+- Number of brands (supports 1, 2, 3+)
+- Which services to include (`enabled: true/false` on each):
+  - Organic Social Media
+  - Paid Social Advertising
+  - Google Ads
+  - Website Creation
+  - SEO
+- Whether to show the all-in-one Bundle page
+- Pricing & contract terms
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The router, navigation, and pricing tables all rebuild themselves from the config. No other files need to change for a typical pitch.
 
-## Learn More
+## Deeper edits
 
-To learn more about Next.js, take a look at the following resources:
+To tweak the copy of a service module (pillars, deliverables, problem/solution),
+edit `src/config/services.tsx`. That's where each service's marketing copy lives.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Vite + React + TypeScript
+- Tailwind CSS v4
+- Framer Motion (page + element animations)
+- React Router (multi-page deck)
+- Lucide React (icons)
 
-## Deploy on Vercel
+## Run locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm install
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Configured for Vercel. Every response carries `X-Robots-Tag: noindex, nofollow`
+so previews are not indexed by Google.
+
+## Per-client workflow
+
+1. Branch the repo (e.g. `client/acme-restaurant-group`)
+2. Edit `src/config/client.ts`
+3. Replace brand image URLs with on-brand stock or actual photos
+4. Push the branch — Vercel auto-deploys a unique preview URL
+5. Share the URL with the client. Done.
