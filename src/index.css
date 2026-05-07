@@ -2,6 +2,8 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Navy-blue palette (called "ink" in components) */
   --color-ink-50: #f0f2f8;
   --color-ink-100: #d9deeb;
   --color-ink-200: #8a98c4;
@@ -12,8 +14,9 @@
   --color-ink-700: #1a2038;
   --color-ink-800: #12172a;
   --color-ink-900: #0c0e18;
+
   --color-bg: #0c0e18;
-  --color-accent: oklch(76.5% 0.177 163.223);
+  --color-panel: #12172a;
 }
 
 @layer base {
@@ -22,6 +25,7 @@
     background: var(--color-bg);
     color: var(--color-ink-50);
     font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -58,16 +62,30 @@
   animation: shimmer 6s linear infinite;
 }
 
-.glass {
-  background: linear-gradient(180deg, rgba(34,42,69,.5), rgba(18,23,42,.5));
-  border: 1px solid rgba(100,116,171,.18);
-  backdrop-filter: blur(8px);
+/* Big stat number — gradient text */
+.stat-num {
+  background: linear-gradient(90deg, #4a5a94 0%, #8a98c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.glass-strong {
-  background: linear-gradient(180deg, rgba(34,42,69,.75), rgba(18,23,42,.75));
-  border: 1px solid rgba(138,152,196,.25);
-  backdrop-filter: blur(12px);
+
+/* The standard panel — bordered, generous padding */
+.panel {
+  border: 1px solid rgba(74, 90, 148, 0.15);
+  background: rgba(18, 23, 42, 0.5);
+  border-radius: 1.25rem;
+}
+
+/* Subtle horizontal divider */
+.hr-soft {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(58, 72, 120, 0.2) 0%, rgba(58, 72, 120, 0.08) 50%, transparent 100%);
 }
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { scrollbar-width: none; }
+
+/* Sidebar nav scroll */
+.nav-scroll::-webkit-scrollbar { width: 0; }
+.nav-scroll { scrollbar-width: none; }

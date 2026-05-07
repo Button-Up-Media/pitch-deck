@@ -1,7 +1,7 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { AmbientBg } from "./AmbientBg";
-import { SlideRail } from "./SlideRail";
+import { SidebarNav, MobileNav } from "./SidebarNav";
 import { useEffect } from "react";
 import { useDeckOrder } from "../lib/useDeckOrder";
 
@@ -35,9 +35,10 @@ export function Layout() {
   }, [location.pathname, navigate, order]);
 
   return (
-    <div className="relative flex min-h-full flex-col">
+    <div className="relative flex min-h-full">
       <AmbientBg />
-      <main className="flex-1">
+      <SidebarNav />
+      <main className="flex-1 md:mr-64 xl:mr-72">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
@@ -50,7 +51,7 @@ export function Layout() {
           </motion.div>
         </AnimatePresence>
       </main>
-      <SlideRail />
+      <MobileNav />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Section } from "../components/Section";
-import { Card } from "../components/Card";
+import { SectionHeading } from "../components/SectionHeading";
+import { Panel, HrSoft } from "../components/Panel";
 import {
   EyeOff,
   Users,
@@ -8,51 +8,76 @@ import {
   Globe,
   LineChart,
   Layers,
+  AlertCircle,
 } from "lucide-react";
 
 const OPPORTUNITIES = [
   {
     icon: Users,
     title: "Weak organic social presence",
-    body: "Posting is sporadic, the content looks generic, and engagement has plateaued. Followers are watching but not converting into a community of regulars.",
-    accent: "from-pink-400/30 to-rose-500/30 text-rose-200 ring-rose-300/20",
+    bullets: [
+      "Posting cadence is sporadic and unbranded",
+      "Content looks generic — could be any restaurant",
+      "Comments and DMs go unanswered for days",
+      "No system in place to turn followers into regulars",
+    ],
   },
   {
     icon: Globe,
     title: "Thin online presence overall",
-    body: "Outside of social, the digital footprint is missing. The website is dated, the Google Business Profile hasn't been touched in months, and AI search engines can't even find the brand by name.",
-    accent: "from-cyan-400/30 to-blue-500/30 text-cyan-200 ring-cyan-300/20",
+    bullets: [
+      "Website is dated and slow on mobile",
+      "Google Business Profile hasn't been updated in months",
+      "AI search engines (ChatGPT, Perplexity) can't recommend the brand by name",
+      "Third-party listings outrank the owned website",
+    ],
   },
   {
     icon: Search,
     title: "Poor discoverability on search",
-    body: "When guests search for 'best [cuisine] in [city],' a competitor shows up — even though the food and experience here are stronger. The menus aren't ranking, the schema is missing, and the local pack is dominated by someone else.",
-    accent: "from-amber-400/30 to-orange-500/30 text-amber-200 ring-amber-300/20",
+    bullets: [
+      "Competitors appear above the brand for high-intent local searches",
+      "Menu pages aren't indexed with proper schema markup",
+      "Local pack on Google Maps is dominated by another concept",
+      "Long-tail occasion searches (date night, brunch) go uncaptured",
+    ],
   },
   {
     icon: EyeOff,
     title: "Hard-to-find online presence",
-    body: "Even people who know the brand have trouble finding the right link. Old menus rank above the new site, third-party listings outrank owned channels, and ChatGPT recommends the wrong restaurant.",
-    accent: "from-violet-400/30 to-purple-500/30 text-violet-200 ring-violet-300/20",
+    bullets: [
+      "Old or duplicate menus rank above the new site",
+      "Reservations link is buried, not the first thing on mobile",
+      "Reviews are scattered across platforms with no unified response",
+      "Brand SEO is being intercepted by aggregators",
+    ],
   },
   {
     icon: LineChart,
     title: "No conversion tracking, no attribution",
-    body: "Reservations, orders, and form fills aren't being tracked. There's no pixel firing, no conversion API, no way to know which dollar produced which booking. So every marketing spend is a guess.",
-    accent: "from-emerald-300/30 to-teal-500/30 text-emerald-200 ring-emerald-300/20",
+    bullets: [
+      "Meta Pixel and Conversions API aren't installed",
+      "Reservations and orders aren't tied to source channels",
+      "Reporting is impressions and likes — not revenue",
+      "Marketing spend is being approved without proof of return",
+    ],
   },
   {
     icon: Layers,
     title: "Vendor sprawl killing momentum",
-    body: "One agency for social, another for ads, a freelancer for the website. Four invoices, four versions of the strategy, zero coordination. Channels that should reinforce each other are working in silos.",
-    accent: "from-indigo-400/30 to-blue-500/30 text-indigo-200 ring-indigo-300/20",
+    bullets: [
+      "A different agency or freelancer for each channel",
+      "Four invoices, four versions of the strategy",
+      "Channels work in silos and rarely reinforce each other",
+      "Time spent translating between vendors instead of executing",
+    ],
   },
 ];
 
 export function OpportunitiesPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pt-20 pb-32">
-      <Section
+    <div className="mx-auto max-w-7xl px-6 py-12 pb-32 md:px-8 md:py-20 md:pb-28 lg:px-16 2xl:px-20">
+      <SectionHeading
         eyebrow="The Opportunities"
         title={
           <>
@@ -60,54 +85,95 @@ export function OpportunitiesPage() {
             <span className="block shimmer-text">Six gaps, one program.</span>
           </>
         }
-        subtitle="Hospitality marketing rarely fails because of effort. It fails because of fragmentation. Here is exactly where most operators are leaving covers — and revenue — on the table."
+        subtitle="Hospitality marketing rarely fails because of effort. It fails because of fragmentation. Below is exactly where most operators are leaving covers — and revenue — on the table."
       />
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-2 gap-x-12 gap-y-2 md:flex md:flex-wrap md:gap-x-14 md:gap-y-6">
+        <BigStat value="6" label="Opportunity areas" caption="Mapped below" />
+        <BigStat value="3" label="Marketing channels" caption="Affected by all six" />
+        <BigStat value="1" label="Operating model" caption="Fixes them together" />
+        <BigStat value="0" label="Single-channel cures" caption="Fragmentation can't be patched" />
+      </div>
+
+      <div className="mt-12 space-y-6 md:mt-16 md:space-y-8">
         {OPPORTUNITIES.map((o, i) => (
           <motion.div
             key={o.title}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: i * 0.06 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: Math.min(i * 0.05, 0.25) }}
           >
-            <Card className="h-full">
-              <div
-                className={`flex size-11 items-center justify-center rounded-xl bg-gradient-to-br ${o.accent} ring-1`}
-              >
-                <o.icon className="size-5" />
+            <Panel motion={false}>
+              <div className="mb-5 flex items-start gap-3 md:mb-6 md:gap-4">
+                <div className="flex size-9 flex-shrink-0 items-center justify-center rounded-xl bg-rose-500/10 ring-1 ring-rose-400/20 md:size-10">
+                  <o.icon className="size-4 text-rose-300 md:size-5" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-rose-300/80">
+                    Opportunity {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="mt-1 text-lg font-semibold text-ink-50 md:text-xl">
+                    {o.title}
+                  </h3>
+                </div>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-ink-50">
-                {o.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-200">
-                {o.body}
-              </p>
-            </Card>
+              <div className="ml-0 space-y-4 md:ml-14">
+                {o.bullets.map((b, bi) => (
+                  <div key={b}>
+                    {bi > 0 && <HrSoft className="mb-4" />}
+                    <div className="flex items-start gap-3">
+                      <div className="mt-1 size-1.5 flex-shrink-0 rounded-full bg-ink-200/40" />
+                      <p className="text-[15px] font-medium leading-relaxed text-ink-200/70">
+                        {b}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Panel>
           </motion.div>
         ))}
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mx-auto mt-16 max-w-3xl rounded-3xl border border-emerald-300/20 bg-gradient-to-br from-emerald-300/10 to-teal-500/10 p-8 text-center md:p-10"
+        className="mt-10 flex items-center gap-3 rounded-xl border border-emerald-500/15 bg-emerald-500/5 p-4 md:p-5"
       >
-        <div className="text-[11px] font-medium uppercase tracking-[0.22em] text-emerald-200">
-          The unifying theme
-        </div>
-        <p className="mt-3 text-pretty text-2xl font-medium text-ink-50 md:text-3xl">
-          None of these are unfixable. They're just being fixed in pieces, by
-          different people, on different timelines.
-        </p>
-        <p className="mt-3 text-sm text-ink-200">
-          The next slide shows the operating model that ties all of this
-          together.
+        <AlertCircle className="size-5 flex-shrink-0 text-emerald-400" />
+        <p className="text-sm text-emerald-200 md:text-base">
+          <span className="font-semibold text-emerald-100">
+            None of these are unfixable.
+          </span>{" "}
+          They're being fixed in pieces, by different people. The next slide
+          shows the operating model that ties them together.
         </p>
       </motion.div>
-    </section>
+    </div>
+  );
+}
+
+function BigStat({
+  value,
+  label,
+  caption,
+}: {
+  value: string;
+  label: string;
+  caption: string;
+}) {
+  return (
+    <div>
+      <div className="stat-num text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl">
+        {value}
+      </div>
+      <div className="mt-1 text-xs font-medium text-ink-200/80 md:text-sm">
+        {label}
+      </div>
+      <div className="text-[10px] text-ink-300/60 md:text-xs">{caption}</div>
+    </div>
   );
 }

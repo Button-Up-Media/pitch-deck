@@ -4,85 +4,110 @@ import {
   Target,
   Globe,
   ArrowRight,
-  Users,
-  Zap,
-  Layers,
   type LucideIcon,
 } from "lucide-react";
-import { Section } from "../components/Section";
-import { Card } from "../components/Card";
+import { SectionHeading } from "../components/SectionHeading";
+import { Panel, HrSoft } from "../components/Panel";
 
 type Channel = {
   icon: LucideIcon;
+  number: string;
   label: string;
   role: string;
   speed: string;
   speedNote: string;
   job: string;
-  bullets: string[];
-  accent: string;
-  ring: string;
-  glow: string;
+  bullets: { title: string; body: string }[];
+  accentBar: string;
+  iconBg: string;
+  iconColor: string;
 };
 
 const CHANNELS: Channel[] = [
   {
     icon: Megaphone,
+    number: "01",
     label: "Organic Social",
     role: "The community builder",
     speed: "Slow burn",
-    speedNote: "Months, then years of compounding interest",
-    job: "Earn attention, build affinity, humanize the brand. Not selling — entertaining, informing, and creating a reason to care.",
+    speedNote: "Months that compound into years",
+    job: "Earn attention, build affinity, humanize the brand. Not selling — entertaining, informing, and creating reasons for guests to follow, like, and care.",
     bullets: [
-      "Content that doesn't sell directly — it humors, informs, educates, or engages",
-      "Turns casual scrollers into followers, then followers into fans",
-      "Warms the audience that paid ads will eventually retarget",
-      "Compounds — every post adds to the bank of brand equity",
+      {
+        title: "Content that doesn't sell",
+        body: "Reels, carousels, and Stories that humor, inform, educate, or engage — turning passive scrollers into a community.",
+      },
+      {
+        title: "Compounding brand equity",
+        body: "Every post is a deposit into the audience that paid ads will eventually retarget — at a fraction of cold-traffic cost.",
+      },
+      {
+        title: "Cultural relevance",
+        body: "Built around food holidays, local events, and trending audio so the brand rides the conversation instead of fighting it.",
+      },
     ],
-    accent: "from-pink-400 to-rose-500",
-    ring: "ring-rose-300/30",
-    glow: "shadow-rose-500/20",
+    accentBar: "from-pink-400 to-rose-500",
+    iconBg: "bg-rose-500/10 ring-rose-400/20",
+    iconColor: "text-rose-300",
   },
   {
     icon: Target,
+    number: "02",
     label: "Paid Media",
     role: "The conversion machine",
     speed: "Fast lane",
     speedNote: "Days, with hard numbers behind every dollar",
-    job: "Take hot leads — people already searching or scrolling for what you sell — and convert them now. Trackable, measurable, and ruthlessly efficient.",
+    job: "Take hot leads — people already searching or scrolling for what you sell — and convert them now. The trackable, fast-moving channel.",
     bullets: [
-      "Google Ads catches high-intent search traffic at the moment of decision",
-      "Meta and TikTok ads convert warm audiences into bookings within days",
-      "Every dollar tracked to a reservation, order, or call",
-      "The fastest, most measurable channel — perfect for direct revenue",
+      {
+        title: "Direct response, fast feedback",
+        body: "Meta and TikTok ads convert warm audiences within days. Google Ads catch high-intent search traffic at the moment of decision.",
+      },
+      {
+        title: "Every dollar attributed",
+        body: "Pixels, Conversions API, and reservation tracking tie each click to a booking, order, or call. No guesswork on ROI.",
+      },
+      {
+        title: "Easily scaled or paused",
+        body: "Performance feedback comes in days, not quarters. Scale what's working, kill what isn't, in the same week.",
+      },
     ],
-    accent: "from-violet-400 to-purple-500",
-    ring: "ring-violet-300/30",
-    glow: "shadow-violet-500/20",
+    accentBar: "from-violet-400 to-purple-500",
+    iconBg: "bg-violet-500/10 ring-violet-400/20",
+    iconColor: "text-violet-300",
   },
   {
     icon: Globe,
+    number: "03",
     label: "Website",
     role: "The conversion point",
     speed: "Always on",
-    speedNote: "The destination every other channel points toward",
-    job: "Where revenue actually lands. Every ad click, every social follower, every Google searcher ends up here — so this is where the money is made or lost.",
+    speedNote: "The destination every channel points toward",
+    job: "Where the revenue actually lands. Every ad click, every social follower, every searcher ends up here — so this is where the money is made or lost.",
     bullets: [
-      "Mobile-first design built for one-thumb conversion",
-      "SEO so guests searching for the brand find the brand",
-      "AEO (answer engine optimization) so ChatGPT and Perplexity recommend the brand by name",
-      "Reservations, ordering, and inquiries wired in cleanly — no friction",
+      {
+        title: "Mobile-first conversion",
+        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservations, instant load times even on a 4G connection.",
+      },
+      {
+        title: "SEO + AEO ready",
+        body: "Schema, structured data, and clean copy so Google ranks the brand and AI engines (ChatGPT, Perplexity) recommend it by name.",
+      },
+      {
+        title: "Wired for the rest of the stack",
+        body: "Reservations, ordering, pixels, and analytics all installed and tested before launch. Nothing leaks.",
+      },
     ],
-    accent: "from-cyan-400 to-blue-500",
-    ring: "ring-cyan-300/30",
-    glow: "shadow-cyan-500/20",
+    accentBar: "from-cyan-400 to-blue-500",
+    iconBg: "bg-cyan-500/10 ring-cyan-400/20",
+    iconColor: "text-cyan-300",
   },
 ];
 
 export function EcosystemPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pt-20 pb-32">
-      <Section
+    <div className="mx-auto max-w-7xl px-6 py-12 pb-32 md:px-8 md:py-20 md:pb-28 lg:px-16 2xl:px-20">
+      <SectionHeading
         eyebrow="The Ecosystem"
         title={
           <>
@@ -90,104 +115,101 @@ export function EcosystemPage() {
             <span className="block shimmer-text">One living organism.</span>
           </>
         }
-        subtitle="Marketing isn't three separate disciplines bolted together. Done right, it's a single ecosystem — organic social, paid media, and the website all pulling in the same direction. When one is weak, the others suffer. When all three are tuned, every channel performs better than the sum of its parts."
+        subtitle="Marketing isn't three separate disciplines bolted together. Done right, it's a single ecosystem — organic social, paid media, and the website all pulling in the same direction. When one is weak the others suffer. When all three are tuned, every channel performs better than the sum of its parts."
       />
 
-      <div className="grid gap-5 lg:grid-cols-3">
+      <div className="mt-16 space-y-6 md:space-y-8">
         {CHANNELS.map((c, i) => (
           <motion.div
             key={c.label}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: i * 0.1 }}
+            transition={{ duration: 0.6, delay: Math.min(i * 0.06, 0.18) }}
           >
-            <Card strong className="relative h-full overflow-hidden">
-              <div
-                className={`absolute -right-20 -top-20 size-48 rounded-full bg-gradient-to-br ${c.accent} opacity-20 blur-3xl`}
-              />
-              <div
-                className={`relative flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br ${c.accent} shadow-xl ${c.glow}`}
-              >
-                <c.icon className="size-7 text-ink-900" strokeWidth={2.4} />
+            <Panel motion={false}>
+              <div className="mb-6 flex items-start gap-4 md:mb-8">
+                <div
+                  className={`h-16 w-1 flex-shrink-0 rounded-full bg-gradient-to-b ${c.accentBar}`}
+                />
+                <div className="flex flex-1 flex-col gap-3 md:flex-row md:items-start md:justify-between md:gap-6">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`flex size-10 items-center justify-center rounded-xl ring-1 ${c.iconBg}`}
+                      >
+                        <c.icon className={`size-5 ${c.iconColor}`} />
+                      </div>
+                      <div>
+                        <div className="text-[10px] font-mono tracking-wider text-ink-300/60">
+                          CHANNEL {c.number}
+                        </div>
+                        <h3 className="text-xl font-semibold text-ink-50 md:text-2xl">
+                          {c.label}
+                        </h3>
+                        <div className="text-sm font-medium text-ink-200/70">
+                          {c.role}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:text-right">
+                    <span className="inline-block rounded-full border border-ink-400/20 bg-ink-700/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-200">
+                      {c.speed}
+                    </span>
+                    <div className="mt-1.5 text-xs text-ink-300/60">
+                      {c.speedNote}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="mt-6 flex items-center justify-between">
-                <h3 className="text-2xl font-semibold text-ink-50">
-                  {c.label}
-                </h3>
-                <span
-                  className={`rounded-full bg-white/5 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-ink-200 ring-1 ${c.ring}`}
-                >
-                  {c.speed}
-                </span>
-              </div>
-              <div className="mt-1 text-sm font-medium text-ink-200">
-                {c.role}
-              </div>
-              <p className="mt-1 text-xs text-ink-300">{c.speedNote}</p>
 
-              <div className="mt-5 rounded-xl border border-white/10 bg-white/5 p-4">
-                <div className="text-[10px] font-medium uppercase tracking-widest text-ink-300">
+              <div className="ml-0 mb-6 rounded-xl border border-ink-400/10 bg-ink-700/20 p-4 md:ml-5 md:p-5">
+                <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-ink-300/60">
                   The job
                 </div>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-100">
+                <p className="mt-2 text-[15px] leading-relaxed text-ink-100/85">
                   {c.job}
                 </p>
               </div>
 
-              <ul className="mt-5 space-y-2.5 text-sm text-ink-200">
-                {c.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-2.5">
-                    <span
-                      className={`mt-1.5 block size-1.5 shrink-0 rounded-full bg-gradient-to-r ${c.accent}`}
-                    />
-                    <span>{b}</span>
-                  </li>
+              <div className="ml-0 space-y-4 md:ml-5">
+                {c.bullets.map((b, bi) => (
+                  <div key={b.title}>
+                    {bi > 0 && <HrSoft className="mb-4" />}
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div
+                        className={`mt-1 h-12 w-0.5 flex-shrink-0 rounded-full bg-gradient-to-b ${c.accentBar} opacity-60`}
+                      />
+                      <div>
+                        <div className="text-sm font-semibold text-ink-50">
+                          {b.title}
+                        </div>
+                        <p className="mt-1 text-[15px] font-medium leading-relaxed text-ink-200/70">
+                          {b.body}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-            </Card>
+              </div>
+            </Panel>
           </motion.div>
         ))}
       </div>
 
-      <Section
-        title={<>How they feed each other.</>}
-        subtitle="The compound effect — why pulling on one channel without the others is a losing game."
-      >
-        <div className="grid gap-4 md:grid-cols-3">
-          <FlowCard
-            from="Organic Social"
-            to="Paid Media"
-            icon={Users}
-            body="Months of organic content build the audience. Paid ads then retarget that audience for a fraction of cold-traffic cost."
-            color="from-rose-400 via-violet-400 to-purple-500"
-          />
-          <FlowCard
-            from="Paid Media"
-            to="Website"
-            icon={Zap}
-            body="Paid clicks land on the site. The site converts them — or doesn't. A weak website is a leaking bucket no ad budget can fill."
-            color="from-violet-400 via-cyan-400 to-blue-500"
-          />
-          <FlowCard
-            from="Website"
-            to="Organic Social"
-            icon={Layers}
-            body="The site captures emails, points, and reservations. Those guests become future content subjects, retargeting audiences, and loyal followers."
-            color="from-cyan-400 via-emerald-300 to-teal-500"
-          />
-        </div>
-      </Section>
+      <div className="mt-16 md:mt-20">
+        <SectionHeading
+          eyebrow="The compound effect"
+          title={<>Pull on one. The others move with it.</>}
+          subtitle="This is why the rest of the deck is structured as one program — not three line items."
+        />
 
-      <Section
-        title={<>Pull on one. The others move with it.</>}
-        subtitle="This is why the rest of the deck is structured as one program — not three line items."
-      >
-        <Card strong className="mx-auto max-w-4xl">
+        <Panel className="mt-10">
           <div className="grid gap-6 md:grid-cols-3">
             <Health
               label="If organic social is weak"
-              body="Paid ads run cold. CPMs go up, conversion rates go down, and the website has fewer warm visitors to convert."
+              body="Paid ads run cold. CPMs go up, conversion rates drop, and the website has fewer warm visitors to convert."
             />
             <Health
               label="If paid media is weak"
@@ -198,57 +220,26 @@ export function EcosystemPage() {
               body="Both channels send traffic into a leaking bucket. Best content and best ads don't matter — the conversion never happens."
             />
           </div>
-          <div className="mt-8 flex items-center justify-center gap-2 text-sm text-ink-200">
+          <HrSoft className="my-8" />
+          <div className="flex items-center justify-center gap-2 text-sm text-ink-200/80">
             <span>One ecosystem. One team. One point of accountability.</span>
-            <ArrowRight className="size-4 text-emerald-300" />
+            <ArrowRight className="size-4 text-emerald-400" />
           </div>
-        </Card>
-      </Section>
-    </section>
-  );
-}
-
-function FlowCard({
-  from,
-  to,
-  icon: Icon,
-  body,
-  color,
-}: {
-  from: string;
-  to: string;
-  icon: LucideIcon;
-  body: string;
-  color: string;
-}) {
-  return (
-    <Card>
-      <div className="flex items-center gap-2 text-xs text-ink-200">
-        <span className="rounded-full bg-white/5 px-2 py-0.5 ring-1 ring-white/10">
-          {from}
-        </span>
-        <ArrowRight className="size-3 text-ink-300" />
-        <span className="rounded-full bg-white/5 px-2 py-0.5 ring-1 ring-white/10">
-          {to}
-        </span>
+        </Panel>
       </div>
-      <div
-        className={`mt-4 flex size-10 items-center justify-center rounded-xl bg-gradient-to-br ${color}`}
-      >
-        <Icon className="size-5 text-ink-900" strokeWidth={2.4} />
-      </div>
-      <p className="mt-4 text-sm leading-relaxed text-ink-200">{body}</p>
-    </Card>
+    </div>
   );
 }
 
 function Health({ label, body }: { label: string; body: string }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
-      <div className="text-[10px] font-medium uppercase tracking-widest text-rose-300">
+    <div className="rounded-xl border border-rose-400/15 bg-rose-500/[0.04] p-5">
+      <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-rose-300/80">
         {label}
       </div>
-      <p className="mt-2 text-sm text-ink-100">{body}</p>
+      <p className="mt-2.5 text-[15px] font-medium leading-relaxed text-ink-100/80">
+        {body}
+      </p>
     </div>
   );
 }
