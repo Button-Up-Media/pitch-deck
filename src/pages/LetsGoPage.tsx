@@ -82,7 +82,7 @@ export function LetsGoPage() {
             <span className="block shimmer-text">One program. One price.</span>
           </>
         }
-        subtitle={`The all-in-one program for ${config.client.name} — every channel in this deck wrapped into a single engagement, with one team and one number.`}
+        subtitle={`The all-in-one program for ${config.client.name}: every channel in this deck wrapped into a single engagement, with one team and one number.`}
       />
 
       <motion.div
@@ -167,7 +167,7 @@ export function LetsGoPage() {
 
               <div className="mt-7 flex flex-col gap-2">
                 <a
-                  href={`mailto:${config.agency.contactEmail}?subject=Pitch%20deck%20—%20Let's%20go`}
+                  href={`mailto:${config.agency.contactEmail}?subject=Pitch%20deck:%20Let's%20go`}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 px-5 py-3 text-sm font-bold text-bg-0 shadow-lg transition hover:from-gold-300 hover:to-gold-400"
                 >
                   Sign & Schedule Kickoff
@@ -189,7 +189,7 @@ export function LetsGoPage() {
         <SectionHeading
           eyebrow="Why this option"
           title={<>Four reasons most clients land here.</>}
-          subtitle="It's not just bundling for the sake of bundling — these are the structural advantages that show up the second the program is live."
+          subtitle="It's not just bundling for the sake of bundling. These are the structural advantages that show up the second the program is live."
         />
         <div className="mt-10 space-y-4 md:space-y-5">
           {REASONS.map((r, i) => (
@@ -228,11 +228,11 @@ export function LetsGoPage() {
         className="mt-16 rounded-3xl border border-gold-500/30 bg-gradient-to-br from-gold-500/10 to-coral/5 p-8 md:mt-20 md:p-12"
       >
         <p className="font-accent max-w-3xl text-balance text-2xl italic leading-snug text-cream-50 md:text-3xl">
-          "Marketing isn't a vendor relationship. It's a partnership — and from
+          "Marketing isn't a vendor relationship. It's a partnership, and from
           the moment this is signed, your win is our only metric."
         </p>
         <HrSoft className="my-6" />
-        <p className="text-sm text-cream-300">— {config.agency.name}</p>
+        <p className="text-sm text-cream-300">{config.agency.name}</p>
       </motion.div>
     </div>
   );

@@ -52,7 +52,7 @@ export type Config = {
     tagline: string;
     contactEmail: string;
     contactPhone: string;
-    /** Hero stats — shown on the cover. Edit per pitch if needed. */
+    /** Hero stats shown on the cover. Edit per pitch if needed. */
     stats: { value: string; label: string }[];
   };
   brands: Brand[];

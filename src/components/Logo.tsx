@@ -21,9 +21,9 @@ export function Logo({
   return (
     <div className={clsx("flex items-center gap-3 text-cream-50", className)}>
       <img
-        src="/logo.svg"
+        src="/logo.png"
         alt="Button Up Media"
-        className={clsx(SIZES[size], "shrink-0")}
+        className={clsx(SIZES[size], "shrink-0 object-contain")}
       />
       {withWordmark && (
         <span className="font-display text-base font-bold tracking-[-0.03em] md:text-lg">

@@ -98,7 +98,7 @@ export function MobileNav() {
         >
           <ArrowLeft className="size-5 flex-shrink-0" />
           <span className="truncate text-[13px]">
-            {prev ? labelFor(prev) : "—"}
+            {prev ? labelFor(prev) : ""}
           </span>
         </button>
         <span className="px-3 font-display text-[10px] tracking-widest text-gold-400">
@@ -111,7 +111,7 @@ export function MobileNav() {
           aria-label="Next slide"
         >
           <span className="truncate text-[13px] font-semibold">
-            {next ? labelFor(next) : "—"}
+            {next ? labelFor(next) : ""}
           </span>
           <ArrowRight className="size-5 flex-shrink-0" />
         </button>

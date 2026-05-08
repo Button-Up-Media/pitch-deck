@@ -26,7 +26,7 @@ export function CoverPage() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 inline-flex items-center gap-3"
         >
-          <Logo size="md" withWordmark />
+          <Logo size="md" />
         </motion.div>
 
         <motion.div
@@ -54,9 +54,8 @@ export function CoverPage() {
           className="mt-6 max-w-xl text-base leading-[1.75] text-cream-200 md:text-[17px]"
         >
           A complete {config.client.industry.toLowerCase()} growth program built
-          around the three channels that actually move the needle — organic
-          social, paid media, and a website that ties them together. Run by one
-          team, reported in plain English.
+          around organic social, paid media, and a website that ties them
+          together. One team, one strategy, reported in plain English.
         </motion.p>
 
         <motion.div

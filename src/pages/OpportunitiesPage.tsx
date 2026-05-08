@@ -24,7 +24,7 @@ const PATHS: Record<Exclude<ClientPath, "custom">, PathInfo> = {
     icon: HandHelping,
     badge: "Path A",
     title: "Word-of-mouth has carried you this far",
-    body: "You've built a real business off of regulars and referrals. It's working — but the next chapter needs more than that. You know it's time to add real marketing, you just don't have a clear playbook for what that looks like.",
+    body: "You've built a real business off regulars and referrals. It's working, but the next chapter needs more than that. You know it's time to add real marketing, you just don't have a clear playbook yet.",
   },
   burnedByPriorAgency: {
     icon: ShieldAlert,
@@ -54,7 +54,7 @@ const GOALS: Record<GrowthGoal, GoalInfo> = {
   retention: {
     icon: HeartHandshake,
     label: "Keep the regulars you have",
-    body: "Don't grow recklessly — keep the base happy and frequent. Repeat visits, loyalty, and a community that doesn't drift to the next opening down the street.",
+    body: "Don't grow recklessly. Keep the base happy and frequent. Repeat visits, loyalty, and a community that doesn't drift to the next opening down the street.",
   },
 };
 
@@ -74,7 +74,7 @@ const PROBLEMS: Problem[] = [
       "Maybe the social feed has gone quiet. Maybe the website looks a few years behind. Maybe you've never run a real ad campaign. Whatever the mix, the basics aren't in place, and guests who don't already know you can't easily find a reason to choose you.",
     opportunity: "A coordinated three-channel presence",
     opportunityDetail:
-      "We rebuild the foundation: a website that converts, a social feed that earns attention, and paid ads that fill in the gaps. Not three separate plays — one program that compounds.",
+      "We rebuild the foundation: a website that converts, a social feed that earns attention, and paid ads that fill in the gaps. Not three separate plays, but one program that compounds.",
   },
   {
     number: "02",
@@ -83,7 +83,7 @@ const PROBLEMS: Problem[] = [
       "Reservations come in, but you don't know why. Marketing budget gets spent, but no one can show you how it turned into revenue. Without tracking, every dollar is an act of faith.",
     opportunity: "Real attribution, in plain English",
     opportunityDetail:
-      "Pixels installed, conversions tracked, dashboards that actually show which channel is producing covers. Monthly reviews translate the data into decisions — not just charts you ignore.",
+      "Pixels installed, conversions tracked, dashboards that show which channel is producing covers. Monthly reviews translate data into decisions, not just charts you ignore.",
   },
   {
     number: "03",
@@ -110,13 +110,13 @@ export function OpportunitiesPage() {
             <span className="block shimmer-text">is an opportunity.</span>
           </>
         }
-        subtitle="From the first conversation we had, here's what we heard — what's getting in the way today, and what we'd do about it together."
+        subtitle="From the first conversation we had, here's what we heard: what's getting in the way today, and what we'd do about it together."
       />
 
       {/* Two client paths */}
       <div className="mt-14">
         <div className="eyebrow mb-5">Where you're starting from</div>
-        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+        <div className="grid gap-5 md:grid-cols-2 md:items-stretch md:gap-6">
           {(["wordOfMouth", "burnedByPriorAgency"] as const).map((key) => {
             const info = PATHS[key];
             const isActive = path === key;
@@ -127,13 +127,14 @@ export function OpportunitiesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6 }}
+                className="h-full"
               >
                 <Panel
                   motion={false}
                   className={
                     isActive
-                      ? "border-gold-500/40 bg-gold-soft"
-                      : "opacity-70"
+                      ? "h-full border-gold-500/40 bg-gold-soft"
+                      : "h-full opacity-70"
                   }
                 >
                   <div className="flex items-start gap-4">
@@ -234,7 +235,7 @@ export function OpportunitiesPage() {
             <span className="font-semibold text-cream-50">
               {goal.label.toLowerCase()}
             </span>
-            . Everything else — channels, creative, budget — flows from that.
+            . Channels, creative, and budget all flow from that.
           </p>
         </Panel>
       </motion.div>
@@ -310,7 +311,7 @@ export function OpportunitiesPage() {
             Next →
           </span>{" "}
           The Ecosystem slide shows the operating model that turns these three
-          opportunities into one program — instead of three vendors and three
+          opportunities into one program instead of three vendors and three
           invoices.
         </p>
       </motion.div>

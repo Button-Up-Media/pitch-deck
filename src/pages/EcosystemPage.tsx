@@ -44,11 +44,11 @@ const NODES: Record<NodeKey, NodeMeta> = {
     pillars: [
       {
         title: "The simplest possible path to convert",
-        body: "Mobile-first, fast-loading, with one obvious next action on every screen — book a table, place an order, or submit an inquiry. No friction between intent and action.",
+        body: "Mobile-first, fast-loading, with one obvious next action on every screen: book a table, place an order, or submit an inquiry. No friction between intent and action.",
       },
       {
         title: "Clear visuals of the product and the room",
-        body: "Real photography of the food and the space. Guests decide where to eat with their eyes — the site has to do the same job a window display does for a brick-and-mortar shop.",
+        body: "Real photography of the food and the space. Guests decide where to eat with their eyes, and the site has to do the same job a window display does for a brick-and-mortar shop.",
       },
       {
         title: "Found by both Google and AI",
@@ -56,7 +56,7 @@ const NODES: Record<NodeKey, NodeMeta> = {
       },
     ],
     failure:
-      "If the website is weak, every ad click and every social follower lands in a leaking bucket. The traffic comes — it just doesn't convert.",
+      "If the website is weak, every ad click and every social follower lands in a leaking bucket. The traffic comes but it just doesn't convert.",
   },
   organic: {
     key: "organic",
@@ -71,11 +71,11 @@ const NODES: Record<NodeKey, NodeMeta> = {
     pillars: [
       {
         title: "Build brand loyalty and awareness",
-        body: "The whole point of organic is to get people to care about the brand — not to sell. We post content that informs, entertains, or shows off the team and the room.",
+        body: "The whole point of organic is to get people to care about the brand, not to sell. We post content that informs, entertains, or shows off the team and the room.",
       },
       {
         title: "Get followers to actually feel something",
-        body: "A follower who doesn't care isn't worth much. We focus on content that creates a relationship — so when they see an ad later, or get a friend's recommendation, the brand is already in their head.",
+        body: "A follower who doesn't care isn't worth much. We focus on content that creates a relationship, so when they see an ad later or get a friend's recommendation, the brand is already in their head.",
       },
       {
         title: "Hand them off to the website",
@@ -83,7 +83,7 @@ const NODES: Record<NodeKey, NodeMeta> = {
       },
     ],
     failure:
-      "If organic is weak, the audience never warms up. Paid ads have to do all the convincing from cold — and CPMs go up, conversion goes down.",
+      "If organic is weak, the audience never warms up. Paid ads have to do all the convincing from cold, CPMs go up, and conversion goes down.",
   },
   paid: {
     key: "paid",
@@ -98,7 +98,7 @@ const NODES: Record<NodeKey, NodeMeta> = {
     pillars: [
       {
         title: "Built for people who are already looking",
-        body: "Search ads catch guests at the moment they type 'best brunch near me.' Social ads put offers in front of warm audiences who already know the brand. We're not interrupting — we're showing up at the right time.",
+        body: "Search ads catch guests at the moment they type 'best brunch near me.' Social ads put offers in front of warm audiences who already know the brand. We show up at the right time.",
       },
       {
         title: "Convert as fast as possible",
@@ -106,7 +106,7 @@ const NODES: Record<NodeKey, NodeMeta> = {
       },
       {
         title: "Point everything at the website",
-        body: "Just like organic, paid hands the visitor off to the website to actually convert. The site is the closer — paid is the qualifier.",
+        body: "Just like organic, paid hands the visitor off to the website to actually convert. The site is the closer, paid is the qualifier.",
       },
     ],
     failure:
@@ -130,7 +130,7 @@ export function EcosystemPage() {
             <span className="block shimmer-text">One living system.</span>
           </>
         }
-        subtitle="Marketing isn't three plays bolted together — it's an ecosystem. Click any node to see what it does. Or break one and see what happens to the rest."
+        subtitle="Marketing isn't three plays bolted together. It's an ecosystem. Click any node to see what it does, or break one and see what happens to the rest."
       />
 
       <Diagram open={open} setOpen={setOpen} broken={broken} />
@@ -236,7 +236,7 @@ export function EcosystemPage() {
               <p className="mt-2 text-[15px] leading-relaxed text-cream-200">
                 When all three are healthy, every channel performs better than
                 the sum of its parts. When one is weak, the others pick up the
-                slack — until they can't. That's why the rest of this deck
+                slack until they can't. That's why the rest of this deck
                 presents one program, not three line items.
               </p>
             </div>
@@ -370,7 +370,7 @@ function Diagram({
               top: `${cy}%`,
               transform: "translate(-50%, -50%)",
             }}
-            aria-label={`${node.title} — click to expand`}
+            aria-label={`${node.title}: click to expand`}
           >
             <motion.div
               animate={{
@@ -547,7 +547,7 @@ function NodeDetail({ node, onClose }: { node: NodeMeta; onClose: () => void }) 
             </span>
             <ArrowRight className="size-3.5 text-gold-500" />
             <span className="font-display font-bold text-gold-400">Website</span>
-            <span className="text-cream-300">— that's where conversion happens.</span>
+            <span className="text-cream-300">that's where conversion happens.</span>
           </div>
         </div>
       )}

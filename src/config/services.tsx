@@ -34,20 +34,20 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     short: "Organic Social",
     route: "/organic-social",
     icon: Megaphone,
-    accent: "from-pink-400 to-rose-500",
+    accent: "from-coral to-gold-500",
     headline: "The slow burn that builds the brand",
     subhead:
-      "Daily content, community, and culture-building that turns followers into a fanbase ready to convert later.",
+      "Daily content, community, and culture-building that turns followers into a fanbase ready to convert.",
     ecosystemRole:
-      "Top of funnel — entertain, inform, and humanize. Builds the audience your ads will eventually retarget and your website will eventually capture.",
+      "Top of funnel: entertain, inform, and humanize. Builds the audience your ads will eventually retarget and your website will capture.",
     problem:
       "Sporadic posts, generic captions, and dead engagement. The feed looks like a chore instead of a brand.",
     solution:
-      "A real social engine: monthly content calendars, on-site shoots, trend-driven Reels, and human community management that compounds over months — not days.",
+      "A real social engine: monthly content calendars, on-site shoots, trend-driven Reels, and community management that compounds over months, not days.",
     pillars: [
       {
         title: "Native Content That Earns Attention",
-        body: "Reels, carousels, Stories, and TikToks shot on location. Real food, real staff, real atmosphere — never stock.",
+        body: "Reels, carousels, Stories, and TikToks shot on location. Real food, real staff, real atmosphere. Never stock.",
       },
       {
         title: "Community Management",
@@ -59,7 +59,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       },
       {
         title: "Monthly Read-Outs",
-        body: "Reach, engagement, follower growth, and best-performing content broken down by channel — translated into next month's plan.",
+        body: "Reach, engagement, follower growth, and best-performing content broken down by channel, translated into next month's plan.",
       },
     ],
     deliverables: [
@@ -71,7 +71,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "Monthly performance report with strategic recommendations",
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
   },
 
   paidSocial: {
@@ -80,12 +80,12 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     short: "Paid Social",
     route: "/paid-social",
     icon: Target,
-    accent: "from-violet-400 to-purple-500",
+    accent: "from-teal to-gold-500",
     headline: "The fast lane to conversions",
     subhead:
       "Conversion-focused Meta and TikTok campaigns that turn cold scrollers into reservations within days.",
     ecosystemRole:
-      "Direct response — the trackable, fast-moving channel. Catches warm audiences from organic and converts them on the website.",
+      "Direct response: the trackable, fast-moving channel. Catches warm audiences from organic and converts them on the website.",
     problem:
       "Boosting random posts and hoping. No tracking, no audiences, no idea what's actually working. Spend evaporates without proof of return.",
     solution:
@@ -93,7 +93,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     pillars: [
       {
         title: "Conversion-Native Creative",
-        body: "Ads built for stop-scroll, designed to drive reservations and orders — not vanity metrics.",
+        body: "Ads built for stop-scroll, designed to drive reservations and orders, not vanity metrics.",
       },
       {
         title: "Audience Strategy",
@@ -101,7 +101,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       },
       {
         title: "Pixel & CAPI Tracking",
-        body: "Meta Pixel + Conversions API setup with full event tracking so every reservation, order, and form fill is attributed.",
+        body: "Meta Pixel and Conversions API setup with full event tracking so every reservation, order, and form fill is attributed.",
       },
       {
         title: "Weekly Optimization",
@@ -126,16 +126,16 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     short: "Google Ads",
     route: "/google-ads",
     icon: Search,
-    accent: "from-amber-400 to-orange-500",
+    accent: "from-gold-400 to-gold-600",
     headline: "Catch guests at the moment of decision",
     subhead:
       "Search, Performance Max, and YouTube campaigns that show up the second a guest types in 'best brunch near me.'",
     ecosystemRole:
-      "Pure intent capture — the high-conversion channel that fields the guests who already know what they want.",
+      "Pure intent capture. The high-conversion channel that fields the guests who already know what they want.",
     problem:
-      "Competitors are bidding on the brand name, and high-intent searches are sending guests to whoever pays for the click. That's not the brand.",
+      "Competitors are bidding on the brand name, and high-intent searches are sending guests to whoever pays for the click.",
     solution:
-      "Branded defense, high-intent prospecting, and Performance Max campaigns that show up across Search, Maps, YouTube, and Display — wherever the guest is researching.",
+      "Branded defense, high-intent prospecting, and Performance Max campaigns that show up across Search, Maps, YouTube, and Display, wherever the guest is researching.",
     pillars: [
       {
         title: "Branded Search Defense",
@@ -143,7 +143,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       },
       {
         title: "High-Intent Keywords",
-        body: "Date night, occasion dining, cuisine + city, and 'near me' queries — captured at the exact moment of decision.",
+        body: "Date night, occasion dining, cuisine and city, and 'near me' queries, captured at the exact moment of decision.",
       },
       {
         title: "Performance Max & YouTube",
@@ -172,16 +172,16 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     short: "Website",
     route: "/website",
     icon: Globe,
-    accent: "from-cyan-400 to-blue-500",
+    accent: "from-gold-500 to-coral",
     headline: "The conversion point everything points to",
     subhead:
       "Custom-built, mobile-first sites that turn ad clicks and social followers into reservations and orders.",
     ecosystemRole:
-      "The destination. Every other channel sends traffic here — so this is where the revenue actually lands or leaks.",
+      "The destination. Every other channel sends traffic here, so this is where the revenue lands or leaks.",
     problem:
       "A slow, dated site that buries the menu and makes booking a chore. On mobile, where most traffic lives, it falls apart.",
     solution:
-      "A custom site per brand: fast, beautiful, mobile-first, and built around the conversion actions that matter — reservations, orders, and inquiries.",
+      "A custom site per brand: fast, beautiful, mobile-first, and built around the conversion actions that matter: reservations, orders, and inquiries.",
     pillars: [
       {
         title: "Mobile-First Design",
@@ -189,11 +189,11 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       },
       {
         title: "SEO & AEO Ready",
-        body: "Schema markup, structured data, and clean URLs so Google and AI search engines (ChatGPT, Perplexity) can recommend the brand by name.",
+        body: "Schema markup, structured data, and clean URLs so Google and AI search engines can recommend the brand by name.",
       },
       {
         title: "Reservation & Ordering Wired In",
-        body: "OpenTable, Resy, Toast, Square — integrated so guests book without leaving the site.",
+        body: "OpenTable, Resy, Toast, Square integrated so guests book without leaving the site.",
       },
       {
         title: "Easy to Maintain",
@@ -218,14 +218,14 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     short: "SEO",
     route: "/seo",
     icon: TrendingUp,
-    accent: "from-emerald-300 to-teal-500",
+    accent: "from-teal to-gold-400",
     headline: "Be the answer when guests search",
     subhead:
       "On-page, technical, local, and AI search optimization that puts the brand at the top of every search that matters.",
     ecosystemRole:
-      "Compounding free traffic. Slow to start, undefeated long-term — the channel that keeps paying after spend stops.",
+      "Compounding free traffic. Slow to start, undefeated long-term. The channel that keeps paying after spend stops.",
     problem:
-      "Guests search 'best brunch in [city]' and get a competitor — even though the food is better here. Menus aren't indexed, local listings are stale, and AI assistants have no idea this brand exists.",
+      "Guests search 'best brunch in [city]' and find a competitor, even though the food is better here. Menus aren't indexed, local listings are stale, and AI assistants don't know this brand exists.",
     solution:
       "A multi-layered program: technical fixes, on-page optimization for every menu and dish, local SEO across Google Business Profile, and content that earns rankings on the searches that drive covers.",
     pillars: [
@@ -239,10 +239,10 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       },
       {
         title: "On-Page & Content",
-        body: "Menu pages, location pages, occasion pages (brunch, date night, private dining), and city guides that own the long tail.",
+        body: "Menu pages, location pages, occasion pages, and city guides that own the long tail.",
       },
       {
-        title: "AEO — Answer Engine Optimization",
+        title: "AEO: Answer Engine Optimization",
         body: "Structured content so ChatGPT, Perplexity, and Google AI Overviews can recommend the brand by name when guests ask.",
       },
     ],

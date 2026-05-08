@@ -28,7 +28,7 @@ export function ValuePage() {
             <span className="block shimmer-text">for each piece.</span>
           </>
         }
-        subtitle="Each channel is priced as a standalone monthly investment — easy to see exactly what each piece contributes and what it costs to run."
+        subtitle="Each channel is priced as a standalone monthly investment, so you can see exactly what each piece contributes and what it costs to run."
       />
 
       <div className="mt-12 space-y-4 md:mt-16 md:space-y-5">
@@ -100,12 +100,12 @@ export function ValuePage() {
               </h3>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-cream-200 md:text-base">
                 The full program priced as standalone services. The next slide
-                shows the bundle — and why most clients choose it.
+                shows the bundle, and why most clients choose it.
               </p>
             </div>
             <div className="text-left md:text-right">
               <div className="stat-num text-4xl md:text-5xl lg:text-6xl">
-                {fmt(totalMonthly) ?? "—"}
+                {fmt(totalMonthly) ?? "$0"}
               </div>
               <div className="mt-1 text-sm text-cream-300">per month</div>
             </div>
