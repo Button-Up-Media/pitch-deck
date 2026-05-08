@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel, HrSoft } from "../components/Panel";
@@ -31,7 +31,7 @@ export function ValuePage() {
         subtitle="Each channel is priced as a standalone monthly investment, so you can see exactly what each piece contributes and what it costs to run."
       />
 
-      <div className="mt-12 space-y-4 md:mt-16 md:space-y-5">
+      <div className="mt-12 space-y-5 md:mt-16">
         {enabled.map((key, i) => {
           const svc = SERVICES[key];
           const price = config.services[key].monthlyPrice;
@@ -44,7 +44,7 @@ export function ValuePage() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: Math.min(i * 0.05, 0.2) }}
             >
-              <Panel padding="compact" motion={false}>
+              <Panel motion={false}>
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div className="flex items-center gap-4">
                     <div
@@ -78,6 +78,25 @@ export function ValuePage() {
                     )}
                   </div>
                 </div>
+
+                <HrSoft className="my-5" />
+
+                <div className="eyebrow mb-3">What's included</div>
+                <ul className="grid gap-2 sm:grid-cols-2">
+                  {svc.deliverables.map((d) => (
+                    <li key={d} className="flex items-start gap-2">
+                      <div className="mt-1 flex size-4 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/15">
+                        <Check
+                          className="size-2.5 text-gold-400"
+                          strokeWidth={3}
+                        />
+                      </div>
+                      <span className="text-[13px] leading-relaxed text-cream-200">
+                        {d}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </Panel>
             </motion.div>
           );

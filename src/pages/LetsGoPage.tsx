@@ -57,14 +57,14 @@ const PILLARS: { icon: LucideIcon; label: string; sub: string; accent: string }[
   },
   {
     icon: Target,
-    label: "Paid Media",
-    sub: "Meta, TikTok, and Google in lockstep",
+    label: "Paid Advertising",
+    sub: "Google, Meta, and TikTok in lockstep",
     accent: "from-teal to-gold-500",
   },
   {
     icon: Globe,
-    label: "Website",
-    sub: "The conversion point, fully maintained",
+    label: "Website + SEO",
+    sub: "The conversion point, fully optimized",
     accent: "from-gold-400 to-gold-600",
   },
 ];

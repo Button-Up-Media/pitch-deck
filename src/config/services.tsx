@@ -34,37 +34,37 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/organic-social",
     icon: Megaphone,
     accent: "from-coral to-gold-500",
-    headline: "The slow burn that builds the brand",
+    headline: "You have to earn someone's care.",
     subhead:
-      "Daily content, community, and culture-building that turns followers into a fanbase ready to convert.",
+      "95% trust-building content, 5% conversion. That's the ratio that turns followers into guests.",
     ecosystemRole:
-      "Top of funnel: entertain, inform, and humanize. Builds the audience your ads will eventually retarget and your website will capture.",
+      "Top of funnel: earns attention and affinity. Builds an audience that trusts you, likes you, and is ready to act when the time comes.",
     problem:
-      "Sporadic posts, generic captions, and dead engagement. The feed looks like a chore instead of a brand.",
+      "Most restaurants treat social like a billboard: posting events, pushing products, telling people how great they are. Nobody engages. That approach earns scrolls, not loyalty.",
     solution:
-      "A real social engine: monthly content calendars, on-site shoots, trend-driven Reels, and community management that compounds over months, not days.",
+      "We flip the ratio. 95% of content earns trust by entertaining, educating, and showing real people in real moments. The other 5% converts, but only because the audience already cares.",
     pillars: [
       {
-        title: "Native Content That Earns Attention",
-        body: "Reels, carousels, Stories, and TikToks shot on location. Real food, real staff, real atmosphere. Never stock.",
+        title: "Earn Trust First",
+        body: "Our goal on social is not to sell. It's to build an audience that trusts you, finds influence from your wisdom or humor, and genuinely likes you. Only then are they interested in the next thing you share.",
       },
       {
-        title: "Community Management",
-        body: "Comments, DMs, and tags answered within hours. Every interaction becomes a relationship-building moment.",
+        title: "Top Funnel Content (95%)",
+        body: "Entertaining, likable, educational content with marketing sprinkled in, never as the topic. Reels, TikToks, and carousels that grow the following and keep it engaged.",
       },
       {
-        title: "Cultural Calendar",
-        body: "Built around food holidays, local events, seasonal menus, and trending audio so the brand rides the wave instead of fighting it.",
+        title: "Stories That Convert (50/50)",
+        body: "Stories run a different playbook: 50% conversion-focused content with direct CTAs, 50% social proof that makes people feel like they're missing out. This is where FOMO drives action.",
       },
       {
-        title: "Monthly Read-Outs",
-        body: "Reach, engagement, follower growth, and best-performing content broken down by channel, translated into next month's plan.",
+        title: "Social Proof & Community",
+        body: "Reposting real people dining, tagging, and sharing their experience. No conversion links needed. Real people enjoying the experience says more than any ad ever could.",
       },
     ],
     deliverables: [
       "20+ posts per brand per month across IG and TikTok",
       "8+ Reels per brand per month",
-      "Daily Stories with on-brand templates",
+      "Daily Stories with conversion and social proof mix",
       "On-location content shoot every six weeks",
       "Community management within a four-hour response window",
       "Monthly performance report with strategic recommendations",
@@ -73,52 +73,52 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     processVideo: {
       title: "What happens when you hire us",
       description:
-        "A behind-the-scenes look at exactly how a Button Up Media content shoot runs, from pre-production planning through final delivery.",
+        "A step-by-step look at how a Button Up Media content shoot runs, from planning through delivery.",
       url: "/videos/how-we-work.mp4",
     },
   },
 
   paidSocial: {
     key: "paidSocial",
-    label: "Paid Social Advertising",
-    short: "Paid Social",
-    route: "/paid-social",
+    label: "Paid Advertising",
+    short: "Paid Ads",
+    route: "/paid-advertising",
     icon: Target,
     accent: "from-teal to-gold-500",
-    headline: "The fast lane to conversions",
+    headline: "When you need customers this week, advertising is the fastest lever.",
     subhead:
-      "Conversion-focused Meta and TikTok campaigns that turn cold scrollers into reservations within days.",
+      "Conversion-focused campaigns across Google, Meta, and TikTok that capture people actively deciding where to eat.",
     ecosystemRole:
-      "Direct response: the trackable, fast-moving channel. Catches warm audiences from organic and converts them on the website.",
+      "Direct response: captures high-intent guests through search and puts your restaurant in front of ready-to-act audiences on social. The fastest channel to fill seats.",
     problem:
-      "Boosting random posts and hoping. No tracking, no audiences, no idea what's actually working. Spend evaporates without proof of return.",
+      "Boosting random posts and hoping. Running Google Ads with keywords too broad, targeting too wide, and no conversion tracking. Spend evaporates without proof of return.",
     solution:
-      "Full-funnel paid social on Meta and TikTok: prospecting, retargeting, and conversion campaigns powered by pixel-tracked audiences and creative built specifically for the feed.",
+      "Full-funnel advertising: Google Ads capture people searching 'best brunch near me' right now, while Meta and TikTok ads warm up the next wave. Every dollar tracked to a reservation, call, or inquiry.",
     pillars: [
       {
-        title: "Conversion-Native Creative",
-        body: "Ads built for stop-scroll, designed to drive reservations and orders, not vanity metrics.",
+        title: "Google Ads: Capture Intent",
+        body: "When someone searches 'Italian restaurant near me,' they decide in minutes. We bid on cuisine keywords, occasion targeting, geo-fencing, and brand protection to be there at the moment of decision.",
       },
       {
-        title: "Audience Strategy",
-        body: "Lookalikes from the guest list, geo-targeted prospecting, and warm retargeting funnels that move people from awareness to booking.",
+        title: "Meta & TikTok Ads: Create Demand",
+        body: "Social ads put your restaurant in front of the right audience before they search. Local awareness, event promos, retargeting past visitors, and lead generation for private events.",
       },
       {
-        title: "Pixel & CAPI Tracking",
-        body: "Meta Pixel and Conversions API setup with full event tracking so every reservation, order, and form fill is attributed.",
+        title: "Retargeting & Local Discovery",
+        body: "Website visitors, video viewers, and ad engagers get followed up with precision. Maps placement and local pack ads drive foot traffic from people already nearby.",
       },
       {
-        title: "Weekly Optimization",
-        body: "Daily monitoring, weekly creative refreshes, and budget shifts toward whatever's converting cheapest right now.",
+        title: "ROI Reporting in Plain English",
+        body: "Every conversion type tracked: reservations, calls, directions, online orders. Monthly reports show impressions, clicks, conversions, cost per conversion, and ROAS.",
       },
     ],
     deliverables: [
+      "Google Ads campaigns: branded defense, high-intent keywords, Performance Max",
       "Meta and TikTok campaigns built and managed",
-      "10+ ad creatives per brand per month, refreshed weekly",
-      "Meta Pixel + Conversions API setup",
-      "Custom and lookalike audiences from guest data",
-      "Real-time dashboard with cost-per-reservation tracking",
-      "Weekly optimization calls with the strategist",
+      "Retargeting campaigns across all platforms",
+      "Local Discovery and Maps advertising",
+      "Conversion tracking for reservations, calls, and forms",
+      "Monthly ROI report with full ROAS visibility",
     ],
     imageUrl:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80",
@@ -172,45 +172,46 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
 
   websiteCreation: {
     key: "websiteCreation",
-    label: "Website Creation",
-    short: "Website",
+    label: "Website & SEO",
+    short: "Website + SEO",
     route: "/website",
     icon: Globe,
     accent: "from-gold-500 to-coral",
-    headline: "The conversion point everything points to",
+    headline: "The conversion point that also gets found.",
     subhead:
-      "Custom-built, mobile-first sites that turn ad clicks and social followers into reservations and orders.",
+      "Custom-built, mobile-first sites designed for conversions, backed by local SEO that puts you at the top of every search that matters.",
     ecosystemRole:
-      "The destination. Every other channel sends traffic here, so this is where the revenue lands or leaks.",
+      "The destination and the discovery engine. Every other channel sends traffic here, and SEO ensures new guests find you directly. This is where revenue lands.",
     problem:
-      "A slow, dated site that buries the menu and makes booking a chore. On mobile, where most traffic lives, it falls apart.",
+      "A slow, dated site that buries the menu and makes booking a chore. On top of that, guests search 'best brunch in [city]' and find a competitor because the site isn't optimized and local listings are stale.",
     solution:
-      "A custom site per brand: fast, beautiful, mobile-first, and built around the conversion actions that matter: reservations, orders, and inquiries.",
+      "A fast, beautiful, mobile-first site built around conversions: reservations, orders, and inquiries. Paired with local SEO, Google Business Profile optimization, and structured data so Google and AI search engines recommend you by name.",
     pillars: [
       {
-        title: "Mobile-First Design",
-        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, and instant load times.",
+        title: "Mobile-First, Conversion-First",
+        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, instant load times. OpenTable, Resy, Toast integrated so guests book without leaving the site.",
       },
       {
-        title: "SEO & AEO Ready",
-        body: "Schema markup, structured data, and clean URLs so Google and AI search engines can recommend the brand by name.",
+        title: "Local SEO & Google Business Profile",
+        body: "GBP optimization, review generation, local citations, and consistent listings across every directory. 44% of clicks go to the top 3 map results. We get you there.",
       },
       {
-        title: "Reservation & Ordering Wired In",
-        body: "OpenTable, Resy, Toast, Square integrated so guests book without leaving the site.",
+        title: "On-Page SEO & Structured Data",
+        body: "Schema markup, clean URLs, and optimized menu pages so Google indexes every dish. AI search engines like ChatGPT and Perplexity can recommend you by name.",
       },
       {
-        title: "Easy to Maintain",
-        body: "A simple CMS so the team can update menus, hours, and events without calling a developer.",
+        title: "Technical Performance & Monitoring",
+        body: "Core Web Vitals, site speed, crawlability fixed once and monitored monthly. Plus ongoing content production aligned to keyword strategy.",
       },
     ],
     deliverables: [
-      "Custom design and build per brand",
-      "Mobile-first responsive layouts",
-      "Menu pages with full SEO and schema markup",
-      "Reservation, online ordering, and events integrations",
-      "Analytics + Meta Pixel + Google Tag Manager pre-installed",
-      "CMS training and 30 days of post-launch support",
+      "Custom website design and build per brand",
+      "Mobile-first responsive layouts with reservation/ordering integrations",
+      "Full technical SEO audit and remediation",
+      "Google Business Profile optimization per location",
+      "On-page SEO for all menu and location pages",
+      "Schema markup and structured data implementation",
+      "Monthly rank tracking and performance report",
     ],
     imageUrl:
       "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1600&q=80",

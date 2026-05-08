@@ -1,7 +1,7 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
-import { Panel, HrSoft } from "../components/Panel";
+import { Panel } from "../components/Panel";
 import { SERVICES } from "../config/services";
 import type { ServiceKey } from "../config/client";
 
@@ -71,6 +71,31 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
           </Panel>
         </div>
 
+        {svc.processVideo && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="mt-12"
+          >
+            <Panel motion={false} padding="compact">
+              <div className="grid items-center gap-6 md:grid-cols-[1fr_1.6fr]">
+                <div className="py-2">
+                  <div className="eyebrow mb-2">How It Works</div>
+                  <h3 className="font-display text-lg font-bold leading-snug text-cream-50 md:text-xl">
+                    {svc.processVideo.title}
+                  </h3>
+                  <p className="mt-2 text-[14px] leading-relaxed text-cream-200">
+                    {svc.processVideo.description}
+                  </p>
+                </div>
+                <HoverVideo src={svc.processVideo.url} />
+              </div>
+            </Panel>
+          </motion.div>
+        )}
+
         <div className="mt-16">
           <SectionHeading
             eyebrow="The Four Pillars"
@@ -107,67 +132,44 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
             ))}
           </div>
         </div>
-
-        <div className="mt-16">
-          <SectionHeading
-            eyebrow="What's Included"
-            title={<>The full deliverables list.</>}
-            subtitle="No surprise add-ons, no fine print. This is what lands every month."
-          />
-          <Panel className="mt-10">
-            <ul className="space-y-4">
-              {svc.deliverables.map((d, i) => (
-                <li key={d}>
-                  {i > 0 && <HrSoft className="mb-4" />}
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex size-5 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/15 ring-1 ring-gold-500/30">
-                      <Check className="size-3 text-gold-400" strokeWidth={3} />
-                    </div>
-                    <span className="text-[15px] leading-relaxed text-cream-100">
-                      {d}
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </Panel>
-        </div>
-
-        {svc.processVideo && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="mt-16"
-          >
-            <Panel motion={false}>
-              <div className="eyebrow mb-4">How It Works</div>
-              <div className="grid gap-8 md:grid-cols-[1fr_1.4fr] md:items-center">
-                <div>
-                  <h3 className="font-display text-xl font-bold leading-snug text-cream-50 md:text-2xl">
-                    {svc.processVideo.title}
-                  </h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-cream-200">
-                    {svc.processVideo.description}
-                  </p>
-                </div>
-                <div className="overflow-hidden rounded-xl border border-line bg-bg-0">
-                  <video
-                    src={svc.processVideo.url}
-                    controls
-                    playsInline
-                    disablePictureInPicture
-                    controlsList="nofullscreen nodownload noremoteplayback"
-                    className="h-auto w-full"
-                    preload="metadata"
-                  />
-                </div>
-              </div>
-            </Panel>
-          </motion.div>
-        )}
       </div>
+    </div>
+  );
+}
+
+function HoverVideo({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  function handleEnter() {
+    const v = ref.current;
+    if (!v) return;
+    v.muted = false;
+    v.play().catch(() => {});
+  }
+
+  function handleLeave() {
+    const v = ref.current;
+    if (!v) return;
+    v.pause();
+  }
+
+  return (
+    <div
+      className="overflow-hidden rounded-xl border border-line bg-bg-0"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <video
+        ref={ref}
+        src={src}
+        controls
+        playsInline
+        muted
+        disablePictureInPicture
+        controlsList="nofullscreen nodownload noremoteplayback"
+        className="h-auto w-full"
+        preload="metadata"
+      />
     </div>
   );
 }
