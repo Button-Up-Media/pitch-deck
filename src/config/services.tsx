@@ -26,7 +26,11 @@ export type ServiceMeta = {
   deliverables: string[];
   imageUrl: string;
   /** "deviceMockup" renders a CSS laptop+phone hero instead of an image */
-  heroVariant?: "deviceMockup";
+  heroVariant?: "deviceMockup" | "deviceSplit" | "googleAdsSerp";
+  /** Visual treatment for the pillars section — defaults to numbered cards */
+  pillarLayout?: "numbered" | "grid" | "stack" | "flow";
+  /** If false, this service does not get its own page/nav entry but still shows on Value slide */
+  standalone?: boolean;
   processVideo?: { title: string; description: string; url: string };
 };
 
@@ -40,25 +44,26 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     accent: "from-coral to-gold-500",
     headline: "You have to earn someone's care.",
     subhead:
-      "95% trust-building content, 5% conversion. That's the ratio that turns followers into guests.",
+      "Mostly trust-building content. A little conversion. That's the ratio that turns followers into guests.",
     ecosystemRole:
       "Top of funnel: earns attention and affinity. Builds an audience that trusts you, likes you, and is ready to act when the time comes.",
     problem:
       "Most restaurants treat social like a billboard: posting events, pushing products, telling people how great they are. Nobody engages. That approach earns scrolls, not loyalty.",
     solution:
-      "We flip the ratio. 95% of content earns trust by entertaining, educating, and showing real people in real moments. The other 5% converts, but only because the audience already cares.",
+      "We flip the ratio. The vast majority of content earns trust by entertaining, educating, and showing real people in real moments. The smaller share converts—but only because the audience already cares.",
+    pillarLayout: "grid",
     pillars: [
       {
         title: "Earn Trust First",
         body: "Our goal on social is not to sell. It's to build an audience that trusts you, finds influence from your wisdom or humor, and genuinely likes you. Only then are they interested in the next thing you share.",
       },
       {
-        title: "Top Funnel Content (95%)",
-        body: "Entertaining, likable, educational content with marketing sprinkled in, never as the topic. Reels, TikToks, and carousels that grow the following and keep it engaged.",
+        title: "Top-Funnel Content",
+        body: "Entertaining, likable, educational content with marketing sprinkled in—never as the topic. Reels, TikToks, and carousels that grow the following and keep it engaged.",
       },
       {
-        title: "Stories That Convert (50/50)",
-        body: "Stories run a different playbook: 50% conversion-focused content with direct CTAs, 50% social proof that makes people feel like they're missing out. This is where FOMO drives action.",
+        title: "Stories That Convert",
+        body: "Stories run a different playbook: a balance of conversion-focused content with direct CTAs and social proof that makes people feel like they're missing out. This is where FOMO drives action.",
       },
       {
         title: "Social Proof & Community",
@@ -122,8 +127,9 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "Conversion tracking for reservations, calls, and forms",
       "Monthly ROI report with full ROAS visibility",
     ],
-    imageUrl:
-      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
+    imageUrl: "",
+    heroVariant: "googleAdsSerp",
+    pillarLayout: "stack",
   },
 
   paidSocial: {
@@ -166,12 +172,13 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "Monthly ROI report with full ROAS visibility",
     ],
     imageUrl: "/images/download-2.jpg",
+    pillarLayout: "flow",
   },
 
   websiteCreation: {
     key: "websiteCreation",
-    label: "Website & SEO",
-    short: "Website + SEO",
+    label: "Website",
+    short: "Website",
     route: "/website",
     icon: Globe,
     accent: "from-gold-500 to-coral",
@@ -210,7 +217,8 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "[__] batch revisions included",
     ],
     imageUrl: "",
-    heroVariant: "deviceMockup",
+    heroVariant: "deviceSplit",
+    pillarLayout: "grid",
   },
 
   websiteManagement: {
@@ -220,6 +228,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/website-management",
     icon: Settings,
     accent: "from-gold-500 to-coral",
+    standalone: false,
     headline: "Your site, always current.",
     subhead:
       "Landing pages for every ad campaign, batch revision cycles, and ongoing monitoring so the site never falls behind.",

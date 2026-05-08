@@ -4,7 +4,9 @@ import { SERVICES, SERVICE_ORDER } from "../config/services";
 
 export function useDeckOrder() {
   return useMemo(() => {
-    const enabled = SERVICE_ORDER.filter((k) => config.services[k].enabled);
+    const enabled = SERVICE_ORDER.filter(
+      (k) => config.services[k].enabled && SERVICES[k].standalone !== false
+    );
     const order = ["/", "/opportunities", "/ecosystem"];
     enabled.forEach((k) => order.push(SERVICES[k].route));
     order.push("/value");

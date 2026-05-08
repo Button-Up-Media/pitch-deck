@@ -20,7 +20,9 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<CoverPage />} />
           <Route path="/opportunities" element={<OpportunitiesPage />} />
           <Route path="/ecosystem" element={<EcosystemPage />} />
-          {SERVICE_ORDER.filter((k) => config.services[k].enabled).map((k) => (
+          {SERVICE_ORDER.filter(
+            (k) => config.services[k].enabled && SERVICES[k].standalone !== false
+          ).map((k) => (
             <Route
               key={k}
               path={SERVICES[k].route}
