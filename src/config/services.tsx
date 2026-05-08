@@ -8,6 +8,14 @@ import {
 } from "lucide-react";
 import type { ServiceKey } from "./client";
 
+export type WorkExample = {
+  type: "video" | "image";
+  url: string;
+  caption: string;
+  client?: string;
+  stats?: string;
+};
+
 export type ServiceMeta = {
   key: ServiceKey;
   label: string;
@@ -17,14 +25,14 @@ export type ServiceMeta = {
   accent: string;
   headline: string;
   subhead: string;
-  // Where this channel sits in the marketing ecosystem
   ecosystemRole: string;
-  // Standalone deep-dive content
   problem: string;
   solution: string;
   pillars: { title: string; body: string }[];
   deliverables: string[];
   imageUrl: string;
+  processVideo?: { title: string; description: string; url: string };
+  workExamples?: WorkExample[];
 };
 
 export const SERVICES: Record<ServiceKey, ServiceMeta> = {
@@ -70,8 +78,41 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "Community management within a four-hour response window",
       "Monthly performance report with strategic recommendations",
     ],
-    imageUrl:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
+    imageUrl: "/images/bts-shoot.jpeg",
+    processVideo: {
+      title: "What happens when you hire us",
+      description:
+        "A behind-the-scenes look at exactly how a Button Up Media content shoot runs, from pre-production planning through final delivery.",
+      url: "/videos/how-we-work.mp4",
+    },
+    workExamples: [
+      {
+        type: "video",
+        url: "/videos/example-1m-views.mp4",
+        caption: "Seafood boil content that went viral",
+        client: "The Fatty Crab",
+        stats: "1M+ views",
+      },
+      {
+        type: "video",
+        url: "/videos/example-500k-views.mp4",
+        caption: "Restaurant atmosphere and dining experience",
+        client: "Client Work",
+        stats: "500K views",
+      },
+      {
+        type: "image",
+        url: "/images/cocktail-featured.png",
+        caption: "Artisanal cocktail presentation",
+        client: "RPT Bar",
+      },
+      {
+        type: "image",
+        url: "/images/thumb-bartender.png",
+        caption: "Tableside mojito cart experience",
+        client: "RPM",
+      },
+    ],
   },
 
   paidSocial: {

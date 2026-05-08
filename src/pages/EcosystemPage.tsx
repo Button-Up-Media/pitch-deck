@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Globe,
@@ -21,7 +21,6 @@ type NodeMeta = {
   short: string;
   role: string;
   icon: LucideIcon;
-  // position on the circle, in degrees from top (0 = top, clockwise)
   angle: number;
   accentClass: string;
   accentBg: string;
@@ -119,6 +118,29 @@ const ORDER: NodeKey[] = ["website", "organic", "paid"];
 export function EcosystemPage() {
   const [open, setOpen] = useState<NodeKey | null>(null);
   const [broken, setBroken] = useState<NodeKey | null>(null);
+  const detailRef = useRef<HTMLDivElement>(null);
+
+  function scrollToDetail() {
+    setTimeout(() => {
+      detailRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
+  }
+
+  function handleNodeClick(k: NodeKey) {
+    const next = open === k ? null : k;
+    setOpen(next);
+    setBroken(null);
+    if (next) scrollToDetail();
+  }
+
+  function handleBreakClick(k: NodeKey) {
+    const next = broken === k ? null : k;
+    setBroken(next);
+    setOpen(null);
+    if (next) scrollToDetail();
+  }
+
+  const hasDetail = open !== null || broken !== null;
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 pb-32 md:px-8 md:py-20 md:pb-28 lg:px-16 2xl:px-20">
@@ -133,7 +155,7 @@ export function EcosystemPage() {
         subtitle="Marketing isn't three plays bolted together. It's an ecosystem. Click any node to see what it does, or break one and see what happens to the rest."
       />
 
-      <Diagram open={open} setOpen={setOpen} broken={broken} />
+      <Diagram open={open} onNodeClick={handleNodeClick} broken={broken} />
 
       {/* Break-the-ecosystem controls */}
       <motion.div
@@ -149,7 +171,7 @@ export function EcosystemPage() {
           return (
             <button
               key={k}
-              onClick={() => setBroken(isBroken ? null : k)}
+              onClick={() => handleBreakClick(k)}
               className={`group rounded-full border px-4 py-1.5 text-xs font-semibold transition ${
                 isBroken
                   ? "border-coral/50 bg-coral/15 text-coral"
@@ -160,9 +182,9 @@ export function EcosystemPage() {
             </button>
           );
         })}
-        {broken && (
+        {hasDetail && (
           <button
-            onClick={() => setBroken(null)}
+            onClick={() => { setOpen(null); setBroken(null); }}
             className="ml-2 text-xs text-cream-300 underline-offset-4 hover:underline"
           >
             Reset
@@ -170,52 +192,53 @@ export function EcosystemPage() {
         )}
       </motion.div>
 
-      <AnimatePresence>
-        {broken && (
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.4 }}
-            className="mx-auto mt-6 max-w-3xl"
-          >
-            <Panel
-              motion={false}
-              padding="compact"
-              className="border-coral/40 bg-coral/8"
+      {/* Unified detail panel — break warning and node detail are mutually exclusive */}
+      <div ref={detailRef} className="scroll-mt-6">
+        <AnimatePresence mode="wait">
+          {open && (
+            <motion.div
+              key={`node-${open}`}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-8"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-xl bg-coral/15 ring-1 ring-coral/30">
-                  <AlertTriangle className="size-5 text-coral" />
-                </div>
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">
-                    What happens
+              <NodeDetail node={NODES[open]} onClose={() => setOpen(null)} />
+            </motion.div>
+          )}
+          {broken && !open && (
+            <motion.div
+              key={`break-${broken}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.4 }}
+              className="mx-auto mt-8 max-w-3xl"
+            >
+              <Panel
+                motion={false}
+                padding="compact"
+                className="border-coral/40 bg-coral/8"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-xl bg-coral/15 ring-1 ring-coral/30">
+                    <AlertTriangle className="size-5 text-coral" />
                   </div>
-                  <p className="mt-1.5 text-[15px] leading-relaxed text-cream-100">
-                    {NODES[broken].failure}
-                  </p>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">
+                      What happens when {NODES[broken].title} breaks
+                    </div>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-cream-100">
+                      {NODES[broken].failure}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Panel>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence mode="wait">
-        {open && (
-          <motion.div
-            key={open}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10"
-          >
-            <NodeDetail node={NODES[open]} onClose={() => setOpen(null)} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+              </Panel>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -251,11 +274,11 @@ export function EcosystemPage() {
 
 function Diagram({
   open,
-  setOpen,
+  onNodeClick,
   broken,
 }: {
   open: NodeKey | null;
-  setOpen: (k: NodeKey) => void;
+  onNodeClick: (k: NodeKey) => void;
   broken: NodeKey | null;
 }) {
   return (
@@ -361,7 +384,7 @@ function Diagram({
         return (
           <button
             key={k}
-            onClick={() => setOpen(isOpen ? (null as unknown as NodeKey) : k)}
+            onClick={() => onNodeClick(k)}
             className={`group absolute flex flex-col items-center transition-all ${
               isBroken ? "opacity-40 grayscale" : ""
             }`}
@@ -421,13 +444,11 @@ function ArcArrow({
   toAngle: number;
   dimmed: boolean;
 }) {
-  // Convert to radians (rotated -90 so 0 = top)
   const r = 130;
   const cx = 200;
   const cy = 200;
   const a1 = (fromAngle - 90) * (Math.PI / 180);
   const a2 = (toAngle - 90) * (Math.PI / 180);
-  // Push start/end slightly off the node center so the line doesn't cross the node
   const offset = 0.35;
   const start = {
     x: cx + Math.cos(a1 + offset) * r,
@@ -437,7 +458,6 @@ function ArcArrow({
     x: cx + Math.cos(a2 - offset) * r,
     y: cy + Math.sin(a2 - offset) * r,
   };
-  // Big-arc + sweep settings for going around the outside in clockwise direction
   return (
     <path
       d={`M ${start.x} ${start.y} A ${r} ${r} 0 0 1 ${end.x} ${end.y}`}
@@ -462,7 +482,6 @@ function InwardArrow({
   const cx = 200;
   const cy = 200;
   const a = (fromAngle - 90) * (Math.PI / 180);
-  // From node, toward the website node (which is at angle 0 → top, so center-ish)
   const fromX = cx + Math.cos(a) * (r - 28);
   const fromY = cy + Math.sin(a) * (r - 28);
   const wAngle = (NODES.website.angle - 90) * (Math.PI / 180);
