@@ -89,31 +89,31 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/google-ads",
     icon: Search,
     accent: "from-gold-400 to-gold-600",
-    headline: "Catch guests the moment they decide.",
+    headline: "Someone nearby is searching. Are you there?",
     subhead:
-      "Search campaigns that put your restaurant at the top when someone types 'best brunch near me'—and track every click back to a reservation.",
+      "Restaurants operate on shorter decision cycles than any other industry. Someone searching 'Italian restaurant near me' decides in minutes—not days. Google Ads puts you in front of that person at the exact moment they choose.",
     ecosystemRole:
-      "Pure intent capture. The highest-conversion channel: fields guests who've already decided they want to go out and are choosing between options right now.",
+      "The highest-intent channel in the program. Google Ads captures guests who have already decided to go out—they're just choosing between you and a competitor. This is the fastest path to a reservation.",
     problem:
-      "Competitors bidding on your brand name. High-intent searches sending guests to whoever pays the click. Campaigns too broad to measure, budget disappearing with nothing to show for it.",
+      "Most restaurant campaigns fail for one of three reasons: keywords too broad, targeting too wide, or zero conversion tracking. Budget evaporates and there's nothing to show for it. Meanwhile, competitors are actively bidding on your brand name—intercepting guests who already know you.",
     solution:
-      "Branded defense, high-intent keyword campaigns, and Performance Max across Search, Maps, and YouTube. A poorly managed $5,000 campaign loses money. A well-optimized $1,500 campaign generates significant ROI. We run the second kind.",
+      "Every campaign starts with three questions: who is the customer, what action do we want, and what does success look like in dollars. We build around the answer—branded defense to protect your name, high-intent keywords to capture new guests, and Performance Max to reach them across Search, Maps, YouTube, and Display simultaneously. A poorly run $5,000 campaign loses money. A well-optimized $1,500 campaign generates significant ROI. We run the second kind.",
     pillars: [
       {
         title: "Branded Search Defense",
-        body: "Bid on your own brand terms so competitors can't intercept guests who already know your name. Every search for your restaurant should land on your site.",
+        body: "Competitors are actively bidding on your restaurant's name. We bid on your own brand terms so that guests who already know you—the highest-intent audience—land on your site, not a competitor's. This is the fastest ROI in the program.",
       },
       {
-        title: "Cuisine & Occasion Keywords",
-        body: "Date night, private events, 'near me' queries, and cuisine-specific searches—captured at the exact moment of decision. These are people ready to book in minutes.",
+        title: "High-Intent Keyword Capture",
+        body: "Cuisine keywords, occasion targeting (date night, private dining, brunch), 'near me' queries, and geo-fenced local searches. These are guests deciding in minutes. Peak-time bid adjustments make sure your ads run hardest when guests are most ready to book.",
       },
       {
         title: "Performance Max & Maps",
-        body: "AI-driven campaigns that span Search, Maps, Display, and YouTube from a single campaign structure. One setup, every surface where guests are making decisions.",
+        body: "A single AI-driven campaign spanning Search, Maps, Display, and YouTube. One setup, every surface. Local Discovery ads put your restaurant on the map—literally—for guests already nearby. 44% of local clicks go to the top 3 map results.",
       },
       {
         title: "Revenue-First Reporting",
-        body: "Every click tied to a reservation, call, or direction request. Monthly ROAS report shows impressions, conversions, cost per conversion, and revenue tracked. No vanity metrics.",
+        body: "Every conversion tracked: reservations, phone calls, direction requests, online orders. Monthly reports show impressions, clicks, conversions, cost per conversion, and ROAS. No vanity metrics. You see exactly what the budget produced.",
       },
     ],
     deliverables: [
@@ -133,31 +133,31 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/social-ads",
     icon: Target,
     accent: "from-teal to-gold-500",
-    headline: "Put your restaurant in front of who's ready to book.",
+    headline: "Google captures who's searching. Social creates who searches next.",
     subhead:
-      "Meta and TikTok campaigns that create demand—reaching the right local audience before they even start searching.",
+      "Meta and TikTok ads reach your ideal guest before they ever open Google—and retarget the ones who visited but didn't book.",
     ecosystemRole:
-      "Demand creation: builds awareness and intent before a guest ever searches. Works with organic content to retarget warm audiences and close the loop on private event inquiries.",
+      "Demand creation and retargeting. Social ads work in concert with Google Ads: Google captures guests with active intent while Meta and TikTok build the next wave of intent and close the loop on guests who didn't convert the first time.",
     problem:
-      "Boosted posts with no targeting precision, no conversion tracking, and no optimization. Spend evaporates and there's no visibility into what it produced.",
+      "Boosting random posts with no targeting precision, no conversion tracking, and no optimization. Spend evaporates and there's no visibility into what it produced. Social ads are not organic posts with a boost—they're a separate discipline entirely.",
     solution:
-      "Full-funnel Meta and TikTok campaigns: local awareness, event promos, retargeting past visitors, and lead generation for private dining. Social ads don't capture demand—they create it. Every dollar tracked to a reservation or inquiry.",
+      "Full-funnel Meta and TikTok campaigns with one mission per campaign: one conversion goal, one audience, one message. Social ads don't capture demand—they create it. Retargeting bridges the gap between a Google impression and a reservation, following up with website visitors, video viewers, and ad engagers who showed intent but didn't act. Most guests don't convert the first time. Retargeting ensures you stay visible until they do.",
     pillars: [
       {
-        title: "Local Awareness & Discovery",
-        body: "Put the restaurant in front of the right audience in the right radius. Location-based targeting on Meta and TikTok that builds brand awareness before guests start searching.",
+        title: "Local Awareness & Demand Creation",
+        body: "Put the restaurant in front of the right audience in the right radius before they start searching. Location-based targeting on Meta and TikTok builds brand awareness and desire—so when they do search, they already know your name.",
+      },
+      {
+        title: "Retargeting: Bridge from Google to Booking",
+        body: "Someone searches on Google, clicks your ad, browses the menu, and leaves without booking. Social retargeting follows up—showing them your best content, your best offer, or a simple reminder. This is where Google and social ads create compounding returns.",
       },
       {
         title: "Event & Seasonal Campaigns",
-        body: "Holiday promos, special menus, and private dining campaigns timed to peak demand. The right creative, the right audience, the right window.",
-      },
-      {
-        title: "Retargeting Past Visitors",
-        body: "Website visitors, video viewers, and Instagram engagers get followed up with precision. People who already know you are far more likely to book—retargeting converts that warm intent.",
+        body: "Holiday promos, Mother's Day, private dining, and seasonal menus—timed to peak demand with targeted creative. Our standout result: Rusty Pelican Miami Mother's Day campaign, 155 conversions at $3.06 cost per acquisition.",
       },
       {
         title: "Private Events Lead Generation",
-        body: "Form-based campaigns on Meta that capture private event inquiries directly—name, date, party size, contact—delivered as leads before they consider a competitor.",
+        body: "Form-based campaigns on Meta that capture private event inquiries directly—name, date, party size, contact info—delivered as qualified leads before they consider a competitor. The highest-value conversion a restaurant ad can produce.",
       },
     ],
     deliverables: [
@@ -165,7 +165,7 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       "Conversion tracking for reservations and inquiries",
       "Monthly ROI report with full ROAS visibility",
     ],
-    imageUrl: "/images/dining-scene.jpg",
+    imageUrl: "/images/download-2.jpg",
   },
 
   websiteCreation: {

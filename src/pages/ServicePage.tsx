@@ -87,13 +87,13 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
             className="mt-12"
           >
             <Panel motion={false} padding="compact">
-              <div className="grid items-center gap-6 md:grid-cols-[1fr_1.6fr]">
-                <div className="py-2">
+              <div className="grid items-start gap-5 md:grid-cols-[1fr_1.8fr]">
+                <div>
                   <div className="eyebrow mb-2">How It Works</div>
-                  <h3 className="font-display text-lg font-bold leading-snug text-cream-50 md:text-xl">
+                  <h3 className="font-display text-base font-bold leading-snug text-cream-50 md:text-lg">
                     {svc.processVideo.title}
                   </h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-cream-200">
+                  <p className="mt-1.5 text-[13px] leading-relaxed text-cream-200">
                     {svc.processVideo.description}
                   </p>
                 </div>

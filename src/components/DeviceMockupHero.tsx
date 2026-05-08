@@ -26,7 +26,7 @@ export function DeviceMockupHero() {
                 </div>
               </div>
               <img
-                src="/images/rp-desktop.png"
+                src="/images/rp-menu-computer.jpg"
                 alt="Restaurant website"
                 className="h-[190px] w-full object-cover object-top md:h-[280px] lg:h-[340px]"
                 onError={(e) => {
@@ -50,7 +50,7 @@ export function DeviceMockupHero() {
                 <div className="h-2 w-12 rounded-full bg-[#1a1a1a]" />
               </div>
               <img
-                src="/images/rp-mobile.png"
+                src="/images/rp-menu-mobile.jpg"
                 alt="Restaurant website mobile"
                 className="h-[200px] w-full object-cover object-top md:h-[260px] lg:h-[310px]"
                 onError={(e) => {

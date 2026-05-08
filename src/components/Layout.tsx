@@ -2,7 +2,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { AmbientBg } from "./AmbientBg";
 import { SidebarNav, MobileNav } from "./SidebarNav";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useDeckOrder } from "../lib/useDeckOrder";
 
 export function Layout() {
@@ -10,7 +10,7 @@ export function Layout() {
   const navigate = useNavigate();
   const order = useDeckOrder();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [location.pathname]);
 
@@ -39,13 +39,13 @@ export function Layout() {
       <AmbientBg />
       <SidebarNav />
       <main className="flex-1 md:mr-64 xl:mr-72">
-        <AnimatePresence mode="sync">
+        <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
           >
             <Outlet />
           </motion.div>
