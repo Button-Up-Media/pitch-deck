@@ -1,179 +1,319 @@
 import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  HandHelping,
+  ShieldAlert,
+  type LucideIcon,
+  Target,
+  Crown,
+  HeartHandshake,
+} from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel, HrSoft } from "../components/Panel";
-import {
-  EyeOff,
-  Users,
-  Search,
-  Globe,
-  LineChart,
-  Layers,
-  AlertCircle,
-} from "lucide-react";
+import { config, type ClientPath, type GrowthGoal } from "../config/client";
 
-const OPPORTUNITIES = [
+type PathInfo = {
+  icon: LucideIcon;
+  badge: string;
+  title: string;
+  body: string;
+};
+
+const PATHS: Record<Exclude<ClientPath, "custom">, PathInfo> = {
+  wordOfMouth: {
+    icon: HandHelping,
+    badge: "Path A",
+    title: "Word-of-mouth has carried you this far",
+    body: "You've built a real business off of regulars and referrals. It's working — but the next chapter needs more than that. You know it's time to add real marketing, you just don't have a clear playbook for what that looks like.",
+  },
+  burnedByPriorAgency: {
+    icon: ShieldAlert,
+    badge: "Path B",
+    title: "You've been burned by an agency before",
+    body: "You've tried marketing the paid way. It was expensive, the reporting was a black box, and you ended the engagement feeling like you got little to nothing for what you spent. You're rightfully cautious about doing it again.",
+  },
+};
+
+type GoalInfo = {
+  icon: LucideIcon;
+  label: string;
+  body: string;
+};
+
+const GOALS: Record<GrowthGoal, GoalInfo> = {
+  acquisition: {
+    icon: Target,
+    label: "Acquire new customers",
+    body: "Fill more seats. Drive more first-time visits. Grow the top of the funnel and turn it into covers, orders, and reservations.",
+  },
+  brandValidity: {
+    icon: Crown,
+    label: "Build (or protect) brand value",
+    body: "Be perceived as a higher-tier concept. Earn the right to charge more, attract better operators, and stand apart from the commodity middle.",
+  },
+  retention: {
+    icon: HeartHandshake,
+    label: "Keep the regulars you have",
+    body: "Don't grow recklessly — keep the base happy and frequent. Repeat visits, loyalty, and a community that doesn't drift to the next opening down the street.",
+  },
+};
+
+type Problem = {
+  number: string;
+  problem: string;
+  problemDetail: string;
+  opportunity: string;
+  opportunityDetail: string;
+};
+
+const PROBLEMS: Problem[] = [
   {
-    icon: Users,
-    title: "Weak organic social presence",
-    bullets: [
-      "Posting cadence is sporadic and unbranded",
-      "Content looks generic — could be any restaurant",
-      "Comments and DMs go unanswered for days",
-      "No system in place to turn followers into regulars",
-    ],
+    number: "01",
+    problem: "Your digital presence isn't pulling its weight",
+    problemDetail:
+      "Maybe the social feed has gone quiet. Maybe the website looks a few years behind. Maybe you've never run a real ad campaign. Whatever the mix, the basics aren't in place, and guests who don't already know you can't easily find a reason to choose you.",
+    opportunity: "A coordinated three-channel presence",
+    opportunityDetail:
+      "We rebuild the foundation: a website that converts, a social feed that earns attention, and paid ads that fill in the gaps. Not three separate plays — one program that compounds.",
   },
   {
-    icon: Globe,
-    title: "Thin online presence overall",
-    bullets: [
-      "Website is dated and slow on mobile",
-      "Google Business Profile hasn't been updated in months",
-      "AI search engines (ChatGPT, Perplexity) can't recommend the brand by name",
-      "Third-party listings outrank the owned website",
-    ],
+    number: "02",
+    problem: "You can't tell what's working and what isn't",
+    problemDetail:
+      "Reservations come in, but you don't know why. Marketing budget gets spent, but no one can show you how it turned into revenue. Without tracking, every dollar is an act of faith.",
+    opportunity: "Real attribution, in plain English",
+    opportunityDetail:
+      "Pixels installed, conversions tracked, dashboards that actually show which channel is producing covers. Monthly reviews translate the data into decisions — not just charts you ignore.",
   },
   {
-    icon: Search,
-    title: "Poor discoverability on search",
-    bullets: [
-      "Competitors appear above the brand for high-intent local searches",
-      "Menu pages aren't indexed with proper schema markup",
-      "Local pack on Google Maps is dominated by another concept",
-      "Long-tail occasion searches (date night, brunch) go uncaptured",
-    ],
-  },
-  {
-    icon: EyeOff,
-    title: "Hard-to-find online presence",
-    bullets: [
-      "Old or duplicate menus rank above the new site",
-      "Reservations link is buried, not the first thing on mobile",
-      "Reviews are scattered across platforms with no unified response",
-      "Brand SEO is being intercepted by aggregators",
-    ],
-  },
-  {
-    icon: LineChart,
-    title: "No conversion tracking, no attribution",
-    bullets: [
-      "Meta Pixel and Conversions API aren't installed",
-      "Reservations and orders aren't tied to source channels",
-      "Reporting is impressions and likes — not revenue",
-      "Marketing spend is being approved without proof of return",
-    ],
-  },
-  {
-    icon: Layers,
-    title: "Vendor sprawl killing momentum",
-    bullets: [
-      "A different agency or freelancer for each channel",
-      "Four invoices, four versions of the strategy",
-      "Channels work in silos and rarely reinforce each other",
-      "Time spent translating between vendors instead of executing",
-    ],
+    number: "03",
+    problem: "Marketing without a clear goal",
+    problemDetail:
+      "Are you trying to fill more seats? Strengthen the brand? Hold on to the regulars you already have? Each of those needs a different strategy. Without naming the goal, marketing defaults to vanity metrics.",
+    opportunity: "A strategy built around your actual goal",
+    opportunityDetail:
+      "We start by naming what you actually want. Then every campaign, post, and ad gets pointed at that outcome. Whatever the goal, the plan flows from there.",
   },
 ];
 
 export function OpportunitiesPage() {
+  const path = config.client.path;
+  const goal = GOALS[config.client.primaryGoal];
+
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 pb-32 md:px-8 md:py-20 md:pb-28 lg:px-16 2xl:px-20">
       <SectionHeading
-        eyebrow="The Opportunities"
+        eyebrow="Where We Are Today"
         title={
           <>
-            <span className="block">Where the leverage is.</span>
-            <span className="block shimmer-text">Six gaps, one program.</span>
+            <span className="block">Every problem</span>
+            <span className="block shimmer-text">is an opportunity.</span>
           </>
         }
-        subtitle="Hospitality marketing rarely fails because of effort. It fails because of fragmentation. Below is exactly where most operators are leaving covers — and revenue — on the table."
+        subtitle="From the first conversation we had, here's what we heard — what's getting in the way today, and what we'd do about it together."
       />
 
-      <div className="mt-12 grid grid-cols-2 gap-x-12 gap-y-2 md:flex md:flex-wrap md:gap-x-14 md:gap-y-6">
-        <BigStat value="6" label="Opportunity areas" caption="Mapped below" />
-        <BigStat value="3" label="Marketing channels" caption="Affected by all six" />
-        <BigStat value="1" label="Operating model" caption="Fixes them together" />
-        <BigStat value="0" label="Single-channel cures" caption="Fragmentation can't be patched" />
-      </div>
-
-      <div className="mt-12 space-y-6 md:mt-16 md:space-y-8">
-        {OPPORTUNITIES.map((o, i) => (
-          <motion.div
-            key={o.title}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: Math.min(i * 0.05, 0.25) }}
-          >
-            <Panel motion={false}>
-              <div className="mb-5 flex items-start gap-3 md:mb-6 md:gap-4">
-                <div className="flex size-9 flex-shrink-0 items-center justify-center rounded-xl bg-rose-500/10 ring-1 ring-rose-400/20 md:size-10">
-                  <o.icon className="size-4 text-rose-300 md:size-5" />
-                </div>
-                <div className="flex-1">
-                  <div className="text-[11px] font-medium uppercase tracking-[0.18em] text-rose-300/80">
-                    Opportunity {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <h3 className="mt-1 text-lg font-semibold text-ink-50 md:text-xl">
-                    {o.title}
-                  </h3>
-                </div>
-              </div>
-              <div className="ml-0 space-y-4 md:ml-14">
-                {o.bullets.map((b, bi) => (
-                  <div key={b}>
-                    {bi > 0 && <HrSoft className="mb-4" />}
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1 size-1.5 flex-shrink-0 rounded-full bg-ink-200/40" />
-                      <p className="text-[15px] font-medium leading-relaxed text-ink-200/70">
-                        {b}
+      {/* Two client paths */}
+      <div className="mt-14">
+        <div className="eyebrow mb-5">Where you're starting from</div>
+        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+          {(["wordOfMouth", "burnedByPriorAgency"] as const).map((key) => {
+            const info = PATHS[key];
+            const isActive = path === key;
+            return (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6 }}
+              >
+                <Panel
+                  motion={false}
+                  className={
+                    isActive
+                      ? "border-gold-500/40 bg-gold-soft"
+                      : "opacity-70"
+                  }
+                >
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`flex size-11 flex-shrink-0 items-center justify-center rounded-xl ${
+                        isActive
+                          ? "bg-gold-500/15 text-gold-400 ring-1 ring-gold-500/30"
+                          : "bg-cream-300/5 text-cream-300"
+                      }`}
+                    >
+                      <info.icon className="size-5" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <div className="eyebrow">{info.badge}</div>
+                        {isActive && (
+                          <span className="rounded-full bg-gold-500/15 px-2 py-0.5 font-display text-[10px] font-bold tracking-wider text-gold-400">
+                            ★ THIS IS YOU
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="mt-2 font-display text-lg font-bold text-cream-50 md:text-xl">
+                        {info.title}
+                      </h3>
+                      <p className="mt-2 text-[15px] leading-relaxed text-cream-200">
+                        {info.body}
                       </p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </Panel>
-          </motion.div>
-        ))}
+                </Panel>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Primary goal */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.6 }}
+        className="mt-12"
+      >
+        <div className="eyebrow mb-5">What you actually want</div>
+        <Panel motion={false}>
+          <div className="grid gap-5 md:grid-cols-3">
+            {(["acquisition", "brandValidity", "retention"] as const).map(
+              (key) => {
+                const info = GOALS[key];
+                const isPrimary = config.client.primaryGoal === key;
+                return (
+                  <div
+                    key={key}
+                    className={`rounded-2xl p-5 ${
+                      isPrimary
+                        ? "border border-gold-500/40 bg-gold-soft"
+                        : "border border-line-soft"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={`flex size-9 items-center justify-center rounded-xl ${
+                          isPrimary
+                            ? "bg-gold-500/15 text-gold-400"
+                            : "bg-cream-300/5 text-cream-300"
+                        }`}
+                      >
+                        <info.icon className="size-4" />
+                      </div>
+                      <div className="font-display text-sm font-bold text-cream-50">
+                        {info.label}
+                      </div>
+                    </div>
+                    <p className="mt-3 text-[14px] leading-relaxed text-cream-200">
+                      {info.body}
+                    </p>
+                    {isPrimary && (
+                      <div className="mt-3 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-gold-400">
+                        Primary goal for this engagement
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            )}
+          </div>
+          <HrSoft className="my-6" />
+          <p className="text-[15px] leading-relaxed text-cream-200">
+            <span className="font-semibold text-cream-50">
+              Naming the goal is the most important thing on this slide.
+            </span>{" "}
+            For{" "}
+            <span className="font-display font-bold text-gold-400">
+              {config.client.shortName}
+            </span>
+            , the program below is built around{" "}
+            <span className="font-semibold text-cream-50">
+              {goal.label.toLowerCase()}
+            </span>
+            . Everything else — channels, creative, budget — flows from that.
+          </p>
+        </Panel>
+      </motion.div>
+
+      {/* Problems → Opportunities */}
+      <div className="mt-16 md:mt-20">
+        <SectionHeading
+          eyebrow="Problems → Opportunities"
+          title={<>Three things to fix. Three wins to take.</>}
+          subtitle="Every problem on the left is a sentence we've heard from operators in your seat. Every opportunity on the right is what we'd actually do about it."
+        />
+
+        <div className="mt-10 space-y-5 md:space-y-6">
+          {PROBLEMS.map((p, i) => (
+            <motion.div
+              key={p.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: Math.min(i * 0.06, 0.18) }}
+            >
+              <Panel motion={false}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="font-display text-3xl font-bold text-gold-500/30 md:text-4xl">
+                    {p.number}
+                  </div>
+                  <HrSoft className="flex-1" />
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2 md:gap-10">
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral">
+                      The Problem
+                    </div>
+                    <h3 className="mt-2 font-display text-xl font-bold text-cream-50 md:text-2xl">
+                      {p.problem}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-cream-200">
+                      {p.problemDetail}
+                    </p>
+                  </div>
+
+                  <div className="relative md:border-l md:border-line md:pl-10">
+                    <div className="absolute -left-3 top-0 hidden size-6 items-center justify-center rounded-full border border-gold-500/40 bg-bg-0 md:flex">
+                      <ArrowRight className="size-3 text-gold-400" />
+                    </div>
+                    <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-gold-500">
+                      The Opportunity
+                    </div>
+                    <h3 className="mt-2 font-display text-xl font-bold text-cream-50 md:text-2xl">
+                      {p.opportunity}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-cream-200">
+                      {p.opportunityDetail}
+                    </p>
+                  </div>
+                </div>
+              </Panel>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="mt-10 flex items-center gap-3 rounded-xl border border-emerald-500/15 bg-emerald-500/5 p-4 md:p-5"
+        transition={{ duration: 0.6 }}
+        className="mt-12 rounded-2xl border border-gold-500/30 bg-gold-soft p-6 md:p-8"
       >
-        <AlertCircle className="size-5 flex-shrink-0 text-emerald-400" />
-        <p className="text-sm text-emerald-200 md:text-base">
-          <span className="font-semibold text-emerald-100">
-            None of these are unfixable.
+        <p className="text-[15px] leading-relaxed text-cream-100 md:text-base">
+          <span className="font-display font-bold text-gold-400">
+            Next →
           </span>{" "}
-          They're being fixed in pieces, by different people. The next slide
-          shows the operating model that ties them together.
+          The Ecosystem slide shows the operating model that turns these three
+          opportunities into one program — instead of three vendors and three
+          invoices.
         </p>
       </motion.div>
-    </div>
-  );
-}
-
-function BigStat({
-  value,
-  label,
-  caption,
-}: {
-  value: string;
-  label: string;
-  caption: string;
-}) {
-  return (
-    <div>
-      <div className="stat-num text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl">
-        {value}
-      </div>
-      <div className="mt-1 text-xs font-medium text-ink-200/80 md:text-sm">
-        {label}
-      </div>
-      <div className="text-[10px] text-ink-300/60 md:text-xs">{caption}</div>
     </div>
   );
 }

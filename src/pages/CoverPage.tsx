@@ -2,10 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { config } from "../config/client";
-import { SERVICE_ORDER } from "../config/services";
+import { Logo } from "../components/Logo";
 
 export function CoverPage() {
-  const enabled = SERVICE_ORDER.filter((k) => config.services[k].enabled);
   const heroImage =
     config.brands[0]?.imageUrl ??
     "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80";
@@ -17,28 +16,33 @@ export function CoverPage() {
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0c0e18]/95 via-[#0c0e18]/55 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e18]/85 via-transparent to-[#0c0e18]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/55 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-[#0a0a0a]/30" />
 
-      <div className="relative z-10 flex min-h-screen flex-col justify-end px-6 pb-28 md:max-w-[55vw] md:px-16 md:pb-32 lg:px-24 2xl:max-w-[48vw]">
+      <div className="relative z-10 flex min-h-screen flex-col justify-end px-6 pb-28 md:max-w-[58vw] md:px-16 md:pb-32 lg:px-24 2xl:max-w-[50vw]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 inline-flex items-center gap-3"
         >
-          <div className="text-sm font-light tracking-[0.08em] text-ink-200/50 md:text-base">
-            Prepared for {config.client.preparedFor}
-          </div>
-          <div className="mt-3 text-xs font-semibold uppercase tracking-[0.22em] text-ink-50 md:text-sm">
-            {config.agency.name} · A Marketing Blueprint
-          </div>
+          <Logo size="md" withWordmark />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.05 }}
+          className="font-accent text-base italic text-gold-400 md:text-lg"
+        >
+          Prepared for {config.client.preparedFor}
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 font-semibold leading-[1.05] tracking-[-0.02em] text-ink-50 text-5xl md:text-6xl lg:text-7xl 2xl:text-[5.5rem]"
+          className="mt-4 font-display text-5xl font-bold leading-[1.04] tracking-[-0.04em] text-cream-50 md:text-6xl lg:text-7xl 2xl:text-[5.5rem]"
         >
           {config.client.name}
         </motion.h1>
@@ -47,11 +51,12 @@ export function CoverPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.25 }}
-          className="mt-7 max-w-xl text-base leading-relaxed text-ink-100/50 md:text-lg"
+          className="mt-6 max-w-xl text-base leading-[1.75] text-cream-200 md:text-[17px]"
         >
-          A complete {config.client.industry.toLowerCase()} growth program covering
-          organic social, paid media, and the website that ties them together —
-          designed to be built, run, and reported on by a single team.
+          A complete {config.client.industry.toLowerCase()} growth program built
+          around the three channels that actually move the needle — organic
+          social, paid media, and a website that ties them together. Run by one
+          team, reported in plain English.
         </motion.p>
 
         <motion.div
@@ -62,16 +67,16 @@ export function CoverPage() {
         >
           <Link
             to="/opportunities"
-            className="group inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-ink-50"
+            className="group inline-flex items-center gap-3 text-sm font-semibold tracking-wide text-cream-50"
           >
             <span>Begin walkthrough</span>
-            <span className="flex size-9 items-center justify-center rounded-full border border-ink-300/40 transition-all group-hover:border-ink-100 group-hover:bg-ink-50/10">
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+            <span className="flex size-9 items-center justify-center rounded-full border border-gold-500/40 bg-gold-soft transition-all group-hover:border-gold-400 group-hover:bg-gold-500/20">
+              <ArrowRight className="size-4 text-gold-400 transition-transform duration-300 group-hover:translate-x-0.5" />
             </span>
           </Link>
           <Link
             to="/lets-go"
-            className="text-sm text-ink-200/60 underline-offset-4 transition hover:text-ink-100 hover:underline"
+            className="text-sm text-cream-300 underline-offset-4 transition hover:text-cream-100 hover:underline"
           >
             Skip to proposal
           </Link>
@@ -81,35 +86,25 @@ export function CoverPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-16 flex flex-wrap gap-x-10 gap-y-3 border-t border-white/[0.08] pt-6"
+          className="mt-16 border-t border-line-soft pt-7"
         >
-          <Stat
-            value={String(config.brands.length)}
-            label={config.brands.length === 1 ? "Brand" : "Brands covered"}
-          />
-          <Stat value={String(enabled.length)} label="Channels in program" />
-          <Stat
-            value={
-              config.bundle.contractMonths
-                ? `${config.bundle.contractMonths} mo`
-                : "—"
-            }
-            label="Initial term"
-          />
-          <Stat value="1" label="Point of contact" />
+          <div className="eyebrow mb-5 text-[10px] tracking-[0.28em]">
+            Trusted by restaurants across {config.client.industry}
+          </div>
+          <div className="grid grid-cols-2 gap-x-8 gap-y-5 md:flex md:flex-wrap md:gap-x-12">
+            {config.agency.stats.map((s) => (
+              <div key={s.label}>
+                <div className="stat-num text-3xl md:text-4xl lg:text-[44px]">
+                  {s.value}
+                </div>
+                <div className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-cream-300">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <div className="bg-gradient-to-r from-ink-200 to-ink-100 bg-clip-text text-2xl font-bold tracking-tight text-transparent md:text-3xl lg:text-4xl">
-        {value}
-      </div>
-      <div className="mt-1 text-sm font-semibold text-ink-200/60">{label}</div>
-    </div>
   );
 }

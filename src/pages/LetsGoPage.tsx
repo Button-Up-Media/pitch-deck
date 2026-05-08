@@ -16,7 +16,7 @@ import { SERVICE_ORDER } from "../config/services";
 function blank(value: number | null, prefix = "$") {
   if (value === null || value === 0) {
     return (
-      <span className="inline-block rounded-md border border-dashed border-ink-300/40 bg-ink-700/30 px-3 py-1 text-base font-normal text-ink-300">
+      <span className="inline-block rounded-md border border-dashed border-cream-300/40 bg-bg-2 px-3 py-1 text-base font-normal text-cream-300">
         ____
       </span>
     );
@@ -53,19 +53,19 @@ const PILLARS: { icon: LucideIcon; label: string; sub: string; accent: string }[
     icon: Megaphone,
     label: "Organic Social",
     sub: "Community + content engine",
-    accent: "from-pink-400 to-rose-500",
+    accent: "from-coral to-gold-500",
   },
   {
     icon: Target,
     label: "Paid Media",
     sub: "Meta, TikTok, and Google in lockstep",
-    accent: "from-violet-400 to-purple-500",
+    accent: "from-teal to-gold-500",
   },
   {
     icon: Globe,
     label: "Website",
     sub: "The conversion point, fully maintained",
-    accent: "from-cyan-400 to-blue-500",
+    accent: "from-gold-400 to-gold-600",
   },
 ];
 
@@ -95,15 +95,15 @@ export function LetsGoPage() {
         <Panel motion={false}>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-200">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold-500/40 bg-gold-soft px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-gold-400">
                 <Sparkles className="size-3" />
                 Recommended for {config.client.shortName}
               </div>
 
-              <h3 className="mt-5 text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-ink-50 md:text-4xl lg:text-5xl">
+              <h3 className="mt-5 font-display text-3xl font-bold leading-[1.08] tracking-[-0.03em] text-cream-50 md:text-4xl lg:text-5xl">
                 The All-In-One Program
               </h3>
-              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-200/70 md:text-base">
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-cream-200 md:text-base">
                 The fastest way to fix every gap from the Opportunities slide,
                 the cleanest way to operate, and almost always the cheapest.
                 One contract, one invoice, one strategist who owns the whole
@@ -114,36 +114,34 @@ export function LetsGoPage() {
                 {PILLARS.map((p) => (
                   <div
                     key={p.label}
-                    className="flex items-center gap-4 rounded-xl border border-ink-400/15 bg-ink-700/30 p-4"
+                    className="flex items-center gap-4 rounded-xl border border-line bg-bg-2 p-4"
                   >
                     <div
                       className={`flex size-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${p.accent} shadow-md`}
                     >
-                      <p.icon className="size-5 text-ink-900" strokeWidth={2.4} />
+                      <p.icon className="size-5 text-bg-0" strokeWidth={2.4} />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold text-ink-50">
+                      <div className="font-display text-sm font-bold text-cream-50">
                         {p.label}
                       </div>
-                      <div className="text-xs text-ink-300/70">{p.sub}</div>
+                      <div className="text-xs text-cream-300">{p.sub}</div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-2xl border border-ink-400/15 bg-gradient-to-br from-ink-700/70 to-ink-800/70 p-6 md:p-8">
-              <div className="text-[10px] font-medium uppercase tracking-[0.22em] text-ink-300/70">
-                The Investment
-              </div>
+            <div className="rounded-2xl border border-gold-500/20 bg-gradient-to-br from-bg-3 to-bg-2 p-6 md:p-8">
+              <div className="eyebrow">The Investment</div>
 
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-5xl font-semibold tracking-tight text-ink-50 md:text-6xl">
+                <span className="stat-num text-5xl md:text-6xl">
                   {blank(config.bundle.monthlyPrice)}
                 </span>
-                <span className="text-sm text-ink-300/70">/ month</span>
+                <span className="text-sm text-cream-300">/ month</span>
               </div>
-              <p className="mt-1 text-xs text-ink-300/60">
+              <p className="mt-1 text-xs text-cream-300">
                 All channels, fully managed. Ad spend billed separately at cost.
               </p>
 
@@ -170,13 +168,13 @@ export function LetsGoPage() {
               <div className="mt-7 flex flex-col gap-2">
                 <a
                   href={`mailto:${config.agency.contactEmail}?subject=Pitch%20deck%20—%20Let's%20go`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-ink-200 to-ink-50 px-5 py-3 text-sm font-semibold text-ink-900 shadow-lg transition hover:shadow-ink-200/30"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 px-5 py-3 text-sm font-bold text-bg-0 shadow-lg transition hover:from-gold-300 hover:to-gold-400"
                 >
                   Sign & Schedule Kickoff
                 </a>
                 <a
                   href={`tel:${config.agency.contactPhone.replace(/[^0-9]/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-ink-400/15 bg-ink-700/40 px-5 py-3 text-sm font-medium text-ink-100 transition hover:bg-ink-700/60"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-bg-2 px-5 py-3 text-sm font-medium text-cream-100 transition hover:bg-bg-3"
                 >
                   <Phone className="size-4" />
                   Talk it through first
@@ -204,14 +202,14 @@ export function LetsGoPage() {
             >
               <Panel padding="compact" motion={false}>
                 <div className="flex items-start gap-4">
-                  <div className="mt-0.5 flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-400/30">
-                    <Check className="size-3.5 text-emerald-300" strokeWidth={3} />
+                  <div className="mt-0.5 flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/15 ring-1 ring-gold-500/30">
+                    <Check className="size-3.5 text-gold-400" strokeWidth={3} />
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-ink-50 md:text-lg">
+                    <h3 className="font-display text-base font-bold text-cream-50 md:text-lg">
                       {r.title}
                     </h3>
-                    <p className="mt-1.5 text-[15px] font-medium leading-relaxed text-ink-200/70">
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-cream-200">
                       {r.body}
                     </p>
                   </div>
@@ -227,14 +225,14 @@ export function LetsGoPage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="mt-16 rounded-3xl border border-emerald-400/20 bg-gradient-to-br from-emerald-500/10 to-teal-500/5 p-8 md:mt-20 md:p-12"
+        className="mt-16 rounded-3xl border border-gold-500/30 bg-gradient-to-br from-gold-500/10 to-coral/5 p-8 md:mt-20 md:p-12"
       >
-        <p className="max-w-3xl text-balance text-2xl font-medium leading-snug text-ink-50 md:text-3xl">
-          Marketing isn't a vendor relationship. It's a partnership — and from
-          the moment this is signed, your win is our only metric.
+        <p className="font-accent max-w-3xl text-balance text-2xl italic leading-snug text-cream-50 md:text-3xl">
+          "Marketing isn't a vendor relationship. It's a partnership — and from
+          the moment this is signed, your win is our only metric."
         </p>
         <HrSoft className="my-6" />
-        <p className="text-sm text-ink-200/60">— {config.agency.name}</p>
+        <p className="text-sm text-cream-300">— {config.agency.name}</p>
       </motion.div>
     </div>
   );
@@ -248,9 +246,9 @@ function PriceRow({
   value: React.ReactNode;
 }) {
   return (
-    <div className="flex items-baseline justify-between border-t border-ink-400/10 py-2.5 first:border-t-0">
-      <span className="text-sm text-ink-300/70">{label}</span>
-      <span className="text-right text-sm font-medium text-ink-100">{value}</span>
+    <div className="flex items-baseline justify-between border-t border-line-soft py-2.5 first:border-t-0">
+      <span className="text-sm text-cream-300">{label}</span>
+      <span className="text-right text-sm font-medium text-cream-100">{value}</span>
     </div>
   );
 }

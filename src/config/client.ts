@@ -2,11 +2,12 @@
  * THE ONLY FILE YOU NEED TO EDIT TO CREATE A NEW PITCH DECK.
  *
  * Workflow per client:
- *   1. Update `client` with the new client's details
- *   2. Add/remove brands in `brands` (supports 1, 2, 3+ brands)
- *   3. On each service set `enabled: true/false` based on the discovery call
- *   4. Set per-service prices in `monthlyPrice` (used on the Value slide)
- *   5. Set bundle pricing fields (or leave at 0 to fill in by hand later)
+ *   1. Update `client` with the client's details + the problems you uncovered
+ *      in the discovery call
+ *   2. Add/remove brands in `brands` (supports 1, 2, 3+)
+ *   3. Toggle services on/off based on what's being pitched
+ *   4. Set per-service prices on the Value slide
+ *   5. Set bundle pricing (or leave null to render blank lines)
  */
 
 export type Brand = {
@@ -28,6 +29,12 @@ export type ServiceConfig = {
   monthlyPrice: number;
 };
 
+/** Two common starting points for the kind of clients we work with. */
+export type ClientPath = "wordOfMouth" | "burnedByPriorAgency" | "custom";
+
+/** What the client actually wants their marketing to do. */
+export type GrowthGoal = "acquisition" | "brandValidity" | "retention";
+
 export type Config = {
   client: {
     name: string;
@@ -35,12 +42,18 @@ export type Config = {
     industry: string;
     preparedFor: string;
     decisionDate: string;
+    /** Where the client is starting from (drives the Opportunities page) */
+    path: ClientPath;
+    /** What outcome they actually care about most */
+    primaryGoal: GrowthGoal;
   };
   agency: {
     name: string;
     tagline: string;
     contactEmail: string;
     contactPhone: string;
+    /** Hero stats — shown on the cover. Edit per pitch if needed. */
+    stats: { value: string; label: string }[];
   };
   brands: Brand[];
   services: Record<ServiceKey, ServiceConfig>;
@@ -59,6 +72,8 @@ export const config: Config = {
     industry: "Hospitality",
     preparedFor: "Client Leadership Team",
     decisionDate: "Q3 2026",
+    path: "wordOfMouth",
+    primaryGoal: "acquisition",
   },
 
   agency: {
@@ -66,6 +81,12 @@ export const config: Config = {
     tagline: "Marketing built for hospitality",
     contactEmail: "hello@buttonupmedia.com",
     contactPhone: "(555) 123-4567",
+    stats: [
+      { value: "50+", label: "Restaurants Served" },
+      { value: "80M+", label: "Social Media Views" },
+      { value: "12X", label: "Avg Return on Ad Spend" },
+      { value: "90%", label: "Client Retention" },
+    ],
   },
 
   brands: [
@@ -85,8 +106,6 @@ export const config: Config = {
     },
   ],
 
-  // Toggle services on/off depending on what was discussed in the discovery call.
-  // monthlyPrice is shown on the Value slide. Set to 0 to leave it blank.
   services: {
     organicSocial: { enabled: true, monthlyPrice: 2500 },
     paidSocial: { enabled: true, monthlyPrice: 3500 },
@@ -95,8 +114,6 @@ export const config: Config = {
     seo: { enabled: false, monthlyPrice: 2000 },
   },
 
-  // Bundle = "all-in-one" pitch on the final slide.
-  // Leave any field as null to render a blank line for the salesperson to fill in.
   bundle: {
     enabled: true,
     monthlyPrice: null,

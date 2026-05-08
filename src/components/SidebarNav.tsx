@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useDeckOrder, SLIDE_LABELS } from "../lib/useDeckOrder";
 import { SERVICES, SERVICE_ORDER } from "../config/services";
 import { config } from "../config/client";
+import { Logo } from "./Logo";
 
 function labelFor(path: string) {
   if (SLIDE_LABELS[path]) return SLIDE_LABELS[path];
@@ -17,19 +18,22 @@ export function SidebarNav() {
 
   return (
     <aside className="fixed right-0 top-0 z-40 hidden h-screen w-64 md:block xl:w-72">
-      <div className="absolute left-0 top-1/2 h-72 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-ink-400/30 to-transparent" />
+      <div className="absolute left-0 top-1/2 h-72 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-gold-500/20 to-transparent" />
       <div className="relative flex h-full flex-col px-5 pt-10 xl:px-7 xl:pt-12">
-        <div className="flex flex-col leading-none">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-200">
-            {config.agency.name}
-          </span>
-          <span className="mt-1.5 text-[10px] tracking-[0.18em] text-ink-300/70">
-            for {config.client.shortName}
-          </span>
+        <div className="flex items-center gap-3">
+          <Logo size="md" />
+          <div className="flex flex-col leading-tight">
+            <span className="font-display text-[13px] font-bold tracking-[-0.02em] text-cream-50">
+              {config.agency.name}
+            </span>
+            <span className="text-[10px] tracking-[0.18em] text-cream-300">
+              for {config.client.shortName}
+            </span>
+          </div>
         </div>
 
-        <div className="mt-10 flex-1 space-y-0.5 overflow-y-auto nav-scroll">
-          <div className="mb-3 text-[10px] font-medium uppercase tracking-[0.22em] text-ink-300/60">
+        <div className="nav-scroll mt-10 flex-1 space-y-0.5 overflow-y-auto">
+          <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-cream-300">
             Slides
           </div>
           {order.map((path, i) => {
@@ -40,13 +44,13 @@ export function SidebarNav() {
                 to={path}
                 className={`group flex items-center gap-3 rounded-lg py-2 pl-2 pr-2 transition-colors ${
                   active
-                    ? "bg-ink-500/15 text-ink-50"
-                    : "text-ink-300/60 hover:text-ink-100"
+                    ? "bg-gold-soft text-cream-50"
+                    : "text-cream-300 hover:text-cream-100"
                 }`}
               >
                 <span
-                  className={`w-7 text-[10px] font-mono tracking-wider ${
-                    active ? "text-ink-200" : "text-ink-300/40"
+                  className={`w-7 font-display text-[10px] tracking-wider ${
+                    active ? "text-gold-400" : "text-cream-300/60"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
@@ -54,11 +58,11 @@ export function SidebarNav() {
                 <span
                   className={`block h-px flex-shrink-0 transition-all ${
                     active
-                      ? "w-4 bg-ink-200"
-                      : "w-2 bg-ink-300/30 group-hover:w-3 group-hover:bg-ink-200/60"
+                      ? "w-4 bg-gold-500"
+                      : "w-2 bg-cream-300/30 group-hover:w-3 group-hover:bg-gold-500/60"
                   }`}
                 />
-                <span className="truncate text-[13px] font-medium">
+                <span className="truncate text-[13px] font-semibold">
                   {labelFor(path)}
                 </span>
               </Link>
@@ -66,7 +70,7 @@ export function SidebarNav() {
           })}
         </div>
 
-        <div className="border-t border-ink-400/10 px-2 py-5 text-[10px] tracking-wider text-ink-300/40">
+        <div className="border-t border-line-soft px-2 py-5 text-[10px] tracking-wider text-cream-300/60">
           Use ← → to navigate
         </div>
       </div>
@@ -84,12 +88,12 @@ export function MobileNav() {
   const next = order[idx + 1];
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-ink-400/10 bg-[rgba(12,14,24,0.92)] backdrop-blur-md md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-line-soft bg-[rgba(10,10,10,0.92)] backdrop-blur-md md:hidden">
       <div className="flex items-center justify-between px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <button
           onClick={() => prev && navigate(prev)}
           disabled={!prev}
-          className="flex min-w-0 items-center gap-2 text-ink-200/60 transition-colors active:text-ink-50 disabled:opacity-30"
+          className="flex min-w-0 items-center gap-2 text-cream-300 transition-colors active:text-cream-50 disabled:opacity-30"
           aria-label="Previous slide"
         >
           <ArrowLeft className="size-5 flex-shrink-0" />
@@ -97,13 +101,13 @@ export function MobileNav() {
             {prev ? labelFor(prev) : "—"}
           </span>
         </button>
-        <span className="px-3 text-[10px] tracking-widest text-ink-300/60">
+        <span className="px-3 font-display text-[10px] tracking-widest text-gold-400">
           {String(idx + 1).padStart(2, "0")} / {String(order.length).padStart(2, "0")}
         </span>
         <button
           onClick={() => next && navigate(next)}
           disabled={!next}
-          className="flex min-w-0 items-center justify-end gap-2 text-ink-100 transition-colors active:text-ink-50 disabled:opacity-30"
+          className="flex min-w-0 items-center justify-end gap-2 text-cream-100 transition-colors active:text-cream-50 disabled:opacity-30"
           aria-label="Next slide"
         >
           <span className="truncate text-[13px] font-semibold">
