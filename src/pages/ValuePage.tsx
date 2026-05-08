@@ -1,22 +1,41 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Star } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel, HrSoft } from "../components/Panel";
 import { config } from "../config/client";
 import { SERVICES, SERVICE_ORDER } from "../config/services";
 
-function fmt(n: number) {
-  if (!n) return null;
-  return `$${n.toLocaleString()}`;
+/** Renders [__] markers in deliverable strings as highlighted template blanks */
+function DeliverableText({ text }: { text: string }) {
+  const parts = text.split(/(\[__\])/);
+  return (
+    <>
+      {parts.map((part, i) =>
+        part === "[__]" ? (
+          <span
+            key={i}
+            className="inline-block rounded border border-dashed border-gold-400/60 bg-gold-500/10 px-1 font-mono text-[10px] font-bold leading-none text-gold-300"
+          >
+            ___
+          </span>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+}
+
+function BlankPrice() {
+  return (
+    <span className="inline-flex items-center rounded-lg border border-dashed border-gold-400/50 bg-gold-500/10 px-3 py-1.5 font-mono text-sm font-bold text-gold-300">
+      ___
+    </span>
+  );
 }
 
 export function ValuePage() {
   const enabled = SERVICE_ORDER.filter((k) => config.services[k].enabled);
-  const totalMonthly = enabled.reduce(
-    (sum, k) => sum + (config.services[k].monthlyPrice || 0),
-    0
-  );
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 pb-32 md:px-8 md:py-20 md:pb-28 lg:px-16 2xl:px-20">
@@ -28,14 +47,18 @@ export function ValuePage() {
             <span className="block shimmer-text">for each piece.</span>
           </>
         }
-        subtitle="Each channel is priced as a standalone monthly investment, so you can see exactly what each piece contributes and what it costs to run."
+        subtitle="Each service is priced as a standalone monthly investment, so you can see exactly what each piece contributes and what it costs to run."
       />
 
       <div className="mt-12 space-y-5 md:mt-16">
         {enabled.map((key, i) => {
           const svc = SERVICES[key];
-          const price = config.services[key].monthlyPrice;
+          const cfg = config.services[key];
           const Icon = svc.icon;
+          const price = cfg.monthlyPrice;
+
+          const isSubService = key === "websiteManagement";
+
           return (
             <motion.div
               key={key}
@@ -44,37 +67,64 @@ export function ValuePage() {
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: Math.min(i * 0.05, 0.2) }}
             >
-              <Panel motion={false}>
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                  <div className="flex items-center gap-4">
+              {/* visual connector for sub-service */}
+              {isSubService && (
+                <div className="mb-1 ml-8 flex items-center gap-2">
+                  <div className="h-5 w-px bg-gradient-to-b from-gold-500/30 to-transparent" />
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-400/60">
+                    add-on
+                  </span>
+                </div>
+              )}
+
+              <Panel motion={false} className={isSubService ? "ml-6 border-l-2 border-l-gold-500/20" : ""}>
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div className="flex items-start gap-4">
                     <div
                       className={`flex size-11 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${svc.accent} shadow-md`}
                     >
                       <Icon className="size-5 text-bg-0" strokeWidth={2.4} />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-bold text-cream-50 md:text-xl">
-                        {svc.label}
-                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="font-display text-lg font-bold text-cream-50 md:text-xl">
+                          {svc.label}
+                        </h3>
+                        {cfg.recommended && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-gold-500/15 px-2 py-0.5 font-display text-[10px] font-bold uppercase tracking-wider text-gold-400">
+                            <Star className="size-2.5" fill="currentColor" />
+                            Our Recommendation
+                          </span>
+                        )}
+                      </div>
                       <p className="mt-0.5 text-[14px] text-cream-200">
                         {svc.subhead}
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-start sm:items-end">
-                    {price > 0 ? (
-                      <>
-                        <span className="stat-num text-3xl md:text-4xl">
-                          {fmt(price)}
-                        </span>
-                        <span className="text-xs text-cream-300">
-                          per month
-                        </span>
-                      </>
-                    ) : (
+
+                  <div className="flex flex-col items-start sm:items-end sm:text-right">
+                    {price === null ? (
+                      <div className="flex flex-col items-start gap-1 sm:items-end">
+                        <BlankPrice />
+                        <span className="text-xs text-cream-300">per month</span>
+                      </div>
+                    ) : price === 0 ? (
                       <span className="rounded-full bg-gold-500/12 px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wider text-gold-400">
                         Custom quote
                       </span>
+                    ) : (
+                      <div className="flex flex-col items-start gap-0.5 sm:items-end">
+                        <span className="stat-num text-3xl md:text-4xl">
+                          ${price.toLocaleString()}
+                        </span>
+                        <span className="text-xs text-cream-300">per month</span>
+                        {cfg.priceNote && (
+                          <span className="mt-0.5 text-[11px] leading-tight text-cream-300/70">
+                            {cfg.priceNote}
+                          </span>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -92,7 +142,7 @@ export function ValuePage() {
                         />
                       </div>
                       <span className="text-[13px] leading-relaxed text-cream-200">
-                        {d}
+                        <DeliverableText text={d} />
                       </span>
                     </li>
                   ))}
@@ -103,42 +153,22 @@ export function ValuePage() {
         })}
       </div>
 
+      {/* template legend */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6 }}
-        className="mt-12 md:mt-16"
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mt-8"
       >
-        <Panel motion={false}>
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
-            <div>
-              <div className="eyebrow">A la carte total</div>
-              <h3 className="mt-2 font-display text-2xl font-bold text-cream-50 md:text-3xl">
-                Run as separate engagements
-              </h3>
-              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-cream-200 md:text-base">
-                The full program priced as standalone services. The next slide
-                shows the bundle, and why most clients choose it.
-              </p>
-            </div>
-            <div className="text-left md:text-right">
-              <div className="stat-num text-4xl md:text-5xl lg:text-6xl">
-                {fmt(totalMonthly) ?? "$0"}
-              </div>
-              <div className="mt-1 text-sm text-cream-300">per month</div>
-            </div>
-          </div>
-          <HrSoft className="my-6" />
-          <Link
-            to="/lets-go"
-            className="group inline-flex items-center gap-3 font-semibold text-cream-50"
-          >
-            <Sparkles className="size-4 text-gold-400" />
-            <span>See the bundle pricing</span>
-            <ArrowRight className="size-4 text-gold-400 transition-transform duration-300 group-hover:translate-x-0.5" />
-          </Link>
-        </Panel>
+        <div className="flex items-center gap-3 rounded-xl border border-dashed border-gold-400/30 bg-gold-500/5 px-4 py-3">
+          <span className="inline-block rounded border border-dashed border-gold-400/60 bg-gold-500/10 px-1.5 font-mono text-[10px] font-bold text-gold-300">
+            ___
+          </span>
+          <p className="text-[12px] text-cream-300">
+            Highlighted blanks are template fields — fill these in before presenting to a client.
+          </p>
+        </div>
       </motion.div>
     </div>
   );

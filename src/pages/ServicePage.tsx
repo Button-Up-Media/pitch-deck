@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel } from "../components/Panel";
+import { DeviceMockupHero } from "../components/DeviceMockupHero";
 import { SERVICES } from "../config/services";
 import type { ServiceKey } from "../config/client";
 
@@ -12,13 +13,19 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
   return (
     <div className="relative">
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden md:h-[60vh]">
-        <img
-          src={svc.imageUrl}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+        {svc.heroVariant === "deviceMockup" ? (
+          <DeviceMockupHero />
+        ) : (
+          <>
+            <img
+              src={svc.imageUrl}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/55 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent" />
+          </>
+        )}
 
         <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-12 md:max-w-[60vw] md:px-16 md:pb-16 lg:px-24">
           <motion.div

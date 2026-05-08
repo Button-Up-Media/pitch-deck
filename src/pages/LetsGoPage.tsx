@@ -4,8 +4,9 @@ import {
   Sparkles,
   Phone,
   Megaphone,
-  Target,
+  Search,
   Globe,
+  Settings,
   type LucideIcon,
 } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
@@ -56,16 +57,22 @@ const PILLARS: { icon: LucideIcon; label: string; sub: string; accent: string }[
     accent: "from-coral to-gold-500",
   },
   {
-    icon: Target,
-    label: "Paid Advertising",
-    sub: "Google, Meta, and TikTok in lockstep",
-    accent: "from-teal to-gold-500",
+    icon: Search,
+    label: "Google Ads",
+    sub: "Intent capture at the moment of decision",
+    accent: "from-gold-400 to-gold-600",
   },
   {
     icon: Globe,
     label: "Website + SEO",
     sub: "The conversion point, fully optimized",
-    accent: "from-gold-400 to-gold-600",
+    accent: "from-gold-500 to-coral",
+  },
+  {
+    icon: Settings,
+    label: "Website Management",
+    sub: "Campaign landing pages + batch updates",
+    accent: "from-gold-500 to-coral",
   },
 ];
 
@@ -129,6 +136,20 @@ export function LetsGoPage() {
                     </div>
                   </div>
                 ))}
+                {/* Social Ads add-on note */}
+                <div className="flex items-center gap-4 rounded-xl border border-dashed border-line/60 bg-bg-1 p-4 opacity-70">
+                  <div className="flex size-10 flex-shrink-0 items-center justify-center rounded-xl border border-dashed border-cream-300/20 bg-bg-2">
+                    <span className="text-xs text-cream-300/60">+</span>
+                  </div>
+                  <div>
+                    <div className="font-display text-sm font-bold text-cream-300">
+                      Social Ads
+                    </div>
+                    <div className="text-xs text-cream-300/60">
+                      Meta + TikTok — available as a separate add-on
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 

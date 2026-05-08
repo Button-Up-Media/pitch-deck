@@ -6,7 +6,7 @@
  *      in the discovery call
  *   2. Add/remove brands in `brands` (supports 1, 2, 3+)
  *   3. Toggle services on/off based on what's being pitched
- *   4. Set per-service prices on the Value slide
+ *   4. Set per-service prices on the Value slide (null = blank/TBD in template)
  *   5. Set bundle pricing (or leave null to render blank lines)
  */
 
@@ -22,11 +22,17 @@ export type ServiceKey =
   | "paidSocial"
   | "googleAds"
   | "websiteCreation"
+  | "websiteManagement"
   | "seo";
 
 export type ServiceConfig = {
   enabled: boolean;
-  monthlyPrice: number;
+  /** null = blank template field; 0 = custom quote; >0 = fixed price */
+  monthlyPrice: number | null;
+  /** Shows "Our Recommendation" badge on the Value slide */
+  recommended?: boolean;
+  /** Small note shown beneath the price (e.g. "management fee · budget billed separately") */
+  priceNote?: string;
 };
 
 /** Two common starting points for the kind of clients we work with. */
@@ -42,9 +48,7 @@ export type Config = {
     industry: string;
     preparedFor: string;
     decisionDate: string;
-    /** Where the client is starting from (drives the Opportunities page) */
     path: ClientPath;
-    /** What outcome they actually care about most */
     primaryGoal: GrowthGoal;
   };
   agency: {
@@ -52,7 +56,6 @@ export type Config = {
     tagline: string;
     contactEmail: string;
     contactPhone: string;
-    /** Hero stats shown on the cover. Edit per pitch if needed. */
     stats: { value: string; label: string }[];
   };
   brands: Brand[];
@@ -107,11 +110,16 @@ export const config: Config = {
   ],
 
   services: {
-    organicSocial: { enabled: true, monthlyPrice: 2500 },
-    paidSocial: { enabled: true, monthlyPrice: 3500 },
-    googleAds: { enabled: false, monthlyPrice: 3000 },
-    websiteCreation: { enabled: true, monthlyPrice: 0 },
-    seo: { enabled: false, monthlyPrice: 2000 },
+    organicSocial: { enabled: true, monthlyPrice: null, recommended: true },
+    googleAds: {
+      enabled: true,
+      monthlyPrice: 500,
+      priceNote: "management fee · budget billed separately",
+    },
+    paidSocial: { enabled: true, monthlyPrice: null },
+    websiteCreation: { enabled: true, monthlyPrice: null },
+    websiteManagement: { enabled: true, monthlyPrice: null },
+    seo: { enabled: false, monthlyPrice: null },
   },
 
   bundle: {

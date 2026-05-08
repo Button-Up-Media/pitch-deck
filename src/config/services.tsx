@@ -3,6 +3,7 @@ import {
   Target,
   Search,
   Globe,
+  Settings,
   TrendingUp,
   type LucideIcon,
 } from "lucide-react";
@@ -21,8 +22,11 @@ export type ServiceMeta = {
   problem: string;
   solution: string;
   pillars: { title: string; body: string }[];
+  /** Use [__] as a placeholder marker — rendered as a highlighted blank on the Value slide */
   deliverables: string[];
   imageUrl: string;
+  /** "deviceMockup" renders a CSS laptop+phone hero instead of an image */
+  heroVariant?: "deviceMockup";
   processVideo?: { title: string; description: string; url: string };
 };
 
@@ -62,12 +66,12 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
       },
     ],
     deliverables: [
-      "20+ posts per brand per month across IG and TikTok",
-      "8+ Reels per brand per month",
-      "Daily Stories with conversion and social proof mix",
-      "On-location content shoot every six weeks",
-      "Community management within a four-hour response window",
-      "Monthly performance report with strategic recommendations",
+      "[__] posts per brand per month across IG, TikTok, and Facebook",
+      "[__] Reels per brand per month",
+      "[__] Stories per month with conversion and social proof mix",
+      "On-location content shoots — [__] per month",
+      "Daily community management",
+      "Performance reporting with strategic recommendations",
     ],
     imageUrl: "/images/bts-shoot.jpeg",
     processVideo: {
@@ -78,52 +82,6 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     },
   },
 
-  paidSocial: {
-    key: "paidSocial",
-    label: "Paid Advertising",
-    short: "Paid Ads",
-    route: "/paid-advertising",
-    icon: Target,
-    accent: "from-teal to-gold-500",
-    headline: "When you need customers this week, advertising is the fastest lever.",
-    subhead:
-      "Conversion-focused campaigns across Google, Meta, and TikTok that capture people actively deciding where to eat.",
-    ecosystemRole:
-      "Direct response: captures high-intent guests through search and puts your restaurant in front of ready-to-act audiences on social. The fastest channel to fill seats.",
-    problem:
-      "Boosting random posts and hoping. Running Google Ads with keywords too broad, targeting too wide, and no conversion tracking. Spend evaporates without proof of return.",
-    solution:
-      "Full-funnel advertising: Google Ads capture people searching 'best brunch near me' right now, while Meta and TikTok ads warm up the next wave. Every dollar tracked to a reservation, call, or inquiry.",
-    pillars: [
-      {
-        title: "Google Ads: Capture Intent",
-        body: "When someone searches 'Italian restaurant near me,' they decide in minutes. We bid on cuisine keywords, occasion targeting, geo-fencing, and brand protection to be there at the moment of decision.",
-      },
-      {
-        title: "Meta & TikTok Ads: Create Demand",
-        body: "Social ads put your restaurant in front of the right audience before they search. Local awareness, event promos, retargeting past visitors, and lead generation for private events.",
-      },
-      {
-        title: "Retargeting & Local Discovery",
-        body: "Website visitors, video viewers, and ad engagers get followed up with precision. Maps placement and local pack ads drive foot traffic from people already nearby.",
-      },
-      {
-        title: "ROI Reporting in Plain English",
-        body: "Every conversion type tracked: reservations, calls, directions, online orders. Monthly reports show impressions, clicks, conversions, cost per conversion, and ROAS.",
-      },
-    ],
-    deliverables: [
-      "Google Ads campaigns: branded defense, high-intent keywords, Performance Max",
-      "Meta and TikTok campaigns built and managed",
-      "Retargeting campaigns across all platforms",
-      "Local Discovery and Maps advertising",
-      "Conversion tracking for reservations, calls, and forms",
-      "Monthly ROI report with full ROAS visibility",
-    ],
-    imageUrl:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80",
-  },
-
   googleAds: {
     key: "googleAds",
     label: "Google Ads",
@@ -131,43 +89,83 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/google-ads",
     icon: Search,
     accent: "from-gold-400 to-gold-600",
-    headline: "Catch guests at the moment of decision",
+    headline: "Catch guests the moment they decide.",
     subhead:
-      "Search, Performance Max, and YouTube campaigns that show up the second a guest types in 'best brunch near me.'",
+      "Search campaigns that put your restaurant at the top when someone types 'best brunch near me'—and track every click back to a reservation.",
     ecosystemRole:
-      "Pure intent capture. The high-conversion channel that fields the guests who already know what they want.",
+      "Pure intent capture. The highest-conversion channel: fields guests who've already decided they want to go out and are choosing between options right now.",
     problem:
-      "Competitors are bidding on the brand name, and high-intent searches are sending guests to whoever pays for the click.",
+      "Competitors bidding on your brand name. High-intent searches sending guests to whoever pays the click. Campaigns too broad to measure, budget disappearing with nothing to show for it.",
     solution:
-      "Branded defense, high-intent prospecting, and Performance Max campaigns that show up across Search, Maps, YouTube, and Display, wherever the guest is researching.",
+      "Branded defense, high-intent keyword campaigns, and Performance Max across Search, Maps, and YouTube. A poorly managed $5,000 campaign loses money. A well-optimized $1,500 campaign generates significant ROI. We run the second kind.",
     pillars: [
       {
         title: "Branded Search Defense",
-        body: "Bid on brand terms so competitors can't intercept guests who already know who you are.",
+        body: "Bid on your own brand terms so competitors can't intercept guests who already know your name. Every search for your restaurant should land on your site.",
       },
       {
-        title: "High-Intent Keywords",
-        body: "Date night, occasion dining, cuisine and city, and 'near me' queries, captured at the exact moment of decision.",
+        title: "Cuisine & Occasion Keywords",
+        body: "Date night, private events, 'near me' queries, and cuisine-specific searches—captured at the exact moment of decision. These are people ready to book in minutes.",
       },
       {
-        title: "Performance Max & YouTube",
-        body: "AI-driven campaigns spanning Search, Maps, Display, and YouTube. One campaign, every surface.",
+        title: "Performance Max & Maps",
+        body: "AI-driven campaigns that span Search, Maps, Display, and YouTube from a single campaign structure. One setup, every surface where guests are making decisions.",
       },
       {
-        title: "Call & Reservation Tracking",
-        body: "Every click tied to a reservation, call, or visit so the spend ties back to revenue.",
+        title: "Revenue-First Reporting",
+        body: "Every click tied to a reservation, call, or direction request. Monthly ROAS report shows impressions, conversions, cost per conversion, and revenue tracked. No vanity metrics.",
       },
     ],
     deliverables: [
-      "Branded + non-branded Search campaigns per brand",
-      "Performance Max campaign with curated assets",
-      "Local Service Ads where applicable",
+      "Google Ads campaigns: branded defense, high-intent keywords, Performance Max",
+      "Local Discovery and Maps advertising",
       "Conversion tracking for reservations, calls, and forms",
-      "Negative keyword maintenance to eliminate wasted spend",
-      "Monthly performance and budget allocation review",
+      "Monthly ROI report with full ROAS visibility",
     ],
     imageUrl:
       "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
+  },
+
+  paidSocial: {
+    key: "paidSocial",
+    label: "Social Ads",
+    short: "Social Ads",
+    route: "/social-ads",
+    icon: Target,
+    accent: "from-teal to-gold-500",
+    headline: "Put your restaurant in front of who's ready to book.",
+    subhead:
+      "Meta and TikTok campaigns that create demand—reaching the right local audience before they even start searching.",
+    ecosystemRole:
+      "Demand creation: builds awareness and intent before a guest ever searches. Works with organic content to retarget warm audiences and close the loop on private event inquiries.",
+    problem:
+      "Boosted posts with no targeting precision, no conversion tracking, and no optimization. Spend evaporates and there's no visibility into what it produced.",
+    solution:
+      "Full-funnel Meta and TikTok campaigns: local awareness, event promos, retargeting past visitors, and lead generation for private dining. Social ads don't capture demand—they create it. Every dollar tracked to a reservation or inquiry.",
+    pillars: [
+      {
+        title: "Local Awareness & Discovery",
+        body: "Put the restaurant in front of the right audience in the right radius. Location-based targeting on Meta and TikTok that builds brand awareness before guests start searching.",
+      },
+      {
+        title: "Event & Seasonal Campaigns",
+        body: "Holiday promos, special menus, and private dining campaigns timed to peak demand. The right creative, the right audience, the right window.",
+      },
+      {
+        title: "Retargeting Past Visitors",
+        body: "Website visitors, video viewers, and Instagram engagers get followed up with precision. People who already know you are far more likely to book—retargeting converts that warm intent.",
+      },
+      {
+        title: "Private Events Lead Generation",
+        body: "Form-based campaigns on Meta that capture private event inquiries directly—name, date, party size, contact—delivered as leads before they consider a competitor.",
+      },
+    ],
+    deliverables: [
+      "Meta and TikTok campaigns built and managed",
+      "Conversion tracking for reservations and inquiries",
+      "Monthly ROI report with full ROAS visibility",
+    ],
+    imageUrl: "/images/dining-scene.jpg",
   },
 
   websiteCreation: {
@@ -177,44 +175,86 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/website",
     icon: Globe,
     accent: "from-gold-500 to-coral",
-    headline: "The conversion point that also gets found.",
+    headline: "Found first. Built to convert.",
     subhead:
-      "Custom-built, mobile-first sites designed for conversions, backed by local SEO that puts you at the top of every search that matters.",
+      "A mobile-first site designed around reservations and orders—backed by local SEO and AEO that puts you at the top of Google and AI search.",
     ecosystemRole:
-      "The destination and the discovery engine. Every other channel sends traffic here, and SEO ensures new guests find you directly. This is where revenue lands.",
+      "The destination and the discovery engine. Every other channel sends traffic here, while SEO and AEO ensure new guests find you directly. This is where conversions land.",
     problem:
-      "A slow, dated site that buries the menu and makes booking a chore. On top of that, guests search 'best brunch in [city]' and find a competitor because the site isn't optimized and local listings are stale.",
+      "A slow, dated site that buries the menu and makes booking a chore. Guests search 'best brunch in [city]' and find a competitor—because the site isn't optimized, local listings are stale, and AI assistants don't know the restaurant exists.",
     solution:
-      "A fast, beautiful, mobile-first site built around conversions: reservations, orders, and inquiries. Paired with local SEO, Google Business Profile optimization, and structured data so Google and AI search engines recommend you by name.",
+      "A fast, beautiful, mobile-first site built around conversions: reservations, orders, and inquiries. Paired with local SEO, Google Business Profile optimization, and structured data so Google and AI search engines like ChatGPT and Perplexity recommend you by name.",
     pillars: [
       {
         title: "Mobile-First, Conversion-First",
-        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, instant load times. OpenTable, Resy, Toast integrated so guests book without leaving the site.",
+        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, instant load times. OpenTable, Resy, and Toast integrated so guests book without leaving the site.",
       },
       {
         title: "Local SEO & Google Business Profile",
         body: "GBP optimization, review generation, local citations, and consistent listings across every directory. 44% of clicks go to the top 3 map results. We get you there.",
       },
       {
-        title: "On-Page SEO & Structured Data",
-        body: "Schema markup, clean URLs, and optimized menu pages so Google indexes every dish. AI search engines like ChatGPT and Perplexity can recommend you by name.",
+        title: "Answer Engine Optimization (AEO)",
+        body: "Structured content so Google AI Overviews, ChatGPT, and Perplexity recommend the brand by name when guests ask 'best [cuisine] near me.' The new frontier of restaurant discovery.",
       },
       {
-        title: "Technical Performance & Monitoring",
-        body: "Core Web Vitals, site speed, crawlability fixed once and monitored monthly. Plus ongoing content production aligned to keyword strategy.",
+        title: "Technical Performance & On-Page SEO",
+        body: "Schema markup, Core Web Vitals, and optimized menu and location pages so Google indexes every dish. 15–20% average annual sales increase for restaurants that invest in SEO.",
       },
     ],
     deliverables: [
-      "Custom website design and build per brand",
-      "Mobile-first responsive layouts with reservation/ordering integrations",
-      "Full technical SEO audit and remediation",
+      "Custom website design and build, mobile-first and conversion-focused",
+      "Built with SEO and AEO so you rank on Google and get recommended by AI (ChatGPT, Perplexity)",
       "Google Business Profile optimization per location",
       "On-page SEO for all menu and location pages",
-      "Schema markup and structured data implementation",
-      "Monthly rank tracking and performance report",
+      "[__] batch revisions included",
+    ],
+    imageUrl: "",
+    heroVariant: "deviceMockup",
+  },
+
+  websiteManagement: {
+    key: "websiteManagement",
+    label: "Website Management",
+    short: "Web Management",
+    route: "/website-management",
+    icon: Settings,
+    accent: "from-gold-500 to-coral",
+    headline: "Your site, always current.",
+    subhead:
+      "Landing pages for every ad campaign, batch revision cycles, and ongoing monitoring so the site never falls behind.",
+    ecosystemRole:
+      "The ongoing layer that keeps the website working as hard as your ads. Landing pages built specifically for each campaign dramatically improve ad performance.",
+    problem:
+      "Ad campaigns sending traffic to a generic homepage that wasn't built for the offer. Site updates piling up with no process to get them done efficiently.",
+    solution:
+      "Dedicated landing pages for every campaign so ads convert instead of leaking. Batch-format revision cycles for any changes the team needs—no single-ticket nickel-and-diming.",
+    pillars: [
+      {
+        title: "Campaign Landing Pages",
+        body: "Every Google or social ad campaign gets a dedicated landing page built and optimized for that specific offer. Generic homepages kill ad performance—purpose-built pages convert.",
+      },
+      {
+        title: "Batch Change Cycles",
+        body: "Compile everything your team needs updated—copy, photos, menus, hours—into a single list. That's one batch. Delivered on a predictable schedule, no scope creep.",
+      },
+      {
+        title: "Ongoing Performance Monitoring",
+        body: "Core Web Vitals, uptime, and conversion rate tracked monthly. If something breaks or slips, it's caught and fixed before it costs you reservations.",
+      },
+      {
+        title: "Integrated with Ads",
+        body: "Website Management and Google Ads work as one unit. Every new campaign starts with a landing page. Every landing page is built with conversion tracking wired in from day one.",
+      },
+    ],
+    deliverables: [
+      "Landing pages built for every Google and social ad campaign",
+      "[__] batch changes per month",
+      "Any updates delivered in a consolidated batch—submit one list, get everything done",
+      "Ongoing site performance and uptime monitoring",
     ],
     imageUrl:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
   },
 
   seo: {
@@ -266,8 +306,9 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
 
 export const SERVICE_ORDER: ServiceKey[] = [
   "organicSocial",
-  "paidSocial",
   "googleAds",
+  "paidSocial",
   "websiteCreation",
+  "websiteManagement",
   "seo",
 ];
