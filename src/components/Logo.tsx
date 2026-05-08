@@ -1,12 +1,13 @@
 import clsx from "clsx";
 
-type Size = "sm" | "md" | "lg" | "xl";
+type Size = "sm" | "md" | "nav" | "lg" | "xl";
 
 const SIZES: Record<Size, string> = {
   sm: "size-6",
   md: "size-9",
-  lg: "size-14",
-  xl: "size-20",
+  nav: "size-12",
+  lg: "size-18",
+  xl: "size-24",
 };
 
 export function Logo({

@@ -26,7 +26,7 @@ export function CoverPage() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 inline-flex items-center gap-3"
         >
-          <Logo size="md" />
+          <Logo size="lg" />
         </motion.div>
 
         <motion.div

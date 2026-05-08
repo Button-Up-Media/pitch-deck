@@ -21,7 +21,7 @@ export function SidebarNav() {
       <div className="absolute left-0 top-1/2 h-72 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-gold-500/20 to-transparent" />
       <div className="relative flex h-full flex-col px-5 pt-10 xl:px-7 xl:pt-12">
         <div className="flex items-center gap-3">
-          <Logo size="md" />
+          <Logo size="nav" />
           <div className="flex flex-col leading-tight">
             <span className="font-display text-[13px] font-bold tracking-[-0.02em] text-cream-50">
               {config.agency.name}
