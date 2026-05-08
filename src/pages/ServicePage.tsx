@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { Check, Play, TrendingUp } from "lucide-react";
+import { Check } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel, HrSoft } from "../components/Panel";
 import { SERVICES } from "../config/services";
 import type { ServiceKey } from "../config/client";
-import type { WorkExample } from "../config/services";
 
 export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
   const svc = SERVICES[serviceKey];
@@ -135,100 +134,40 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
         </div>
 
         {svc.processVideo && (
-          <div className="mt-16">
-            <SectionHeading
-              eyebrow="How It Works"
-              title={<>{svc.processVideo.title}</>}
-              subtitle={svc.processVideo.description}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6 }}
-              className="mt-10 overflow-hidden rounded-2xl border border-line bg-bg-2"
-            >
-              <video
-                src={svc.processVideo.url}
-                controls
-                playsInline
-                className="h-auto w-full"
-                preload="metadata"
-              />
-            </motion.div>
-          </div>
-        )}
-
-        {svc.workExamples && svc.workExamples.length > 0 && (
-          <div className="mt-16">
-            <SectionHeading
-              eyebrow="Client Work"
-              title={<>Results we've created.</>}
-              subtitle="Real content for real restaurants. These are examples of what we produce every single month."
-            />
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {svc.workExamples.map((ex, i) => (
-                <WorkExampleCard key={i} example={ex} />
-              ))}
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="mt-16"
+          >
+            <Panel motion={false}>
+              <div className="eyebrow mb-4">How It Works</div>
+              <div className="grid gap-8 md:grid-cols-[1fr_1.4fr] md:items-center">
+                <div>
+                  <h3 className="font-display text-xl font-bold leading-snug text-cream-50 md:text-2xl">
+                    {svc.processVideo.title}
+                  </h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-cream-200">
+                    {svc.processVideo.description}
+                  </p>
+                </div>
+                <div className="overflow-hidden rounded-xl border border-line bg-bg-0">
+                  <video
+                    src={svc.processVideo.url}
+                    controls
+                    playsInline
+                    disablePictureInPicture
+                    controlsList="nofullscreen nodownload noremoteplayback"
+                    className="h-auto w-full"
+                    preload="metadata"
+                  />
+                </div>
+              </div>
+            </Panel>
+          </motion.div>
         )}
       </div>
     </div>
-  );
-}
-
-function WorkExampleCard({ example }: { example: WorkExample }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.55 }}
-      className="overflow-hidden rounded-2xl border border-line bg-bg-2"
-    >
-      {example.type === "video" ? (
-        <video
-          src={example.url}
-          controls
-          playsInline
-          className="aspect-[9/16] w-full object-cover sm:aspect-[4/5]"
-          preload="metadata"
-        />
-      ) : (
-        <img
-          src={example.url}
-          alt={example.caption}
-          className="aspect-[9/16] w-full object-cover sm:aspect-[4/5]"
-          loading="lazy"
-        />
-      )}
-      <div className="p-4">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            {example.client && (
-              <div className="eyebrow mb-1">{example.client}</div>
-            )}
-            <p className="text-[14px] font-medium text-cream-100">
-              {example.caption}
-            </p>
-          </div>
-          {example.stats && (
-            <div className="flex shrink-0 items-center gap-1.5 rounded-full bg-gold-500/15 px-3 py-1">
-              <TrendingUp className="size-3 text-gold-400" />
-              <span className="font-display text-xs font-bold text-gold-400">
-                {example.stats}
-              </span>
-            </div>
-          )}
-        </div>
-        {example.type === "video" && (
-          <div className="mt-2 flex items-center gap-1.5 text-[12px] text-cream-300">
-            <Play className="size-3" />
-            <span>Tap to play</span>
-          </div>
-        )}
-      </div>
-    </motion.div>
   );
 }
