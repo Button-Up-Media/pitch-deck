@@ -13,6 +13,7 @@ import {
   PillarsFlow,
 } from "../components/PillarsVariants";
 import { SocialFunnelDiagram } from "../components/SocialFunnelDiagram";
+import { LandingPageDropoffGraphic } from "../components/LandingPageDropoffGraphic";
 import { SERVICES } from "../config/services";
 import type { ServiceKey } from "../config/client";
 
@@ -395,6 +396,10 @@ function WebManagementSubsection() {
               body="Every Google or social campaign gets a purpose-built landing page. Generic homepages kill ad performance—dedicated pages convert."
             />
             <SubItem
+              title="Conversion-ready landing pages"
+              body="A Google Ad is only as good as the page it sends people to. We build and maintain landing pages engineered to convert — the right headline, one clear action, fast load time, mobile-first. Without this, ad spend leaks."
+            />
+            <SubItem
               title="Batch revision cycles"
               body="Send your team's update list as a batch—copy, photos, menus, hours—and it ships on a predictable schedule."
             />
@@ -405,6 +410,31 @@ function WebManagementSubsection() {
           </div>
         </div>
       </div>
+
+      {/* "Why this matters" coral callout — sits below the outer panel */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="mt-6 overflow-hidden rounded-xl border border-line border-l-4 border-l-coral bg-gradient-to-r from-coral/8 via-bg-1 to-bg-1 p-5 md:p-7"
+      >
+        <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-coral">
+          Why this matters
+        </div>
+        <h4 className="mt-2 font-display text-lg font-bold leading-[1.2] tracking-[-0.01em] text-cream-50 md:text-xl lg:text-2xl">
+          Your ads can be perfect. Your landing page is where the money is made.
+        </h4>
+        <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-cream-200 md:text-[15px]">
+          We've seen campaigns with a 6%+ click-through rate generate zero
+          reservations — because the landing page had no clear call to action.
+          Great ads drive traffic. Great landing pages drive revenue. We make
+          sure you have both.
+        </p>
+      </motion.div>
+
+      {/* Visual proof: the drop-off funnel */}
+      <LandingPageDropoffGraphic />
     </motion.div>
   );
 }
