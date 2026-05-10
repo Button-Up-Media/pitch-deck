@@ -33,19 +33,19 @@ function blank(value: number | null, prefix = "$") {
 const REASONS = [
   {
     title: "It's the cheapest option that solves everything",
-    body: "Bundling organic, paid, and the website into a single program costs less than running them as three separate engagements.",
+    body: "Bundling your organic posts, your ads, and the website into one program costs less than running each as a separate project with three different vendors.",
   },
   {
-    title: "All three channels reinforce each other",
-    body: "The compound effect from the ecosystem slide only happens when one team owns all three. Otherwise channels work in silos.",
+    title: "All three pieces reinforce each other",
+    body: "The boost you saw on the Ecosystem slide only happens when one team owns all three. Otherwise each piece runs alone — and the work doesn't add up.",
   },
   {
     title: "One point of contact for everything",
     body: "Stop translating between vendors. One strategist, one Slack channel, one weekly call covering the entire program.",
   },
   {
-    title: "Single source of truth on data",
-    body: "Pixels, attribution, and reporting all live in one place. No more debating whose dashboard to trust.",
+    title: "One set of numbers everyone agrees on",
+    body: "Tracking, results, and reports all live in one place. No more debating which agency's dashboard is right.",
   },
 ];
 
@@ -65,7 +65,7 @@ const PILLARS: { icon: LucideIcon; label: string; sub: string; accent: string }[
   {
     icon: Globe,
     label: "Website",
-    sub: "Conversion point + SEO + ongoing management",
+    sub: "Where bookings happen + SEO (Google ranking) + ongoing management",
     accent: "from-gold-500 to-coral",
   },
 ];
@@ -83,7 +83,7 @@ export function LetsGoPage() {
             <span className="block shimmer-text">One program. One price.</span>
           </>
         }
-        subtitle={`The all-in-one program for ${config.client.name}: every channel in this deck wrapped into a single engagement, with one team and one number.`}
+        subtitle={`The all-in-one program for ${config.client.name}: every piece in this deck wrapped into one program — one team, one plan, one invoice.`}
       />
 
       <motion.div
@@ -157,7 +157,8 @@ export function LetsGoPage() {
                 <span className="text-sm text-cream-300">/ month</span>
               </div>
               <p className="mt-1 text-xs text-cream-300">
-                All channels, fully managed. Ad spend billed separately at cost.
+                Everything in the program, fully managed. Your ad budget is
+                separate and goes straight to Google or Meta.
               </p>
 
               <div className="mt-6 space-y-1">
@@ -177,7 +178,7 @@ export function LetsGoPage() {
                   label="Brands covered"
                   value={`${config.brands.length}`}
                 />
-                <PriceRow label="Channels" value={`${enabled.length}`} />
+                <PriceRow label="Pieces in the program" value={`${enabled.length}`} />
               </div>
 
               <div className="mt-7 flex flex-col gap-2">
@@ -245,8 +246,8 @@ export function LetsGoPage() {
         className="mt-16 rounded-3xl border border-gold-500/30 bg-gradient-to-br from-gold-500/10 to-coral/5 p-8 md:mt-20 md:p-12"
       >
         <p className="font-accent max-w-3xl text-balance text-2xl italic leading-snug text-cream-50 md:text-3xl">
-          "Marketing isn't a vendor relationship. It's a partnership, and from
-          the moment this is signed, your win is our only metric."
+          "Marketing isn't a vendor relationship. It's a partnership. From the
+          moment this is signed, your win is the only thing we're measured on."
         </p>
         <HrSoft className="my-6" />
         <p className="text-sm text-cream-300">{config.agency.name}</p>
@@ -323,7 +324,7 @@ function SavingsComparison() {
                 <span className="text-xs text-cream-300/60">/mo</span>
               </div>
               <div className="mt-1 text-[11px] text-cream-300/60">
-                Each service run as a separate engagement
+                Each service run as a separate project
               </div>
             </div>
 
@@ -367,7 +368,7 @@ function SavingsComparison() {
               </span>
             </div>
             <div className="text-[12px] text-cream-300/70">
-              Plus a single point of contact and unified attribution.
+              Plus a single point of contact and one set of numbers.
             </div>
           </div>
         </div>

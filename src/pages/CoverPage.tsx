@@ -53,9 +53,10 @@ export function CoverPage() {
           transition={{ duration: 0.9, delay: 0.25 }}
           className="mt-6 max-w-xl text-base leading-[1.75] text-cream-200 md:text-[17px]"
         >
-          A complete {config.client.industry.toLowerCase()} growth program built
-          around organic social, paid media, and a website that ties them
-          together. One team, one strategy, reported in plain English.
+          A complete {config.client.industry.toLowerCase()} growth program
+          built around three things: your social media, your ads on Google
+          and Instagram, and a website that ties them together. One team,
+          one plan, results explained in plain English.
         </motion.p>
 
         <motion.div

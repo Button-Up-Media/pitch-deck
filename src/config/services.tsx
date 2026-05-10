@@ -44,30 +44,30 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     accent: "from-coral to-gold-500",
     headline: "You have to earn someone's care.",
     subhead:
-      "Mostly trust-building content. A little conversion. That's the ratio that turns followers into guests.",
+      "Mostly trust-building content. A little selling. That's the ratio that turns followers into people who walk through your door.",
     ecosystemRole:
-      "Top of funnel: earns attention and affinity. Builds an audience that trusts you, likes you, and is ready to act when the time comes.",
+      "The first thing people see. Earns attention and builds an audience that trusts you, likes you, and is ready to book when they're hungry.",
     problem:
       "Most restaurants treat social like a billboard: posting events, pushing products, telling people how great they are. Nobody engages. That approach earns scrolls, not loyalty.",
     solution:
-      "We flip the ratio. The vast majority of content earns trust by entertaining, educating, and showing real people in real moments. The smaller share converts—but only because the audience already cares.",
+      "We flip the ratio. The vast majority of posts earn trust by entertaining, educating, and showing real people in real moments. The smaller share asks for a booking — and it works, because the audience already cares about you by then.",
     pillarLayout: "grid",
     pillars: [
       {
         title: "Earn Trust First",
-        body: "Our goal on social is not to sell. It's to build an audience that trusts you, finds influence from your wisdom or humor, and genuinely likes you. Only then are they interested in the next thing you share.",
+        body: "The goal on social isn't to sell. It's to build an audience that trusts you, follows your taste or sense of humor, and genuinely likes you. Only then are they interested in the next thing you share.",
       },
       {
-        title: "Top-Funnel Content",
-        body: "Entertaining, likable, educational content with marketing sprinkled in—never as the topic. Reels, TikToks, and carousels that grow the following and keep it engaged.",
+        title: "The Posts That Build the Audience",
+        body: "Entertaining, likable, or educational posts with the restaurant sprinkled in — never the main topic. Reels, TikToks, and carousels that grow the following and keep it watching.",
       },
       {
-        title: "Stories That Convert",
-        body: "Stories run a different playbook: a balance of conversion-focused content with direct CTAs and social proof that makes people feel like they're missing out. This is where FOMO drives action.",
+        title: "Stories That Sell",
+        body: "Stories run a different playbook. We mix direct asks ('book tonight,' 'tap to order') with proof that other people are already there having a great time. That fear-of-missing-out is what drives action on Stories.",
       },
       {
-        title: "Social Proof & Community",
-        body: "Reposting real people dining, tagging, and sharing their experience. No conversion links needed. Real people enjoying the experience says more than any ad ever could.",
+        title: "Other People Loving Your Restaurant",
+        body: "Reposting real guests who dined with you, tagged you, and shared the experience. No buttons, no links — real people enjoying themselves says more than any ad ever could.",
       },
     ],
     deliverables: [
@@ -96,36 +96,36 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     accent: "from-gold-400 to-gold-600",
     headline: "Someone nearby is searching. Are you there?",
     subhead:
-      "Restaurants operate on shorter decision cycles than any other industry. Someone searching 'Italian restaurant near me' decides in minutes—not days. Google Ads puts you in front of that person at the exact moment they choose.",
+      "Restaurants get chosen faster than almost anything else people buy. Someone searching 'Italian restaurant near me' picks in minutes — not days. Google Ads puts you in front of that person at the exact moment they're choosing.",
     ecosystemRole:
-      "The highest-intent channel in the program. Google Ads captures guests who have already decided to go out—they're just choosing between you and a competitor. This is the fastest path to a reservation.",
+      "The fastest channel in the program. Google Ads catches guests who have already decided to go out — they're just choosing between you and the restaurant down the street. This is the shortest path to a reservation.",
     problem:
-      "Most restaurant campaigns fail for one of three reasons: keywords too broad, targeting too wide, or zero conversion tracking. Budget evaporates and there's nothing to show for it. Meanwhile, competitors are actively bidding on your brand name—intercepting guests who already know you.",
+      "Most restaurant campaigns fail for one of three reasons: targeting too wide, the wrong search terms, or no way to tell what actually drove a booking. Budget evaporates and there's nothing to show for it. Meanwhile, competitors are paying to show up when someone searches your restaurant by name — and stealing those guests.",
     solution:
-      "Every campaign answers three questions: who is the customer, what action do we want, and what does success look like in dollars. The proof: in 2025, Button Up Media drove $3.5M+ in tracked revenue across 5 restaurant properties on under $46,000 of total ad spend—roughly a 12X return. A poorly run $5,000 campaign loses money. A well-optimized $1,500 campaign generates significant ROI. We run the second kind.",
+      "Every campaign answers three questions: who is the customer, what do we want them to do, and what does success look like in dollars. The proof: in 2025, Button Up Media drove $3.5M+ in tracked revenue across 5 restaurants on under $46,000 of total ad spend — roughly $12 back for every $1 spent. A badly run $5,000 campaign loses money. A well-run $1,500 campaign makes real money. We run the second kind.",
     pillars: [
       {
-        title: "Search Intent Capture",
-        body: "These guests aren't passively scrolling—they're deciding where to eat in the next hour. We bid on the cuisine, occasion, and 'near me' queries that signal active intent, plus brand defense so competitors can't intercept guests already searching for you.",
+        title: "Catching Guests Mid-Search",
+        body: "These guests aren't scrolling — they're deciding where to eat in the next hour. We pay to show up for the searches that signal someone's about to book: 'Italian restaurant near me,' 'best brunch [city],' 'date night [neighborhood].' We also pay to show up when someone searches your name directly, so a competitor can't grab them first.",
       },
       {
-        title: "Campaign Structure",
-        body: "Cuisine keywords, occasion targeting (date night, private events, brunch), geo-fencing the trade area, day-part bid adjustments for peak booking windows, and Performance Max to reach guests across Search, Maps, YouTube, and Display from a single campaign.",
+        title: "How the Campaigns Are Built",
+        body: "We bid on the dishes you serve and the moments people search for them — date night, private events, brunch. We focus the budget on the area around your restaurant. We push harder during peak booking hours. And we use Google's Performance Max to show up across Search, Maps, YouTube, and ad space across the web — all from one campaign.",
       },
       {
-        title: "Conversion Tracking",
-        body: "Every reservation form, event inquiry, phone call, and direction request is tracked and assigned a dollar value. We don't optimize toward clicks—we optimize toward revenue. Every campaign decision answers one question: did it generate covers?",
+        title: "We Track Every Reservation Back to the Ad",
+        body: "Every reservation form, event inquiry, phone call, and direction request gets traced back to the ad that produced it — and assigned a dollar value. We don't chase clicks. We chase covers. Every decision answers one question: did this campaign actually fill seats?",
       },
       {
-        title: "Ongoing Optimization",
-        body: "Daily monitoring, pausing underperformers, A/B testing creative and copy, and shifting budget to what's working. The difference between a money-losing campaign and a 12X ROAS campaign is rarely strategy—it's execution. This is where it gets made.",
+        title: "Constant Tuning",
+        body: "We watch the campaigns every day. We pause what's losing money. We test new ad images and ad text against the old ones. We move budget from the losers to the winners. The difference between a money-losing campaign and a $12-for-every-$1 campaign is rarely the strategy — it's the daily work. This is where that work happens.",
       },
     ],
     deliverables: [
-      "Google Ads campaigns: branded defense, high-intent keywords, Performance Max",
-      "Local Discovery and Maps advertising",
-      "Conversion tracking for reservations, calls, and forms",
-      "Monthly ROI report with full ROAS visibility",
+      "Google Ads campaigns: defending your brand name, targeting high-intent searches, plus Google's Performance Max",
+      "Ads on Google Maps and local searches",
+      "Tracking for every reservation, phone call, and inquiry form",
+      "Monthly results report showing every dollar spent and every dollar back",
     ],
     imageUrl: "",
     heroVariant: "googleAdsSerp",
@@ -141,35 +141,35 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     accent: "from-teal to-gold-500",
     headline: "The smart add-on, once Google is running.",
     subhead:
-      "Social ads work hardest when there's already a warm audience to talk to. Layer them on top of Google to retarget the guests who searched, clicked, and almost booked.",
+      "Social ads work hardest when there's already an audience that knows your name. Layer them on top of Google so you can show ads to the people who searched, clicked, and almost booked — but didn't.",
     ecosystemRole:
-      "Retargeting layer. Feeds off the warm audiences Google Ads generates—website visitors, video viewers, and ad engagers who showed intent but didn't act. This is the second layer in the paid stack, not the first.",
+      "The follow-up layer. Once Google Ads brings people to your site or your videos, social ads keep showing up in their feeds — Instagram, TikTok — until they book. This runs second, after Google. Not first.",
     problem:
-      "Running Meta and TikTok ads to a cold audience burns budget fast. Most restaurants try social ads first, target a generic local radius, and wonder why it doesn't convert. The math just doesn't work when the audience has never heard of you.",
+      "Running Meta and TikTok ads to people who've never heard of your restaurant burns budget fast. Most restaurants try social ads first, set a generic local radius, and wonder why it doesn't produce bookings. The math doesn't work when the audience has no idea who you are.",
     solution:
-      "We run social as the warm retargeting layer. Someone searched on Google, clicked your ad, browsed the menu, and left without booking. Now they see your best content on Instagram. They see a reservation reminder on TikTok. That warm audience converts at a fraction of the cost of cold targeting—because the work of generating intent already happened on Google.",
+      "We use social as the follow-up layer. Someone searched on Google, clicked your ad, browsed the menu, and left without booking. Now they see your best post on Instagram. They see a reservation reminder on TikTok. People who already know your name book at a fraction of the cost — because Google did the hard work of finding them in the first place.",
     pillars: [
       {
-        title: "Local Awareness & Demand Creation",
-        body: "Put the restaurant in front of the right audience in the right radius before they start searching. Location-based targeting on Meta and TikTok builds brand awareness and desire—so when they do search, they already know your name.",
+        title: "Getting Your Name In Front of the Right Local People",
+        body: "We put the restaurant in front of the right people in the right neighborhood before they ever search Google. Targeting on Meta and TikTok by location, age, and interest. So when they do search, they already know your name.",
       },
       {
-        title: "Retargeting: Bridge from Google to Booking",
-        body: "Someone searches on Google, clicks your ad, browses the menu, and leaves without booking. Social retargeting follows up—showing them your best content, your best offer, or a simple reminder. This is where Google and social ads create compounding returns.",
+        title: "Following Up With Almost-Bookings",
+        body: "Someone searches on Google, clicks your ad, browses the menu, and leaves without booking. Now your best post — or a simple reminder — shows up in their Instagram feed the next day. This is where Google and social ads work together. The same person, but cheaper to reach the second time.",
       },
       {
-        title: "Event & Seasonal Campaigns",
-        body: "Holiday promos, Mother's Day, private dining, and seasonal menus—timed to peak demand with targeted creative. Our standout result: Rusty Pelican Miami Mother's Day campaign, 155 conversions at $3.06 cost per acquisition.",
+        title: "Holiday and Event Pushes",
+        body: "Holiday promos, Mother's Day, private dining, seasonal menus — timed to peak demand with ads built to match. Our standout: Rusty Pelican Miami's Mother's Day campaign brought in 155 reservations at $3.06 each.",
       },
       {
-        title: "Private Events Lead Generation",
-        body: "Form-based campaigns on Meta that capture private event inquiries directly—name, date, party size, contact info—delivered as qualified leads before they consider a competitor. The highest-value conversion a restaurant ad can produce.",
+        title: "Capturing Private Event Inquiries",
+        body: "Meta ads with a built-in form: name, date, party size, contact info — submitted right inside Instagram or Facebook. The inquiry hits your inbox before they consider a competitor. The most valuable kind of booking a restaurant ad can produce.",
       },
     ],
     deliverables: [
       "Meta and TikTok campaigns built and managed",
-      "Conversion tracking for reservations and inquiries",
-      "Monthly ROI report with full ROAS visibility",
+      "Tracking for every reservation and inquiry",
+      "Monthly results report showing every dollar spent and every dollar back",
     ],
     imageUrl: "/images/download-2.jpg",
     pillarLayout: "flow",
@@ -182,39 +182,39 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/website",
     icon: Globe,
     accent: "from-gold-500 to-coral",
-    headline: "Found first. Built to convert.",
+    headline: "Found first. Built to book.",
     subhead:
-      "A mobile-first site designed around reservations and orders—backed by local SEO and AEO that puts you at the top of Google and AI search.",
+      "A site built phone-first and designed around the actions that matter — reservations, orders, inquiries. Backed by SEO (search engine optimization — how Google decides who to rank) and AI search optimization, so guests find you on Google and on ChatGPT.",
     ecosystemRole:
-      "The destination and the discovery engine. Every other channel sends traffic here, while SEO and AEO ensure new guests find you directly. This is where conversions land.",
+      "The destination, and the place new guests find you. Every other piece sends people here. Search engines and AI tools also send guests here directly. This is where the bookings happen.",
     problem:
-      "A slow, dated site that buries the menu and makes booking a chore. Guests search 'best brunch in [city]' and find a competitor—because the site isn't optimized, local listings are stale, and AI assistants don't know the restaurant exists.",
+      "A slow, dated site that buries the menu and makes booking a chore. Guests search 'best brunch in [city]' and find a competitor — because the site isn't built for Google to find, your local listings are out of date, and AI assistants like ChatGPT don't know your restaurant exists.",
     solution:
-      "A fast, beautiful, mobile-first site built around conversions: reservations, orders, and inquiries. Paired with local SEO, Google Business Profile optimization, and structured data so Google and AI search engines like ChatGPT and Perplexity recommend you by name.",
+      "A fast, beautiful site that works on a phone first and is built around the things you want guests to do: reserve, order, ask about an event. Paired with local search work — your Google Business Profile, your map listings — so Google and AI tools like ChatGPT and Perplexity recommend you by name.",
     pillars: [
       {
-        title: "Mobile-First, Conversion-First",
-        body: "Every layout starts on a phone. Tap-friendly menus, one-thumb reservation flow, instant load times. OpenTable, Resy, and Toast integrated so guests book without leaving the site.",
+        title: "Phone-First, Booking-First",
+        body: "Every layout starts on a phone. Big-thumb menus, instant load times, a reservation process you can complete with one hand. OpenTable, Resy, and Toast built right in, so guests book without leaving the site.",
       },
       {
-        title: "Local SEO & Google Business Profile",
-        body: "GBP optimization, review generation, local citations, and consistent listings across every directory. 44% of clicks go to the top 3 map results. We get you there.",
+        title: "Local Search and Your Google Business Profile",
+        body: "We optimize your Google Business Profile (the box that pops up when someone Googles your restaurant). We help you generate more reviews. We make sure every directory and map app shows the same info. 44% of clicks on a local search go to the top 3 map results — and we get you there.",
       },
       {
-        title: "Answer Engine Optimization (AEO)",
-        body: "Structured content so Google AI Overviews, ChatGPT, and Perplexity recommend the brand by name when guests ask 'best [cuisine] near me.' The new frontier of restaurant discovery.",
+        title: "Showing Up in ChatGPT and AI Search",
+        body: "We tag the site so AI tools — ChatGPT, Perplexity, Google's AI Overviews — understand exactly what you serve. When someone asks the AI 'where should I eat tonight in [city]?', your name comes up. This is the new way people find restaurants.",
       },
       {
-        title: "Technical Performance & On-Page SEO",
-        body: "Schema markup, Core Web Vitals, and optimized menu and location pages so Google indexes every dish. 15–20% average annual sales increase for restaurants that invest in SEO.",
+        title: "Speed, Code Quality, and Page-Level SEO",
+        body: "Behind the scenes: speed, mobile performance, and proper code so Google can read every menu page and every dish. The result: restaurants that invest in SEO see 15–20% average annual sales growth.",
       },
     ],
     deliverables: [
-      "Custom website design and build, mobile-first and conversion-focused",
-      "Built with SEO and AEO so you rank on Google and get recommended by AI (ChatGPT, Perplexity)",
-      "Google Business Profile optimization per location",
-      "On-page SEO for all menu and location pages",
-      "[__] batch revisions included",
+      "Custom website design and build, phone-first and booking-focused",
+      "Built with search engine optimization (SEO) so you rank on Google, and AI tools like ChatGPT and Perplexity recommend you",
+      "Google Business Profile fully set up and optimized for each location",
+      "Each menu and location page set up so Google indexes it cleanly",
+      "[__] batches of revisions included",
     ],
     imageUrl: "",
     heroVariant: "deviceSplit",
@@ -231,35 +231,35 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     standalone: false,
     headline: "Your site, always current.",
     subhead:
-      "Landing pages for every ad campaign, batch revision cycles, and ongoing monitoring so the site never falls behind.",
+      "Custom landing pages for every ad campaign. Updates done in batches. Ongoing monitoring so the site never falls behind.",
     ecosystemRole:
-      "The ongoing layer that keeps the website working as hard as your ads. Landing pages built specifically for each campaign dramatically improve ad performance.",
+      "The ongoing layer that keeps the website working as hard as your ads. A landing page built for each specific ad makes that ad produce dramatically more bookings.",
     problem:
       "Ad campaigns sending traffic to a generic homepage that wasn't built for the offer. Site updates piling up with no process to get them done efficiently.",
     solution:
-      "Dedicated landing pages for every campaign so ads convert instead of leaking. Batch-format revision cycles for any changes the team needs—no single-ticket nickel-and-diming.",
+      "A dedicated landing page for every ad campaign — so the ad turns into bookings instead of dead clicks. Updates handled in batches: send a list, and we ship it on a predictable schedule. No per-change fees.",
     pillars: [
       {
         title: "Campaign Landing Pages",
-        body: "Every Google or social ad campaign gets a dedicated landing page built and optimized for that specific offer. Generic homepages kill ad performance—purpose-built pages convert.",
+        body: "Every Google or social ad campaign gets a dedicated landing page built around that specific offer. Generic homepages waste ad spend. Pages built for one job — date night, brunch, private events — turn clicks into bookings.",
       },
       {
         title: "Batch Change Cycles",
-        body: "Compile everything your team needs updated—copy, photos, menus, hours—into a single list. That's one batch. Delivered on a predictable schedule, no scope creep.",
+        body: "Send everything your team wants updated — text, photos, menus, hours — as one list. That's one batch. We deliver it on a predictable schedule, no surprise add-ons.",
       },
       {
         title: "Ongoing Performance Monitoring",
-        body: "Core Web Vitals, uptime, and conversion rate tracked monthly. If something breaks or slips, it's caught and fixed before it costs you reservations.",
+        body: "We monitor site speed, uptime, and how often visitors actually book — every month. If something breaks or slips, it gets caught and fixed before it costs you reservations.",
       },
       {
         title: "Integrated with Ads",
-        body: "Website Management and Google Ads work as one unit. Every new campaign starts with a landing page. Every landing page is built with conversion tracking wired in from day one.",
+        body: "Website Management and Google Ads run as one unit. Every new campaign starts with a landing page built for it. Every landing page has reservation and inquiry tracking wired in from day one.",
       },
     ],
     deliverables: [
       "Landing pages built for every Google and social ad campaign",
       "[__] batch changes per month",
-      "Any updates delivered in a consolidated batch—submit one list, get everything done",
+      "All updates delivered in one batch — send a list, get everything done together",
       "Ongoing site performance and uptime monitoring",
     ],
     imageUrl:

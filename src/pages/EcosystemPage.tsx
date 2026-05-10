@@ -33,8 +33,8 @@ const NODES: Record<NodeKey, NodeMeta> = {
   website: {
     key: "website",
     title: "Website",
-    short: "The conversion point",
-    role: "Where every channel sends traffic. This is where guests actually become customers.",
+    short: "Where bookings happen",
+    role: "Where every other piece sends visitors. This is where browsers turn into bookings, orders, and inquiries.",
     icon: Globe,
     angle: 0,
     accentClass: "from-gold-400 to-gold-600",
@@ -42,26 +42,26 @@ const NODES: Record<NodeKey, NodeMeta> = {
     accentText: "text-gold-400",
     pillars: [
       {
-        title: "The simplest possible path to convert",
-        body: "Mobile-first, fast-loading, with one obvious next action on every screen: book a table, place an order, or submit an inquiry. No friction between intent and action.",
+        title: "The simplest possible path to a reservation",
+        body: "Phone-first, fast-loading, with one obvious next action on every screen: book a table, place an order, or submit an inquiry. Nothing between wanting to act and acting.",
       },
       {
-        title: "Clear visuals of the product and the room",
-        body: "Real photography of the food and the space. Guests decide where to eat with their eyes, and the site has to do the same job a window display does for a brick-and-mortar shop.",
+        title: "Clear photos of the food and the room",
+        body: "Real photography of the dishes and the space. Guests decide where to eat with their eyes — the site has to do the same job a window display does for a storefront.",
       },
       {
         title: "Found by both Google and AI",
-        body: "Schema markup, structured data, and Answer Engine Optimization so the brand shows up in Google search and gets recommended by name in ChatGPT, Perplexity, and Google AI Overviews.",
+        body: "We tag every part of the site so Google understands exactly what you serve. The result: you show up in Google search and get recommended by name in ChatGPT, Perplexity, and Google's AI answers.",
       },
     ],
     failure:
-      "If the website is weak, every ad click and every social follower lands in a leaking bucket. The traffic comes but it just doesn't convert.",
+      "If the website is weak, every ad click and every social follower lands in a leaking bucket. The traffic shows up — but no one books.",
   },
   organic: {
     key: "organic",
     title: "Organic Social",
     short: "The brand builder",
-    role: "Earns attention and affinity. Turns scrollers into people who care, and points them at the website when they're ready.",
+    role: "Earns attention and turns scrollers into people who actually care about your restaurant. When they're ready, the website is one tap away.",
     icon: Megaphone,
     angle: 240,
     accentClass: "from-coral to-gold-500",
@@ -70,25 +70,25 @@ const NODES: Record<NodeKey, NodeMeta> = {
     pillars: [
       {
         title: "Build brand loyalty and awareness",
-        body: "The whole point of organic is to get people to care about the brand, not to sell. We post content that informs, entertains, or shows off the team and the room.",
+        body: "The whole point of organic (unpaid) social is to get people to care about the brand — not to sell. We post content that informs, entertains, or shows off the team and the room.",
       },
       {
         title: "Get followers to actually feel something",
-        body: "A follower who doesn't care isn't worth much. We focus on content that creates a relationship, so when they see an ad later or get a friend's recommendation, the brand is already in their head.",
+        body: "A follower who doesn't care isn't worth much. We focus on posts that build a relationship — so when they see an ad later, or a friend recommends you, the name is already in their head.",
       },
       {
         title: "Hand them off to the website",
-        body: "Every channel needs a finish line. Organic sends warm, ready-to-act audiences to the website to book, order, or join the list. That's where the relationship turns into revenue.",
+        body: "Every piece needs a finish line. Organic sends people who already trust you to the website — to book, order, or join the list. That's where the relationship turns into revenue.",
       },
     ],
     failure:
-      "If organic is weak, the audience never warms up. Paid ads have to do all the convincing from cold, CPMs go up, and conversion goes down.",
+      "If organic is weak, no one knows your name when an ad shows up. Ads then cost more to get the same result — because you're starting from zero every time.",
   },
   paid: {
     key: "paid",
     title: "Paid Advertising",
-    short: "The fast-lane converter",
-    role: "Google Ads + Meta + TikTok ads. Catches people who are already looking, and converts them now.",
+    short: "The fast lane to bookings",
+    role: "Google Ads + Meta + TikTok ads. Catches people who are already looking and turns them into a reservation today.",
     icon: Target,
     angle: 120,
     accentClass: "from-teal to-gold-500",
@@ -97,19 +97,19 @@ const NODES: Record<NodeKey, NodeMeta> = {
     pillars: [
       {
         title: "Built for people who are already looking",
-        body: "Search ads catch guests at the moment they type 'best brunch near me.' Social ads put offers in front of warm audiences who already know the brand. We show up at the right time.",
+        body: "Search ads catch guests the moment they type 'best brunch near me.' Social ads put offers in front of people who already know your name. The right message at the right moment.",
       },
       {
-        title: "Convert as fast as possible",
-        body: "The job of a paid ad is one thing: turn a click into a customer. Every ad sends straight to a landing page or a buy-now flow. No tour, no detour.",
+        title: "Turn the click into a booking, fast",
+        body: "A paid ad has one job: turn the click into a customer. Every ad sends straight to a page built for that one action. No tour, no detour.",
       },
       {
         title: "Point everything at the website",
-        body: "Just like organic, paid hands the visitor off to the website to actually convert. The site is the closer, paid is the qualifier.",
+        body: "Just like organic, every paid ad sends people to the website to actually book. The site closes the deal. Paid just brings them to the door.",
       },
     ],
     failure:
-      "If paid is weak, the slow burn of social never reaches direct revenue fast enough. Cash flow lags behind brand momentum, and the team can't see the work paying off.",
+      "If paid is weak, the slow burn of social never reaches dollars fast enough. Cash flow lags behind brand momentum, and you can't see the marketing actually paying off.",
   },
 };
 
@@ -152,7 +152,7 @@ export function EcosystemPage() {
             <span className="block shimmer-text">One living system.</span>
           </>
         }
-        subtitle="Marketing isn't three plays bolted together. It's an ecosystem. Click any node to see what it does, or break one and see what happens to the rest."
+        subtitle="Marketing isn't three things bolted together. It works like a system: each piece feeds the others. Click any node to see what it does, or break one and see what happens to the rest."
       />
 
       <Diagram open={open} onNodeClick={handleNodeClick} broken={broken} />
@@ -257,10 +257,10 @@ export function EcosystemPage() {
                 Pull on one. The others move with it.
               </div>
               <p className="mt-2 text-[15px] leading-relaxed text-cream-200">
-                When all three are healthy, every channel performs better than
-                the sum of its parts. When one is weak, the others pick up the
-                slack until they can't. That's why the rest of this deck
-                presents one program, not three line items.
+                When all three are healthy, each one performs better than it
+                would on its own. When one is weak, the others carry the load
+                until they can't. That's why the rest of this deck shows one
+                program — not three separate invoices.
               </p>
             </div>
           </div>
@@ -369,7 +369,7 @@ function Diagram({
         <div className="eyebrow text-[10px]">The Ecosystem</div>
         <div className="font-accent mt-1 text-base italic text-cream-300 md:text-lg">
           everything points to{" "}
-          <span className="text-gold-400">conversion</span>
+          <span className="text-gold-400">bookings</span>
         </div>
       </div>
 
@@ -566,7 +566,7 @@ function NodeDetail({ node, onClose }: { node: NodeMeta; onClose: () => void }) 
             </span>
             <ArrowRight className="size-3.5 text-gold-500" />
             <span className="font-display font-bold text-gold-400">Website</span>
-            <span className="text-cream-300">that's where conversion happens.</span>
+            <span className="text-cream-300">that's where the booking happens.</span>
           </div>
         </div>
       )}

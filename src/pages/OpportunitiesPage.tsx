@@ -44,17 +44,17 @@ const GOALS: Record<GrowthGoal, GoalInfo> = {
   acquisition: {
     icon: Target,
     label: "Acquire new customers",
-    body: "Fill more seats. Drive more first-time visits. Grow the top of the funnel and turn it into covers, orders, and reservations.",
+    body: "Fill more seats. Drive more first-time visits. Get more people through the door — and turn that into covers, orders, and reservations.",
   },
   brandValidity: {
     icon: Crown,
     label: "Build (or protect) brand value",
-    body: "Be perceived as a higher-tier concept. Earn the right to charge more, attract better operators, and stand apart from the commodity middle.",
+    body: "Be seen as a higher-end concept. Earn the right to charge more, attract better staff, and stand out from the average restaurant down the street.",
   },
   retention: {
     icon: HeartHandshake,
     label: "Keep the regulars you have",
-    body: "Don't grow recklessly. Keep the base happy and frequent. Repeat visits, loyalty, and a community that doesn't drift to the next opening down the street.",
+    body: "Don't grow recklessly. Keep your base happy and visiting often. Repeat visits, loyalty, and a community that doesn't drift to the next opening down the street.",
   },
 };
 
@@ -72,25 +72,25 @@ const PROBLEMS: Problem[] = [
     problem: "Your digital presence isn't pulling its weight",
     problemDetail:
       "Maybe the social feed has gone quiet. Maybe the website looks a few years behind. Maybe you've never run a real ad campaign. Whatever the mix, the basics aren't in place, and guests who don't already know you can't easily find a reason to choose you.",
-    opportunity: "A coordinated three-channel presence",
+    opportunity: "A coordinated three-piece program",
     opportunityDetail:
-      "We rebuild the foundation: a website that converts, a social feed that earns attention, and paid ads that fill in the gaps. Not three separate plays, but one program that compounds.",
+      "We rebuild the foundation: a website built to turn visitors into reservations, a social feed that earns attention, and ads that fill in the gaps. Not three separate efforts — one program where every part makes the others stronger.",
   },
   {
     number: "02",
     problem: "You can't tell what's working and what isn't",
     problemDetail:
       "Reservations come in, but you don't know why. Marketing budget gets spent, but no one can show you how it turned into revenue. Without tracking, every dollar is an act of faith.",
-    opportunity: "Real attribution, in plain English",
+    opportunity: "Real proof of what's working, in plain English",
     opportunityDetail:
-      "Pixels installed, conversions tracked, dashboards that show which channel is producing covers. Monthly reviews translate data into decisions, not just charts you ignore.",
+      "We install tracking on your site so every reservation, call, and inquiry is connected back to where it came from — Google, Instagram, your website, or a friend. Monthly reviews turn that data into clear decisions, not charts you scroll past.",
   },
   {
     number: "03",
     problem: "Marketing without a clear goal",
     problemDetail:
-      "Are you trying to fill more seats? Strengthen the brand? Hold on to the regulars you already have? Each of those needs a different strategy. Without naming the goal, marketing defaults to vanity metrics.",
-    opportunity: "A strategy built around your actual goal",
+      "Are you trying to fill more seats? Strengthen the brand? Hold on to the regulars you already have? Each of those needs a different plan. Without naming the goal, marketing chases numbers that look good but don't move the business.",
+    opportunity: "A plan built around your actual goal",
     opportunityDetail:
       "We start by naming what you actually want. Then every campaign, post, and ad gets pointed at that outcome. Whatever the goal, the plan flows from there.",
   },
@@ -310,9 +310,8 @@ export function OpportunitiesPage() {
           <span className="font-display font-bold text-gold-400">
             Next →
           </span>{" "}
-          The Ecosystem slide shows the operating model that turns these three
-          opportunities into one program instead of three vendors and three
-          invoices.
+          The Ecosystem slide shows how the program runs as one unit — these
+          three opportunities turned into one team, one plan, one invoice.
         </p>
       </motion.div>
     </div>

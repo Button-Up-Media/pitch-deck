@@ -190,25 +190,25 @@ const EXPECTATIONS: {
 }[] = [
   {
     eyebrow: "Reservations / general",
-    stat: "2–3x ROAS",
-    body: "For every dollar in ad spend, expect two to three back in tracked reservation revenue within the first 60–90 days of an optimized campaign.",
+    stat: "2–3x return",
+    body: "For every dollar in ad spend, expect two to three back in tracked reservation revenue within the first 60–90 days of a tuned-up campaign. This is what we mean by return on ad spend (ROAS).",
     gold: true,
   },
   {
     eyebrow: "Private events / high-ticket",
-    stat: "7–8x ROAS",
-    body: "Event campaigns convert at a significantly higher rate. A single private event booking can return the entire monthly ad budget.",
+    stat: "7–8x return",
+    body: "Event campaigns produce bookings at a much higher rate than dinner reservations. A single private event booking can pay back the entire monthly ad budget.",
     gold: true,
   },
   {
     eyebrow: "How fast",
     stat: "30–60 days",
-    body: "Google Ads is the fastest revenue lever in restaurant marketing. Unlike social, which builds over months, ads drive measurable bookings almost immediately.",
+    body: "Google Ads is the fastest way to drive revenue in restaurant marketing. Unlike social media, which builds over months, ads bring measurable bookings almost immediately.",
   },
   {
     eyebrow: "What we do",
     stat: "Full management",
-    body: "Campaign builds, daily bid optimization, new campaigns for every initiative (Mother's Day, Thanksgiving, events), and biweekly performance review meetings if you want them.",
+    body: "Campaign setup, daily bid tuning, new campaigns for every push (Mother's Day, Thanksgiving, events), and biweekly review calls if you want them.",
   },
 ];
 
@@ -340,9 +340,9 @@ function GoogleAdsInvestment() {
             <span className="font-display font-bold text-gold-300">
               One thing we always check first: your landing page.
             </span>{" "}
-            A great ad with a weak landing page converts at 0%. We audit your
-            conversion flow as part of onboarding — and if there are gaps, we'll
-            tell you before we spend a dollar.
+            A great ad with a weak landing page produces zero bookings. We
+            audit your booking flow as part of onboarding — and if there are
+            gaps, we'll tell you before we spend a dollar.
           </p>
         </div>
       </motion.div>
@@ -384,28 +384,29 @@ function WebManagementSubsection() {
               Website Management
             </h3>
             <p className="mt-3 text-[15px] leading-relaxed text-cream-200">
-              The site never goes stale. Text us when you need a change—new menu,
-              updated hours, a new event, a hero swap—and it lands in the next batch.
-              No tickets, no per-change fees, no waiting on a vendor.
+              The site never goes stale. Text us when you need a change — new
+              menu, updated hours, a new event, a new homepage photo — and it
+              lands in the next batch. No tickets, no per-change fees, no
+              waiting on a vendor.
             </p>
           </div>
 
           <div className="grid flex-1 gap-3">
             <SubItem
               title="Landing pages for your ads"
-              body="Every Google or social campaign gets a purpose-built landing page. Generic homepages kill ad performance—dedicated pages convert."
+              body="Every Google or social ad campaign gets its own dedicated landing page. Generic homepages kill ad performance — pages built for one offer produce bookings."
             />
             <SubItem
-              title="Conversion-ready landing pages"
-              body="A Google Ad is only as good as the page it sends people to. We build and maintain landing pages engineered to convert — the right headline, one clear action, fast load time, mobile-first. Without this, ad spend leaks."
+              title="Landing pages built to book"
+              body="A Google Ad is only as good as the page it sends people to. We build and maintain landing pages designed to turn clicks into bookings — the right headline, one clear button, fast load time, phone-first. Without this, ad spend leaks."
             />
             <SubItem
               title="Batch revision cycles"
-              body="Send your team's update list as a batch—copy, photos, menus, hours—and it ships on a predictable schedule."
+              body="Send your team's update list as a batch — text, photos, menus, hours — and it ships on a predictable schedule."
             />
             <SubItem
               title="Always-on monitoring"
-              body="Site speed, uptime, and conversion paths are watched monthly. Things that break get caught before they cost you reservations."
+              body="Site speed, uptime, and the path from visitor to reservation are watched monthly. Things that break get caught before they cost you bookings."
             />
           </div>
         </div>
@@ -426,10 +427,11 @@ function WebManagementSubsection() {
           Your ads can be perfect. Your landing page is where the money is made.
         </h4>
         <p className="mt-3 max-w-3xl text-[14px] leading-relaxed text-cream-200 md:text-[15px]">
-          We've seen campaigns with a 6%+ click-through rate generate zero
-          reservations — because the landing page had no clear call to action.
-          Great ads drive traffic. Great landing pages drive revenue. We make
-          sure you have both.
+          We've seen ads with a 6%+ click-through rate (the percentage of
+          people who click after seeing the ad) produce zero reservations —
+          because the landing page had no clear button to book. Great ads
+          drive traffic. Great landing pages drive revenue. We make sure you
+          have both.
         </p>
       </motion.div>
 
@@ -460,28 +462,28 @@ function getPillarsHeading(key: ServiceKey): {
         eyebrow: "How we approach it",
         title: <>Four ideas the program is built around.</>,
         subtitle:
-          "These aren't sequential steps. They're principles that run in parallel across every brand.",
+          "These aren't steps in order. They're four ideas we apply at the same time, every day, on every brand.",
       };
     case "googleAds":
       return {
         eyebrow: "Inside the program",
         title: <>What we run, and why.</>,
         subtitle:
-          "Each layer of the campaign stack does a different job. Together they capture every guest with active intent.",
+          "Each piece of the campaign does a different job. Together they catch every guest who's searching right now.",
       };
     case "paidSocial":
       return {
-        eyebrow: "The funnel in motion",
+        eyebrow: "How the funnel works",
         title: <>From awareness to booking.</>,
         subtitle:
-          "Social ads operate as a funnel. Each stage feeds the next, and retargeting closes the loop with anyone who didn't convert the first time.",
+          "Social ads work in stages: get on people's radar, follow up after they visit your site, close the booking. Each stage feeds the next.",
       };
     case "websiteCreation":
       return {
         eyebrow: "What we build",
         title: <>The four jobs the site has to do.</>,
         subtitle:
-          "Every layout decision, integration, and SEO call ladders up to one of these four.",
+          "Every layout choice, every integration, every SEO decision points back to one of these four jobs.",
       };
     default:
       return {
