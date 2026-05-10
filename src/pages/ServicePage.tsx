@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { AlertCircle } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel } from "../components/Panel";
 import { DeviceMockupHero } from "../components/DeviceMockupHero";
@@ -170,8 +171,8 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
           )}
         </div>
 
-        {/* Google Ads page: budget tiers — what real ad spend looks like */}
-        {serviceKey === "googleAds" && <GoogleAdsBudgetTiers />}
+        {/* Google Ads page: investment + ROI expectations */}
+        {serviceKey === "googleAds" && <GoogleAdsInvestment />}
 
         {/* Website page: embed Web Management as a subsection at the bottom */}
         {serviceKey === "websiteCreation" && <WebManagementSubsection />}
@@ -180,25 +181,37 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
   );
 }
 
-const BUDGET_TIERS = [
+const EXPECTATIONS: {
+  eyebrow: string;
+  stat: string;
+  body: string;
+  gold?: boolean;
+}[] = [
   {
-    label: "Independent / Single Location",
-    range: "$1,000–$3,000",
-    body: "Steady reservation flow, local visibility, and event inquiries. The right starting point for one well-run brand in one market.",
+    eyebrow: "Reservations / general",
+    stat: "2–3x ROAS",
+    body: "For every dollar in ad spend, expect two to three back in tracked reservation revenue within the first 60–90 days of an optimized campaign.",
+    gold: true,
   },
   {
-    label: "Multi-Location Group",
-    range: "$3,000–$8,000",
-    body: "Per-location campaigns, scaled event marketing, and cross-market brand defense. Each location gets a budget aligned to its size and demand.",
+    eyebrow: "Private events / high-ticket",
+    stat: "7–8x ROAS",
+    body: "Event campaigns convert at a significantly higher rate. A single private event booking can return the entire monthly ad budget.",
+    gold: true,
   },
   {
-    label: "High-Volume / Fine Dining",
-    range: "$5,000–$15,000+",
-    body: "Aggressive market capture, seasonal campaign calendars, multi-platform spend, and tight bidding on every high-intent query in the trade area.",
+    eyebrow: "How fast",
+    stat: "30–60 days",
+    body: "Google Ads is the fastest revenue lever in restaurant marketing. Unlike social, which builds over months, ads drive measurable bookings almost immediately.",
+  },
+  {
+    eyebrow: "What we do",
+    stat: "Full management",
+    body: "Campaign builds, daily bid optimization, new campaigns for every initiative (Mother's Day, Thanksgiving, events), and biweekly performance review meetings if you want them.",
   },
 ];
 
-function GoogleAdsBudgetTiers() {
+function GoogleAdsInvestment() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -209,50 +222,134 @@ function GoogleAdsBudgetTiers() {
     >
       <SectionHeading
         eyebrow="Investment"
-        title={<>What does ad spend actually look like?</>}
-        subtitle="Three tiers, depending on what's being run. Budget determines volume—efficiency determines return. Both matter."
+        title={<>What does this actually cost?</>}
+        subtitle="Two numbers. Your ad budget — and our management fee. That's it."
       />
 
-      <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">
-        {BUDGET_TIERS.map((tier, i) => (
-          <motion.div
-            key={tier.label}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="group relative flex h-full flex-col rounded-2xl border border-line bg-gradient-to-br from-bg-1 to-bg-2 p-6 transition hover:border-gold-500/30 md:p-7"
-          >
-            {/* tier index */}
-            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-gold-400/80">
-              Tier {String(i + 1).padStart(2, "0")}
-            </div>
+      {/* Two-part cost breakdown */}
+      <div className="mt-10 grid items-stretch gap-4 md:grid-cols-2 md:gap-5">
+        {/* LEFT — Management fee (neutral) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="flex h-full flex-col rounded-2xl border border-line bg-bg-1 p-6 md:p-7"
+        >
+          <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-cream-300">
+            BUM management fee
+          </div>
+          <div className="mt-3 flex items-baseline gap-1.5">
+            <span className="stat-num text-4xl text-cream-50 md:text-5xl">$500</span>
+            <span className="text-sm text-cream-300">/mo</span>
+          </div>
+          <p className="mt-4 flex-1 text-[14px] leading-relaxed text-cream-200">
+            We build your campaigns, monitor them daily, optimize bids, and report
+            results every month. This is our fee regardless of your ad budget.
+          </p>
+          <div className="mt-5 border-t border-line-soft pt-4 text-[12px] italic text-cream-300/80">
+            Scales for larger accounts — ask us about it.
+          </div>
+        </motion.div>
 
-            <div className="mt-3 font-display text-[15px] font-bold leading-tight text-cream-50 md:text-base">
-              {tier.label}
-            </div>
+        {/* RIGHT — Ad budget (gold accent — their money) */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.06 }}
+          className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gold-500/40 bg-gradient-to-br from-bg-1 to-bg-2 p-6 md:p-7"
+        >
+          {/* atmospheric gold glow */}
+          <div className="pointer-events-none absolute -top-16 -right-12 size-48 rounded-full bg-gold-500/10 blur-3xl" />
 
-            {/* range — the headline number */}
-            <div className="mt-5 flex items-baseline gap-1">
-              <span className="stat-num bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-2xl text-transparent md:text-3xl">
-                {tier.range}
+          <div className="relative">
+            <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-gold-400">
+              Recommended ad spend
+            </div>
+            <div className="mt-3 flex items-baseline gap-1.5">
+              <span className="stat-num bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-3xl text-transparent md:text-4xl lg:text-5xl">
+                $1,000 – $3,000
               </span>
-              <span className="text-xs text-cream-300">/mo</span>
+              <span className="text-sm text-cream-300">/mo</span>
             </div>
-
-            {/* gradient divider */}
-            <div className="mt-5 h-px w-full bg-gradient-to-r from-gold-500/40 via-gold-500/10 to-transparent" />
-
-            <p className="mt-4 flex-1 text-[13.5px] leading-relaxed text-cream-200">
-              {tier.body}
+            <p className="mt-4 flex-1 text-[14px] leading-relaxed text-cream-200">
+              This goes directly to Google — not to us. We recommend starting here for
+              a single location. You control the budget and can adjust at any time.
             </p>
-          </motion.div>
-        ))}
+            <div className="mt-5 border-t border-gold-500/20 pt-4 text-[12px] italic text-gold-400/85">
+              This is your money working in the market.
+            </div>
+          </div>
+        </motion.div>
       </div>
 
-      <p className="mt-6 text-center text-[12px] italic text-cream-300/70 md:text-left">
-        Budgets sit alongside the management fee. Every campaign is built around your goals,
-        not a fixed package.
+      {/* What you should expect back */}
+      <div className="mt-12 md:mt-16">
+        <Panel motion={false}>
+          <div className="eyebrow">What you should expect back</div>
+          <h4 className="mt-2 font-display text-xl font-bold leading-tight text-cream-50 md:text-2xl">
+            Real numbers, not aspirations.
+          </h4>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:gap-5">
+            {EXPECTATIONS.map((e, i) => (
+              <motion.div
+                key={e.eyebrow}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                className="rounded-xl border border-line-soft bg-bg-2 p-5 md:p-6"
+              >
+                <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-cream-300">
+                  {e.eyebrow}
+                </div>
+                <div
+                  className={`mt-3 stat-num text-3xl md:text-4xl ${
+                    e.gold
+                      ? "bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent"
+                      : "text-cream-50"
+                  }`}
+                >
+                  {e.stat}
+                </div>
+                <p className="mt-3 text-[13.5px] leading-relaxed text-cream-200">
+                  {e.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </Panel>
+      </div>
+
+      {/* Caveat bar — landing page check */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className="mt-8 overflow-hidden rounded-xl border border-gold-500/40 bg-gradient-to-r from-gold-500/8 via-gold-500/12 to-gold-500/8"
+      >
+        <div className="flex items-start gap-3 px-5 py-4 md:px-6 md:py-5">
+          <div className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-gold-500/20 ring-1 ring-gold-400/40">
+            <AlertCircle className="size-4 text-gold-300" strokeWidth={2.4} />
+          </div>
+          <p className="text-[13.5px] leading-relaxed text-cream-100 md:text-[14px]">
+            <span className="font-display font-bold text-gold-300">
+              One thing we always check first: your landing page.
+            </span>{" "}
+            A great ad with a weak landing page converts at 0%. We audit your
+            conversion flow as part of onboarding — and if there are gaps, we'll
+            tell you before we spend a dollar.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Footer disclaimer */}
+      <p className="mt-6 text-[12px] italic text-cream-300/70">
+        Ad spend budgets sit alongside the management fee. Landing page builds and
+        updates are handled under Website Management.
       </p>
     </motion.div>
   );
