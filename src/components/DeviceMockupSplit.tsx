@@ -1,8 +1,13 @@
 /**
  * Side-by-side device mockup. Used as the hero background for the Website page.
  * Devices live on the right half; the hero text sits on the left half (handled by ServicePage).
+ *
+ * @param mobileCrop - CSS object-position value for the phone screenshot.
+ *   Defaults to "top" which anchors to the top of the image (works for tall mobile screenshots
+ *   where the hero / above-the-fold should be visible). Override per-use if a screenshot
+ *   needs different positioning.
  */
-export function DeviceMockupSplit() {
+export function DeviceMockupSplit({ mobileCrop = "top" }: { mobileCrop?: string } = {}) {
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#0a0a0a]">
       {/* ambient color washes */}
@@ -45,8 +50,8 @@ export function DeviceMockupSplit() {
               <img
                 src="/images/rp-menu-mobile.jpg"
                 alt="Restaurant website mobile"
-                className="h-[290px] w-full object-cover object-top lg:h-[350px] xl:h-[400px]"
-                style={{ objectPosition: "center 0%" }}
+                className="h-[290px] w-full object-cover lg:h-[350px] xl:h-[400px]"
+                style={{ objectPosition: mobileCrop }}
               />
             </div>
           </div>

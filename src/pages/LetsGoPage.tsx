@@ -6,7 +6,7 @@ import {
   Megaphone,
   Search,
   Globe,
-  Settings,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
@@ -53,25 +53,19 @@ const PILLARS: { icon: LucideIcon; label: string; sub: string; accent: string }[
   {
     icon: Megaphone,
     label: "Organic Social",
-    sub: "Community + content engine",
+    sub: "Community and content engine",
     accent: "from-coral to-gold-500",
   },
   {
     icon: Search,
     label: "Google Ads",
-    sub: "Intent capture at the moment of decision",
+    sub: "Capture guests actively searching where to eat right now",
     accent: "from-gold-400 to-gold-600",
   },
   {
     icon: Globe,
-    label: "Website + SEO",
-    sub: "The conversion point, fully optimized",
-    accent: "from-gold-500 to-coral",
-  },
-  {
-    icon: Settings,
-    label: "Website Management",
-    sub: "Campaign landing pages + batch updates",
+    label: "Website",
+    sub: "Conversion point + SEO + ongoing management",
     accent: "from-gold-500 to-coral",
   },
 ];
@@ -206,6 +200,8 @@ export function LetsGoPage() {
         </Panel>
       </motion.div>
 
+      <SavingsComparison />
+
       <div className="mt-16 md:mt-20">
         <SectionHeading
           eyebrow="Why this option"
@@ -271,5 +267,111 @@ function PriceRow({
       <span className="text-sm text-cream-300">{label}</span>
       <span className="text-right text-sm font-medium text-cream-100">{value}</span>
     </div>
+  );
+}
+
+/** Inline highlighted blank, matching the Value page convention */
+function BlankInline({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
+  const cls =
+    size === "lg"
+      ? "px-4 py-1.5 text-3xl md:text-4xl"
+      : size === "md"
+        ? "px-3 py-1 text-2xl md:text-3xl"
+        : "px-2 py-0.5 text-base";
+  return (
+    <span
+      className={`inline-flex items-center rounded-lg border border-dashed border-gold-400/60 bg-gold-500/10 align-middle font-mono font-bold text-gold-300 ${cls}`}
+    >
+      ___
+    </span>
+  );
+}
+
+/**
+ * À la carte vs bundle comparison. Shows a struck-through total against the
+ * bundle price with a savings callout. Live sales closer — built for one glance.
+ */
+function SavingsComparison() {
+  const bundlePrice = config.bundle.monthlyPrice;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6 }}
+      className="mt-12 md:mt-16"
+    >
+      <div className="relative overflow-hidden rounded-2xl border border-gold-500/30 bg-gradient-to-br from-bg-2 via-bg-1 to-bg-2 p-6 md:p-10">
+        {/* atmospheric gold wash */}
+        <div className="pointer-events-none absolute -top-20 -right-20 size-[400px] rounded-full bg-gold-500/8 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 -left-20 size-[400px] rounded-full bg-coral/6 blur-3xl" />
+
+        <div className="relative">
+          <div className="eyebrow text-gold-400">The math</div>
+
+          <div className="mt-5 grid items-end gap-6 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+            {/* à la carte */}
+            <div className="md:text-right">
+              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-cream-300/70">
+                À la carte total
+              </div>
+              <div className="mt-2 flex items-baseline gap-1.5 md:justify-end">
+                <span className="font-display text-base text-cream-300/50">$</span>
+                <span className="relative font-display text-3xl font-bold text-cream-300/50 line-through decoration-coral/60 decoration-2 md:text-4xl">
+                  <BlankInline size="md" />
+                </span>
+                <span className="text-xs text-cream-300/60">/mo</span>
+              </div>
+              <div className="mt-1 text-[11px] text-cream-300/60">
+                Each service run as a separate engagement
+              </div>
+            </div>
+
+            {/* arrow divider */}
+            <div className="flex items-center justify-center md:py-2">
+              <div className="hidden h-px w-8 bg-gradient-to-r from-transparent to-gold-500/40 md:block" />
+              <div className="flex size-9 items-center justify-center rounded-full border border-gold-500/40 bg-bg-3 shadow-lg">
+                <ArrowRight className="size-4 text-gold-400" strokeWidth={2.4} />
+              </div>
+              <div className="hidden h-px w-8 bg-gradient-to-l from-transparent to-gold-500/40 md:block" />
+            </div>
+
+            {/* bundle */}
+            <div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-gold-400">
+                Bundle price
+              </div>
+              <div className="mt-2 flex items-baseline gap-1.5">
+                {bundlePrice === null || bundlePrice === 0 ? (
+                  <BlankInline size="lg" />
+                ) : (
+                  <span className="stat-num text-4xl md:text-5xl">
+                    ${bundlePrice.toLocaleString()}
+                  </span>
+                )}
+                <span className="text-xs text-cream-300">/mo</span>
+              </div>
+              <div className="mt-1 text-[11px] text-gold-400/80">
+                Everything in one program, one team, one invoice
+              </div>
+            </div>
+          </div>
+
+          <HrSoft className="my-6 md:my-8" />
+
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-baseline gap-2 font-display text-lg leading-snug text-cream-50 md:text-xl">
+              <Sparkles className="size-4 flex-shrink-0 translate-y-0.5 text-gold-400" />
+              <span>
+                Save <BlankInline size="sm" /> per month by bundling everything
+              </span>
+            </div>
+            <div className="text-[12px] text-cream-300/70">
+              Plus a single point of contact and unified attribution.
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 }

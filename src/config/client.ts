@@ -29,6 +29,8 @@ export type ServiceConfig = {
   enabled: boolean;
   /** null = blank template field; 0 = custom quote; >0 = fixed price */
   monthlyPrice: number | null;
+  /** Estimated hours per month for this service. null = blank template field */
+  hoursPerMonth?: number | null;
   /** Shows "Our Recommendation" badge on the Value slide */
   recommended?: boolean;
   /** Small note shown beneath the price (e.g. "management fee · budget billed separately") */
@@ -110,16 +112,22 @@ export const config: Config = {
   ],
 
   services: {
-    organicSocial: { enabled: true, monthlyPrice: null, recommended: true },
+    organicSocial: {
+      enabled: true,
+      monthlyPrice: null,
+      hoursPerMonth: null,
+      recommended: true,
+    },
     googleAds: {
       enabled: true,
       monthlyPrice: 500,
+      hoursPerMonth: null,
       priceNote: "management fee · budget billed separately",
     },
-    paidSocial: { enabled: true, monthlyPrice: null },
-    websiteCreation: { enabled: true, monthlyPrice: null },
-    websiteManagement: { enabled: true, monthlyPrice: null },
-    seo: { enabled: false, monthlyPrice: null },
+    paidSocial: { enabled: true, monthlyPrice: null, hoursPerMonth: null },
+    websiteCreation: { enabled: true, monthlyPrice: null, hoursPerMonth: null },
+    websiteManagement: { enabled: true, monthlyPrice: null, hoursPerMonth: null },
+    seo: { enabled: false, monthlyPrice: null, hoursPerMonth: null },
   },
 
   bundle: {

@@ -102,23 +102,23 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     problem:
       "Most restaurant campaigns fail for one of three reasons: keywords too broad, targeting too wide, or zero conversion tracking. Budget evaporates and there's nothing to show for it. Meanwhile, competitors are actively bidding on your brand name—intercepting guests who already know you.",
     solution:
-      "Every campaign starts with three questions: who is the customer, what action do we want, and what does success look like in dollars. We build around the answer—branded defense to protect your name, high-intent keywords to capture new guests, and Performance Max to reach them across Search, Maps, YouTube, and Display simultaneously. A poorly run $5,000 campaign loses money. A well-optimized $1,500 campaign generates significant ROI. We run the second kind.",
+      "Every campaign answers three questions: who is the customer, what action do we want, and what does success look like in dollars. The proof: in 2025, Button Up Media drove $3.5M+ in tracked revenue across 5 restaurant properties on under $46,000 of total ad spend—roughly a 12X return. A poorly run $5,000 campaign loses money. A well-optimized $1,500 campaign generates significant ROI. We run the second kind.",
     pillars: [
       {
-        title: "Branded Search Defense",
-        body: "Competitors are actively bidding on your restaurant's name. We bid on your own brand terms so that guests who already know you—the highest-intent audience—land on your site, not a competitor's. This is the fastest ROI in the program.",
+        title: "Search Intent Capture",
+        body: "These guests aren't passively scrolling—they're deciding where to eat in the next hour. We bid on the cuisine, occasion, and 'near me' queries that signal active intent, plus brand defense so competitors can't intercept guests already searching for you.",
       },
       {
-        title: "High-Intent Keyword Capture",
-        body: "Cuisine keywords, occasion targeting (date night, private dining, brunch), 'near me' queries, and geo-fenced local searches. These are guests deciding in minutes. Peak-time bid adjustments make sure your ads run hardest when guests are most ready to book.",
+        title: "Campaign Structure",
+        body: "Cuisine keywords, occasion targeting (date night, private events, brunch), geo-fencing the trade area, day-part bid adjustments for peak booking windows, and Performance Max to reach guests across Search, Maps, YouTube, and Display from a single campaign.",
       },
       {
-        title: "Performance Max & Maps",
-        body: "A single AI-driven campaign spanning Search, Maps, Display, and YouTube. One setup, every surface. Local Discovery ads put your restaurant on the map—literally—for guests already nearby. 44% of local clicks go to the top 3 map results.",
+        title: "Conversion Tracking",
+        body: "Every reservation form, event inquiry, phone call, and direction request is tracked and assigned a dollar value. We don't optimize toward clicks—we optimize toward revenue. Every campaign decision answers one question: did it generate covers?",
       },
       {
-        title: "Revenue-First Reporting",
-        body: "Every conversion tracked: reservations, phone calls, direction requests, online orders. Monthly reports show impressions, clicks, conversions, cost per conversion, and ROAS. No vanity metrics. You see exactly what the budget produced.",
+        title: "Ongoing Optimization",
+        body: "Daily monitoring, pausing underperformers, A/B testing creative and copy, and shifting budget to what's working. The difference between a money-losing campaign and a 12X ROAS campaign is rarely strategy—it's execution. This is where it gets made.",
       },
     ],
     deliverables: [
@@ -139,15 +139,15 @@ export const SERVICES: Record<ServiceKey, ServiceMeta> = {
     route: "/social-ads",
     icon: Target,
     accent: "from-teal to-gold-500",
-    headline: "Google captures who's searching. Social creates who searches next.",
+    headline: "The smart add-on, once Google is running.",
     subhead:
-      "Meta and TikTok ads reach your ideal guest before they ever open Google—and retarget the ones who visited but didn't book.",
+      "Social ads work hardest when there's already a warm audience to talk to. Layer them on top of Google to retarget the guests who searched, clicked, and almost booked.",
     ecosystemRole:
-      "Demand creation and retargeting. Social ads work in concert with Google Ads: Google captures guests with active intent while Meta and TikTok build the next wave of intent and close the loop on guests who didn't convert the first time.",
+      "Retargeting layer. Feeds off the warm audiences Google Ads generates—website visitors, video viewers, and ad engagers who showed intent but didn't act. This is the second layer in the paid stack, not the first.",
     problem:
-      "Boosting random posts with no targeting precision, no conversion tracking, and no optimization. Spend evaporates and there's no visibility into what it produced. Social ads are not organic posts with a boost—they're a separate discipline entirely.",
+      "Running Meta and TikTok ads to a cold audience burns budget fast. Most restaurants try social ads first, target a generic local radius, and wonder why it doesn't convert. The math just doesn't work when the audience has never heard of you.",
     solution:
-      "Full-funnel Meta and TikTok campaigns with one mission per campaign: one conversion goal, one audience, one message. Social ads don't capture demand—they create it. Retargeting bridges the gap between a Google impression and a reservation, following up with website visitors, video viewers, and ad engagers who showed intent but didn't act. Most guests don't convert the first time. Retargeting ensures you stay visible until they do.",
+      "We run social as the warm retargeting layer. Someone searched on Google, clicked your ad, browsed the menu, and left without booking. Now they see your best content on Instagram. They see a reservation reminder on TikTok. That warm audience converts at a fraction of the cost of cold targeting—because the work of generating intent already happened on Google.",
     pillars: [
       {
         title: "Local Awareness & Demand Creation",

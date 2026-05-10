@@ -150,10 +150,91 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
           <div className="mt-10">{renderPillars()}</div>
         </div>
 
+        {/* Google Ads page: budget tiers — what real ad spend looks like */}
+        {serviceKey === "googleAds" && <GoogleAdsBudgetTiers />}
+
         {/* Website page: embed Web Management as a subsection at the bottom */}
         {serviceKey === "websiteCreation" && <WebManagementSubsection />}
       </div>
     </div>
+  );
+}
+
+const BUDGET_TIERS = [
+  {
+    label: "Independent / Single Location",
+    range: "$1,000–$3,000",
+    body: "Steady reservation flow, local visibility, and event inquiries. The right starting point for one well-run brand in one market.",
+  },
+  {
+    label: "Multi-Location Group",
+    range: "$3,000–$8,000",
+    body: "Per-location campaigns, scaled event marketing, and cross-market brand defense. Each location gets a budget aligned to its size and demand.",
+  },
+  {
+    label: "High-Volume / Fine Dining",
+    range: "$5,000–$15,000+",
+    body: "Aggressive market capture, seasonal campaign calendars, multi-platform spend, and tight bidding on every high-intent query in the trade area.",
+  },
+];
+
+function GoogleAdsBudgetTiers() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55 }}
+      className="mt-16 md:mt-20"
+    >
+      <SectionHeading
+        eyebrow="Investment"
+        title={<>What does ad spend actually look like?</>}
+        subtitle="Three tiers, depending on what's being run. Budget determines volume—efficiency determines return. Both matter."
+      />
+
+      <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">
+        {BUDGET_TIERS.map((tier, i) => (
+          <motion.div
+            key={tier.label}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="group relative flex h-full flex-col rounded-2xl border border-line bg-gradient-to-br from-bg-1 to-bg-2 p-6 transition hover:border-gold-500/30 md:p-7"
+          >
+            {/* tier index */}
+            <div className="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-gold-400/80">
+              Tier {String(i + 1).padStart(2, "0")}
+            </div>
+
+            <div className="mt-3 font-display text-[15px] font-bold leading-tight text-cream-50 md:text-base">
+              {tier.label}
+            </div>
+
+            {/* range — the headline number */}
+            <div className="mt-5 flex items-baseline gap-1">
+              <span className="stat-num bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-2xl text-transparent md:text-3xl">
+                {tier.range}
+              </span>
+              <span className="text-xs text-cream-300">/mo</span>
+            </div>
+
+            {/* gradient divider */}
+            <div className="mt-5 h-px w-full bg-gradient-to-r from-gold-500/40 via-gold-500/10 to-transparent" />
+
+            <p className="mt-4 flex-1 text-[13.5px] leading-relaxed text-cream-200">
+              {tier.body}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+
+      <p className="mt-6 text-center text-[12px] italic text-cream-300/70 md:text-left">
+        Budgets sit alongside the management fee. Every campaign is built around your goals,
+        not a fixed package.
+      </p>
+    </motion.div>
   );
 }
 
