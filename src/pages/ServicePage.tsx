@@ -11,6 +11,7 @@ import {
   PillarsStack,
   PillarsFlow,
 } from "../components/PillarsVariants";
+import { SocialFunnelDiagram } from "../components/SocialFunnelDiagram";
 import { SERVICES } from "../config/services";
 import type { ServiceKey } from "../config/client";
 
@@ -155,12 +156,18 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
         )}
 
         <div className="mt-16">
-          <SectionHeading
-            eyebrow={pillarsHeading.eyebrow}
-            title={pillarsHeading.title}
-            subtitle={pillarsHeading.subtitle}
-          />
-          <div className="mt-10">{renderPillars()}</div>
+          {serviceKey === "organicSocial" ? (
+            <SocialFunnelDiagram />
+          ) : (
+            <>
+              <SectionHeading
+                eyebrow={pillarsHeading.eyebrow}
+                title={pillarsHeading.title}
+                subtitle={pillarsHeading.subtitle}
+              />
+              <div className="mt-10">{renderPillars()}</div>
+            </>
+          )}
         </div>
 
         {/* Google Ads page: budget tiers — what real ad spend looks like */}
