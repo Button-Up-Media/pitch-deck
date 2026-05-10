@@ -124,15 +124,28 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
           >
             <div className="overflow-hidden rounded-2xl border border-line bg-bg-1">
               <div className="grid items-stretch md:grid-cols-[1fr_320px] lg:grid-cols-[1fr_380px]">
-                <div className="flex flex-col justify-center px-5 py-5 md:px-7 md:py-6">
-                  <div className="eyebrow mb-1.5">How It Works</div>
-                  <h3 className="font-display text-[15px] font-bold leading-snug text-cream-50 md:text-base">
-                    {svc.processVideo.title}
-                  </h3>
-                  <p className="mt-1.5 text-[13px] leading-relaxed text-cream-200">
-                    {svc.processVideo.description}
-                  </p>
+                {/* Left column — stretches to match video height, splits into
+                    top/middle/bottom on md+ so the panel feels intentionally used */}
+                <div className="flex flex-col px-5 py-5 md:px-8 md:py-8 md:justify-between lg:px-10 lg:py-10">
+                  {/* TOP — eyebrow anchored to top */}
+                  <div className="eyebrow">How It Works</div>
+
+                  {/* MIDDLE — display heading + subtitle, centered in remaining space on md+ */}
+                  <div className="mt-6 md:my-auto md:mt-0">
+                    <h3 className="font-display text-3xl font-bold leading-tight tracking-[-0.02em] text-cream-50 md:text-4xl lg:text-5xl">
+                      {svc.processVideo.title}
+                    </h3>
+                    <p className="mt-3 text-[15px] leading-relaxed text-cream-200 md:mt-4 md:text-base">
+                      {svc.processVideo.description}
+                    </p>
+                  </div>
+
+                  {/* BOTTOM — anchor line */}
+                  <div className="mt-6 text-sm text-cream-300 md:mt-0">
+                    Every shoot is planned, produced, and delivered — start to finish.
+                  </div>
                 </div>
+
                 <div className="px-5 pb-5 md:px-3 md:py-3">
                   <CompactVideo src={svc.processVideo.url} />
                 </div>
