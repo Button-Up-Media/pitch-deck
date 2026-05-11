@@ -70,11 +70,48 @@ export function SidebarNav() {
           })}
         </div>
 
-        <div className="border-t border-line-soft px-2 py-5 text-[10px] tracking-wider text-cream-300/60">
+        <NavCta />
+
+        <div className="border-t border-line-soft px-2 py-4 text-[10px] tracking-wider text-cream-300/60">
           Use ← → to navigate
         </div>
       </div>
     </aside>
+  );
+}
+
+/**
+ * Persistent "call or text us" CTA pinned above the keyboard-hint footer in
+ * the desktop sidebar. Hidden on mobile (the parent <aside> is already md+).
+ *
+ * Renders as a non-clickable styled block when phoneNumber is "[__]" so the
+ * template placeholder stays visible during editing.
+ */
+function NavCta() {
+  const phone = config.phoneNumber;
+  const isBlank = phone === "[__]";
+  const cls =
+    "block w-full rounded-lg border border-gold-500/40 bg-gold-500/15 px-3 py-3 text-center transition-colors";
+
+  const inner = (
+    <>
+      <div className="text-xs font-medium text-gold-500">
+        Ready to move forward?
+      </div>
+      <div className="mt-0.5 text-xs text-cream-400">Call or text us</div>
+    </>
+  );
+
+  if (isBlank) {
+    return <div className={`${cls} mt-4 cursor-default`}>{inner}</div>;
+  }
+  return (
+    <a
+      href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+      className={`${cls} mt-4 cursor-pointer hover:bg-gold-500/25`}
+    >
+      {inner}
+    </a>
   );
 }
 

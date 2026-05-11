@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   Check,
   Sparkles,
-  Phone,
   Megaphone,
   Search,
   Globe,
@@ -181,21 +180,7 @@ export function LetsGoPage() {
                 <PriceRow label="Pieces in the program" value={`${enabled.length}`} />
               </div>
 
-              <div className="mt-7 flex flex-col gap-2">
-                <a
-                  href={`mailto:${config.agency.contactEmail}?subject=Pitch%20deck:%20Let's%20go`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 px-5 py-3 text-sm font-bold text-bg-0 shadow-lg transition hover:from-gold-300 hover:to-gold-400"
-                >
-                  Sign & Schedule Kickoff
-                </a>
-                <a
-                  href={`tel:${config.agency.contactPhone.replace(/[^0-9]/g, "")}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-line bg-bg-2 px-5 py-3 text-sm font-medium text-cream-100 transition hover:bg-bg-3"
-                >
-                  <Phone className="size-4" />
-                  Talk it through first
-                </a>
-              </div>
+              <CallTextCtas />
             </div>
           </div>
         </Panel>
@@ -246,12 +231,67 @@ export function LetsGoPage() {
         className="mt-16 rounded-3xl border border-gold-500/30 bg-gradient-to-br from-gold-500/10 to-coral/5 p-8 md:mt-20 md:p-12"
       >
         <p className="font-accent max-w-3xl text-balance text-2xl italic leading-snug text-cream-50 md:text-3xl">
-          "Marketing isn't a vendor relationship. It's a partnership. From the
-          moment this is signed, your win is the only thing we're measured on."
+          "Marketing isn't a vendor relationship. It's a partnership. From day
+          one, your win is the only thing we're measured on."
         </p>
         <HrSoft className="my-6" />
         <p className="text-sm text-cream-300">{config.agency.name}</p>
       </motion.div>
+    </div>
+  );
+}
+
+/**
+ * Two call/text CTAs + the phone number printed below them. The phone number
+ * is a tel: link except when the template placeholder "[__]" is still in
+ * place — in that case the placeholder renders as plain text so it stays
+ * obviously unfilled during template editing.
+ */
+function CallTextCtas() {
+  const phone = config.phoneNumber;
+  const isBlank = phone === "[__]";
+  const telHref = isBlank ? undefined : `tel:${phone.replace(/[^0-9+]/g, "")}`;
+
+  const primaryCls =
+    "inline-flex w-full items-center justify-center rounded-lg bg-gold-500 px-6 py-3 text-base font-medium text-bg-0 transition-opacity hover:opacity-90";
+  const secondaryCls =
+    "inline-flex w-full items-center justify-center rounded-lg border border-gold-500 bg-transparent px-6 py-3 text-center text-base font-medium text-gold-500 transition-colors hover:bg-gold-500/10";
+
+  return (
+    <div className="mt-7">
+      <div className="flex flex-col gap-3 sm:flex-row">
+        {isBlank ? (
+          <button type="button" disabled className={`${primaryCls} cursor-default opacity-80`}>
+            I'm ready — call or text us
+          </button>
+        ) : (
+          <a href={telHref} className={primaryCls}>
+            I'm ready — call or text us
+          </a>
+        )}
+        {isBlank ? (
+          <button type="button" disabled className={`${secondaryCls} cursor-default opacity-80`}>
+            Have a question first? Call or text
+          </button>
+        ) : (
+          <a href={telHref} className={secondaryCls}>
+            Have a question first? Call or text
+          </a>
+        )}
+      </div>
+
+      {isBlank ? (
+        <div className="mt-3 text-center font-display text-lg font-bold text-cream-50">
+          [__]
+        </div>
+      ) : (
+        <a
+          href={telHref}
+          className="mt-3 block text-center font-display text-lg font-bold text-cream-50 transition-opacity hover:opacity-80"
+        >
+          {phone}
+        </a>
+      )}
     </div>
   );
 }
