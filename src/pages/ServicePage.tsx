@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
-import { AlertCircle } from "lucide-react";
+import {
+  AlertCircle,
+  LineChart,
+  FlaskConical,
+  Percent,
+  FileBarChart,
+  Lock,
+  type LucideIcon,
+} from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel } from "../components/Panel";
 import { DeviceMockupHero } from "../components/DeviceMockupHero";
@@ -177,6 +185,9 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
 
         {/* Website page: embed Web Management as a subsection at the bottom */}
         {serviceKey === "websiteCreation" && <WebManagementSubsection />}
+
+        {/* Organic Social: included correlation-analysis deliverable */}
+        {serviceKey === "organicSocial" && <CorrelationAnalysisSection />}
       </div>
     </div>
   );
@@ -492,4 +503,161 @@ function getPillarsHeading(key: ServiceKey): {
         subtitle: "Every program rests on these four. Tweaked per brand, never skipped.",
       };
   }
+}
+
+// ---------- Correlation Analysis section (Organic Social only) ----------
+
+const CORRELATION_FEATURES: {
+  icon: LucideIcon;
+  label: string;
+  description: string;
+}[] = [
+  {
+    icon: LineChart,
+    label: "Revenue correlation",
+    description:
+      "We test whether your social metrics statistically predict revenue changes — not just correlate with them.",
+  },
+  {
+    icon: FlaskConical,
+    label: "Granger causality test",
+    description:
+      "A statistical method that asks: does social media activity actually cause revenue movement, or is it coincidence?",
+  },
+  {
+    icon: Percent,
+    label: "P-value significance",
+    description:
+      "We report the confidence level of every finding. You'll know exactly how strong the evidence is.",
+  },
+  {
+    icon: FileBarChart,
+    label: "Plain-language summary",
+    description:
+      "Every number gets explained in plain English. You'll understand what it means for your business — no statistics background required.",
+  },
+];
+
+function CorrelationAnalysisSection() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="mt-16 md:mt-20"
+    >
+      <SectionHeading
+        eyebrow="Included in your service"
+        title={
+          <>We prove what your social media is actually doing for your revenue.</>
+        }
+        subtitle="After 6 months, you get something no other agency offers — a statistical analysis that connects your social media activity to real business revenue."
+      />
+
+      <div className="mt-10">
+        <Panel motion={false}>
+          {/* Two-column main explanation */}
+          <div className="flex flex-col gap-8 md:flex-row md:items-start">
+            {/* Left column — what it is */}
+            <div className="flex-1">
+              <h3 className="font-display text-lg font-bold text-cream-50">
+                The Correlation Analysis
+              </h3>
+              <div className="mt-4 space-y-4 text-sm leading-relaxed text-cream-300">
+                <p>
+                  Most agencies tell you your content performed well based on
+                  likes and views. We go further. After your first 6 months, we
+                  run a full statistical analysis that correlates your social
+                  media metrics — views, engagement, follower growth — directly
+                  to your revenue data.
+                </p>
+                <p>
+                  We use AI-assisted statistics including Granger causality
+                  testing and p-value analysis to determine whether your social
+                  media activity is genuinely driving revenue, and at what
+                  confidence level. This is the kind of analysis applied in
+                  academic research and financial modeling — now applied to
+                  your restaurant.
+                </p>
+                <p>
+                  This is included in your Organic Social service. You do not
+                  pay extra for it.
+                </p>
+              </div>
+            </div>
+
+            {/* Right column — what's in the report */}
+            <div className="w-full flex-shrink-0 md:w-80">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-500">
+                What's in the report
+              </div>
+              <div className="mt-4">
+                {CORRELATION_FEATURES.map((f, i) => {
+                  const Icon = f.icon;
+                  const isLast = i === CORRELATION_FEATURES.length - 1;
+                  return (
+                    <div
+                      key={f.label}
+                      className={`flex items-start gap-3 ${
+                        isLast ? "" : "mb-3 border-b border-line pb-3"
+                      }`}
+                    >
+                      <Icon
+                        className="mt-0.5 size-[18px] flex-shrink-0 text-gold-500"
+                        strokeWidth={2.2}
+                      />
+                      <div className="min-w-0">
+                        <div className="text-sm font-medium text-cream-50">
+                          {f.label}
+                        </div>
+                        <p className="mt-0.5 text-xs leading-relaxed text-cream-400">
+                          {f.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Trust / NDA callout — full width */}
+          <div className="mt-8 rounded-r-lg border-l-2 border-gold-500 bg-bg-1 px-4 py-3">
+            <p className="text-sm leading-relaxed text-cream-300">
+              <Lock
+                className="mr-1.5 inline-block size-[14px] -translate-y-0.5 text-gold-500"
+                strokeWidth={2.4}
+              />
+              <span>
+                Participation is optional. Some clients prefer to keep revenue
+                data private — and we respect that completely. If you choose to
+                participate, we sign a mutual NDA before any data is shared.
+                Your numbers stay between us.
+              </span>
+            </p>
+          </div>
+
+          {/* Why we're different */}
+          <div className="mt-8">
+            <p className="mx-auto max-w-2xl text-center font-display text-base font-medium text-cream-50">
+              We are the only marketing agency applying this kind of statistical
+              rigor to social media at this scale. Because we believe
+              data-driven decisions should mean something.
+            </p>
+            <p className="mt-3 text-center text-sm italic text-cream-400">
+              <a
+                href="https://deploy-taupe-ten.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold-500 transition-opacity hover:opacity-80"
+              >
+                View an example report →
+              </a>
+            </p>
+          </div>
+        </Panel>
+      </div>
+    </motion.div>
+  );
 }
