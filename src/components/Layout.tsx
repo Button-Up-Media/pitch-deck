@@ -3,17 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AmbientBg } from "./AmbientBg";
 import { SidebarNav, MobileNav } from "./SidebarNav";
 import { ScrollIndicator } from "./ScrollIndicator";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useDeckOrder } from "../lib/useDeckOrder";
+
+// Scroll-to-top on route change lives in <ScrollToTop /> mounted under
+// <BrowserRouter> in main.tsx — runs pre-paint, before this Outlet renders.
 
 export function Layout() {
   const location = useLocation();
   const navigate = useNavigate();
   const order = useDeckOrder();
-
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [location.pathname]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {

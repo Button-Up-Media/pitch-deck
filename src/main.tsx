@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import { Layout } from "./components/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 import { CoverPage } from "./pages/CoverPage";
 import { OpportunitiesPage } from "./pages/OpportunitiesPage";
 import { EcosystemPage } from "./pages/EcosystemPage";
@@ -15,6 +16,7 @@ import { SERVICES, SERVICE_ORDER } from "./config/services";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<CoverPage />} />
