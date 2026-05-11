@@ -104,6 +104,40 @@ export function CoverPage() {
             ))}
           </div>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.85 }}
+          className="mt-16 border-t border-line pb-12 pt-10 text-center md:text-left"
+        >
+          <div className="eyebrow mb-4">Recommended</div>
+          <h2 className="font-display text-3xl font-bold text-cream-50">
+            Let's walk through this together.
+          </h2>
+          <p className="mt-4 max-w-prose font-sans text-base leading-relaxed text-cream-300">
+            This deck covers a lot of ground — social, ads, your website, and
+            how they work together. A quick call makes everything clearer and
+            lets us answer questions specific to your restaurants.
+          </p>
+          <div className="mt-8">
+            {config.phoneNumber === "[__]" ? (
+              <span className="font-display text-4xl font-bold text-gold-500">
+                {config.phoneNumber}
+              </span>
+            ) : (
+              <a
+                href={`tel:${config.phoneNumber.replace(/[^0-9]/g, "")}`}
+                className="font-display text-4xl font-bold text-gold-500 transition-opacity hover:opacity-80"
+              >
+                {config.phoneNumber}
+              </a>
+            )}
+          </div>
+          <p className="mt-3 text-sm italic text-cream-400">
+            We'll answer every question — no pressure, no pitch.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

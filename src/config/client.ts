@@ -68,6 +68,8 @@ export type Config = {
     setupFee: number | null;
     contractMonths: number | null;
   };
+  /** Phone number shown on cover page CTA. Use "[__]" to render as a blank placeholder. */
+  phoneNumber: string;
 };
 
 export const config: Config = {
@@ -136,4 +138,6 @@ export const config: Config = {
     setupFee: null,
     contractMonths: 6,
   },
+
+  phoneNumber: "[__]",
 };
