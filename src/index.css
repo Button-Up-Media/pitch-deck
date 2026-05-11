@@ -39,6 +39,7 @@
 
 @layer base {
   html, body, #root { height: 100%; }
+  html, body { overflow-x: hidden; }
   body {
     background: var(--color-bg-0);
     color: var(--color-cream-100);
@@ -48,6 +49,7 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
+  img, video { max-width: 100%; }
   ::selection { background: var(--color-gold-500); color: #0a0a0a; }
   h1, h2, h3, h4, .display { font-family: var(--font-display); letter-spacing: -0.02em; }
 }
@@ -131,4 +133,49 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-gold-500);
+}
+
+/* Scroll indicator — floating bounce arrow */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.scroll-indicator-fab {
+  position: fixed;
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--color-gold-500);
+  transition: opacity 0.4s ease;
+}
+.scroll-indicator-fab:hover { opacity: 1 !important; }
+.scroll-indicator-icon {
+  width: 28px;
+  height: 28px;
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+.scroll-indicator-bounce {
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+
+/* On mobile, lift the floating fab above the bottom nav bar. */
+@media (max-width: 767px) {
+  .scroll-indicator-fab {
+    bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator-icon,
+  .scroll-indicator-bounce { animation: none; }
 }

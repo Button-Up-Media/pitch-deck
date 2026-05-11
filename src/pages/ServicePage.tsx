@@ -66,7 +66,7 @@ export function ServicePage({ serviceKey }: { serviceKey: ServiceKey }) {
       <section className="relative h-[55vh] min-h-[420px] overflow-hidden md:h-[60vh]">
         {renderHero()}
 
-        <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-12 md:max-w-[60vw] md:px-16 md:pb-16 lg:px-24">
+        <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-12 md:px-16 md:pb-16 lg:max-w-[60vw] lg:px-24">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

@@ -15,8 +15,9 @@ export function DeviceMockupSplit({ mobileCrop = "top" }: { mobileCrop?: string 
       <div className="absolute -bottom-40 -right-32 size-[700px] rounded-full bg-gold-500/6 blur-3xl" />
       <div className="absolute -top-32 right-1/3 size-[500px] rounded-full bg-coral/6 blur-3xl" />
 
-      {/* devices anchored to the right half */}
-      <div className="absolute inset-y-0 right-0 hidden w-[55%] items-center justify-center md:flex lg:w-[52%]">
+      {/* devices anchored to the right half — lg+ only; tablet is too narrow to fit
+          a 420px laptop without crowding the hero text on the left */}
+      <div className="absolute inset-y-0 right-0 hidden w-[55%] items-center justify-center lg:flex lg:w-[52%]">
         <div className="relative flex items-end gap-0">
           {/* laptop */}
           <div className="relative">
@@ -59,7 +60,7 @@ export function DeviceMockupSplit({ mobileCrop = "top" }: { mobileCrop?: string 
       </div>
 
       {/* fade text-side to bg, devices fade slightly into bg too */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent md:via-[#0a0a0a]/65" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/90 to-transparent lg:via-[#0a0a0a]/65" />
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
     </div>
   );

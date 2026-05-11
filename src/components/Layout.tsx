@@ -2,6 +2,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { AmbientBg } from "./AmbientBg";
 import { SidebarNav, MobileNav } from "./SidebarNav";
+import { ScrollIndicator } from "./ScrollIndicator";
 import { useEffect, useLayoutEffect } from "react";
 import { useDeckOrder } from "../lib/useDeckOrder";
 
@@ -52,6 +53,7 @@ export function Layout() {
         </AnimatePresence>
       </main>
       <MobileNav />
+      <ScrollIndicator key={location.pathname} />
     </div>
   );
 }

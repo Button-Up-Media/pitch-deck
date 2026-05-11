@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "../components/SectionHeading";
 import { Panel, HrSoft } from "../components/Panel";
+import { SectionScrollHint } from "../components/ScrollIndicator";
 import { config, type ClientPath, type GrowthGoal } from "../config/client";
 
 type PathInfo = {
@@ -112,6 +113,8 @@ export function OpportunitiesPage() {
         }
         subtitle="From the first conversation we had, here's what we heard: what's getting in the way today, and what we'd do about it together."
       />
+
+      <SectionScrollHint />
 
       {/* Two client paths */}
       <div className="mt-14">
