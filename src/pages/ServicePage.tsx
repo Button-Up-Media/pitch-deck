@@ -645,16 +645,6 @@ function CorrelationAnalysisSection() {
               rigor to social media at this scale. Because we believe
               data-driven decisions should mean something.
             </p>
-            <p className="mt-3 text-center text-sm italic text-cream-400">
-              <a
-                href="https://deploy-taupe-ten.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gold-500 transition-opacity hover:opacity-80"
-              >
-                View an example report →
-              </a>
-            </p>
           </div>
         </Panel>
       </div>
